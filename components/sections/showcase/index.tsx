@@ -1,26 +1,35 @@
 import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { use } from "react";
+import api from "../../../library/api";
+import type { Movie } from "../../../types";
 import Button from "../../elements/button";
 
-const Showcase = () => {
+type Props = {
+  movie: Movie;
+};
+
+const Showcase = ({ movie }: Props) => {
+  const logo = use(api.get.movie.logo(movie.id));
+
   return (
     <section className="max-w-md space-y-4">
       <div className="relative aspect-video w-full">
         <Image
-          src="https://img1.hotstarext.com/image/upload/f_auto,h_136/sources/r1/cms/prod/8402/1388402-t-f86006d9f903"
-          alt="Poster"
+          src={logo.image!}
+          alt={movie.title!}
           fill
           className="object-contain"
         />
       </div>
       <div className="flex items-center gap-2">
-        <p className="font-semibold">2022 • 1h 59mm • 6 Languages •</p>
+        <p className="font-semibold">
+          {movie.releasedAt?.slice(0, 4)} • 1h 59mm •{" "}
+          {movie.language!.original!.toUpperCase()} •
+        </p>
         <div className="rounded bg-rated-dark px-2 font-semibold">PG</div>
       </div>
-      <p className="hidden desktop:block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, voluptates
-        provident culpa cupiditate molestias
-      </p>
+      <p className="hidden desktop:block">{movie.overview!.slice(0, 100)}</p>
       <ul className="flex items-center gap-2 font-semibold">
         <li>Fantasy</li>
         <MinusSmallIcon className="h-6 w-6 rotate-90" />

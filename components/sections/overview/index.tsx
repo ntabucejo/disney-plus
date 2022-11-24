@@ -18,10 +18,8 @@ const Overview = () => {
         <div className="rounded bg-neutral-700 px-2 font-semibold">PG</div>
       </div>
       <p className="hidden desktop:block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil maiores
-        veritatis dolor ducimus quos quia officiis odio dolore modi? Quia
-        exercitationem nemo odio nisi dolor! Reiciendis, cumque eos! Accusamus,
-        laboriosam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, voluptates
+        provident culpa cupiditate molestias
       </p>
       <ul className="flex items-center gap-2 font-semibold">
         <li>Fantasy</li>

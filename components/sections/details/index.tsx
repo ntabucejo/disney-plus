@@ -1,5 +1,6 @@
 import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Button from "../../elements/button";
 
 const Details = () => {
   return (
@@ -29,6 +30,10 @@ const Details = () => {
         <MinusSmallIcon className="h-6 w-6 rotate-90" />
         <li>Comedy</li>
       </ul>
+      <div className="flex gap-4">
+        <Button variant={{ name: "primary", type: "play" }} />
+        <Button variant={{ name: "primary", type: "save" }} />
+      </div>
     </section>
   );
 };

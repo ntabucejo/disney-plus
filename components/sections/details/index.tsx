@@ -17,7 +17,7 @@ const Details = () => {
         <p className="font-semibold">2022 • 1h 59mm • 6 Languages •</p>
         <div className="rounded bg-neutral-700 px-2 font-semibold">PG</div>
       </div>
-      <p>
+      <p className="hidden desktop:block">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil maiores
         veritatis dolor ducimus quos quia officiis odio dolore modi? Quia
         exercitationem nemo odio nisi dolor! Reiciendis, cumque eos! Accusamus,

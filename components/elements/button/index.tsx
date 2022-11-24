@@ -13,7 +13,7 @@ const Button = ({ variant }: Props) => {
   return (
     <button
       className={`${
-        variant.type === "play" ? "w-96" : ""
+        variant.type === "play" ? "max-w-96 w-full" : ""
       } h-12 rounded bg-neutral-800 px-4`}>
       <div className="mx-auto flex w-min items-center gap-2">
         {variant.type === "play" ? (

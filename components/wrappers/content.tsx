@@ -6,7 +6,7 @@ type Props = {
 
 const Content = ({ children }: Props) => {
   return (
-    <div className="transition-smooth tablet:-mt-[200px] laptop:-mt-[400px] desktop:-mt-[600px]">
+    <div className="transition-smooth tablet:-mt-[250px] laptop:-mt-[450px] desktop:-mt-[600px]">
       {children}
     </div>
   );

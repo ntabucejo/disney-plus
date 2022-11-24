@@ -7,13 +7,7 @@ type Group = "popular" | "top-rated";
 
 const api = {
   get: {
-    movies: async ({
-      group,
-      page,
-    }: {
-      group: Group;
-      page: number;
-    }): Promise<Movie[]> => {
+    movies: async ({ group, page }: { group: Group; page: number }) => {
       const groupName = group.split("-").join("_");
       const response = await fetch(
         `${TMDB_API_URL}/3/movie/${groupName}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`
@@ -35,10 +29,10 @@ const api = {
           },
         };
       });
-      return movies;
+      return movies as Movie[];
     },
     movie: {
-      logo: async (movieId: string): Promise<Logo> => {
+      logo: async (movieId: string) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/movie/${movieId}/images?api_key=${TMDB_API_KEY}`
         );
@@ -49,9 +43,9 @@ const api = {
           width: logo.width,
           height: logo.height,
           image: `https://image.tmdb.org/t/p/original/${logo.file_path}`,
-        };
+        } as Logo;
       },
-      spotlight: async (): Promise<Movie> => {
+      spotlight: async () => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/movie/day?api_key=${TMDB_API_KEY}`
         );
@@ -71,7 +65,7 @@ const api = {
           language: {
             original: movie.original_language,
           },
-        };
+        } as Movie;
       },
     },
   },

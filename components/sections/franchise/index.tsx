@@ -3,7 +3,7 @@ import Card from "./card";
 
 const Franchise = () => {
   return (
-    <section>
+    <section className="pr-4">
       <ul className="grid grid-cols-[repeat(6,1fr)] gap-2 overflow-x-auto">
         <Card />
         <Card />

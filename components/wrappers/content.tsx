@@ -19,8 +19,7 @@ const Content = ({ children, variant }: Props) => {
   }
 
   return (
-    <div
-      className={`${style} transition-smooth space-y-12 overflow-x-hidden pb-12 pr-4`}>
+    <div className={`${style} transition-smooth space-y-12 overflow-x-hidden`}>
       {children}
     </div>
   );

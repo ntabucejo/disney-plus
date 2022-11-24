@@ -1,0 +1,16 @@
+import Image from "next/image";
+
+const Card = () => {
+  return (
+    <li className="relative aspect-[2/3] h-full w-full overflow-hidden rounded bg-zinc-900">
+      <Image
+        src="https://image.tmdb.org/t/p/original/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg"
+        fill
+        alt="Cover"
+        className="object-cover"
+      />
+    </li>
+  );
+};
+
+export default Card;

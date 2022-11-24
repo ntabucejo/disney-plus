@@ -13,7 +13,7 @@ const Showcase = ({ movie }: Props) => {
   const logo = use(api.get.movie.logo(movie.id));
 
   return (
-    <section className="max-w-md space-y-4">
+    <section className="space-y-4 tablet:max-w-md tablet:px-0">
       <div className="relative aspect-video w-full">
         <Image
           src={logo.image!}

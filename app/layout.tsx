@@ -14,11 +14,11 @@ const Layout = ({ children }: Props) => {
     <html lang="en" className="bg-background-dark text-typography-light">
       <head />
       <body className={inter.className}>
-        <div className="grid grid-cols-[auto,1fr]">
-          <aside>
+        <div className="grid tablet:grid-cols-[auto,1fr]">
+          <aside className="hidden tablet:block">
             <Navbar />
           </aside>
-          <main>{children}</main>
+          <main className="px-6 tablet:px-0">{children}</main>
         </div>
       </body>
     </html>

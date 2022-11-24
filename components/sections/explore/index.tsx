@@ -3,7 +3,7 @@ import Collection from "./collection";
 
 const Explore = () => {
   return (
-    <section className="relative bg-background-dark">
+    <section className="relative bg-background-dark pb-12">
       <Fade />
       <div className="space-y-12">
         <Collection />

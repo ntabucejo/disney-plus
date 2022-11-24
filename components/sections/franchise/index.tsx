@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "../../elements/fade";
 import Card from "./card";
 
 const Franchise = () => {
@@ -40,8 +41,10 @@ const Franchise = () => {
       video: "star-opening",
     },
   ];
+
   return (
-    <section className="pr-4">
+    <section className="relative bg-background-dark pr-4">
+      <Fade />
       <ul className="grid grid-cols-[repeat(6,1fr)] gap-2 overflow-auto">
         {list.map(({ id, name, image, video }) => (
           <Card key={id} name={name} image={image} video={video} />

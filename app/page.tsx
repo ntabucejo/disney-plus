@@ -10,8 +10,10 @@ const Page = () => {
       <Billboard />
       <Content variant="primary">
         <Overview />
-        <Franchise />
-        <Explore />
+        <div className="content bg-background-dark">
+          <Franchise />
+          <Explore />
+        </div>
       </Content>
     </>
   );

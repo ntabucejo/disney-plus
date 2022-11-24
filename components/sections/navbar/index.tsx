@@ -62,9 +62,9 @@ const Navbar = () => {
           isOnHovered
             ? "fixed z-10 h-screen w-screen bg-gradient-to-r from-background-dark to-transparent"
             : ""
-        } z-10`}
+        } z-40`}
       />
-      <nav className="sticky top-0 z-20 flex h-screen flex-col">
+      <nav className="sticky top-0 z-50 flex h-screen flex-col">
         <div className="py-8 px-4">
           <Image
             alt="Disney Plus Logo"

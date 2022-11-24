@@ -73,7 +73,10 @@ const api = {
       },
       spotlight: async () => {
         const response = await fetch(
-          `${TMDB_API_URL}/3/trending/movie/day?api_key=${TMDB_API_KEY}`
+          `${TMDB_API_URL}/3/trending/movie/day?api_key=${TMDB_API_KEY}`,
+          {
+            cache: "no-store",
+          }
         );
         const { results } = await response.json();
         const random = Math.floor(Math.random() * results.length);

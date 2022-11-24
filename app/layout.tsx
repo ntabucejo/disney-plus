@@ -8,9 +8,9 @@ type Props = {
   children: ReactNode;
 };
 
-const RootLayout = ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-background-dark text-typography-light">
       <head />
       <body className={inter.className}>
         <div>
@@ -21,4 +21,4 @@ const RootLayout = ({ children }: Props) => {
   );
 };
 
-export default RootLayout;
+export default Layout;

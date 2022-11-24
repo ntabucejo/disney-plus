@@ -28,7 +28,7 @@ const list = [
   },
   {
     id: 2,
-    href: "#",
+    href: "/",
     Icon: HomeIcon,
     to: "Home",
   },

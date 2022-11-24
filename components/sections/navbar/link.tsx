@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import { ComponentType } from "react";
+import { motion } from "framer-motion";
 
 type Props = {
   href: string;
@@ -10,7 +11,7 @@ type Props = {
 
 const Link = ({ href, to, Icon, isOnHovered }: Props) => {
   return (
-    <li>
+    <motion.li whileHover={{ scale: 1.1, x: "5px" }}>
       <NextLink href={href} className="group relative flex items-center p-4">
         <Icon className="mx-auto h-6 w-6 group-hover:fill-white group-hover:text-white" />
         {isOnHovered ? (
@@ -19,7 +20,7 @@ const Link = ({ href, to, Icon, isOnHovered }: Props) => {
           </span>
         ) : null}
       </NextLink>
-    </li>
+    </motion.li>
   );
 };
 

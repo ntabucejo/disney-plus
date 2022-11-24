@@ -2,7 +2,7 @@ import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Button from "../../elements/button";
 
-const Details = () => {
+const Overview = () => {
   return (
     <section className="max-w-md space-y-4">
       <div className="relative aspect-video w-full">
@@ -38,4 +38,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default Overview;

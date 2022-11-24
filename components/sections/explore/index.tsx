@@ -14,16 +14,13 @@ const Explore = () => {
   const trendingThisWeek = use(api.get.movies.trending({ time: "week" }));
 
   return (
-    <section className="relative bg-background-dark pb-12">
+    <section className="relative overflow-x-hidden bg-background-dark pb-12">
       <div className="space-y-12">
-        <Collection title="Trending Today" movies={trendingToday.slice(0, 8)} />
-        <Collection
-          title="Trending This Week"
-          movies={trendingThisWeek.slice(0, 8)}
-        />
-        <Collection title="Now Playing" movies={nowPlayingMovies.slice(0, 8)} />
-        <Collection title="Popular" movies={popularMovies.slice(0, 8)} />
-        <Collection title="Top Rated" movies={topRatedMovies.slice(0, 8)} />
+        <Collection title="Trending Today" movies={trendingToday} />
+        <Collection title="Trending This Week" movies={trendingThisWeek} />
+        <Collection title="Now Playing" movies={nowPlayingMovies} />
+        <Collection title="Popular" movies={popularMovies} />
+        <Collection title="Top Rated" movies={topRatedMovies} />
       </div>
     </section>
   );

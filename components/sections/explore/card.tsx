@@ -7,7 +7,7 @@ type Props = {
 
 const Card = ({ movie }: Props) => {
   return (
-    <li className="relative aspect-[79/105] h-full w-full overflow-hidden rounded">
+    <li className={`relative aspect-[79/105] overflow-hidden rounded`}>
       <Image
         src={movie.image.poster!}
         fill

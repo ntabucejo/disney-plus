@@ -18,7 +18,7 @@ const Layout = ({ children }: Props) => {
           <aside>
             <Navbar />
           </aside>
-          <main className="overflow-x-hidden">{children}</main>
+          <main>{children}</main>
         </div>
       </body>
     </html>

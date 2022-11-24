@@ -3,13 +3,15 @@ import Card from "./card";
 
 const Franchise = () => {
   return (
-    <section className="grid grid-cols-[1fr,1fr,1fr,1fr,1fr,1fr] gap-2 overflow-x-auto">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+    <section>
+      <ul className="grid grid-cols-[repeat(6,1fr)] gap-2 overflow-x-auto">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </ul>
     </section>
   );
 };

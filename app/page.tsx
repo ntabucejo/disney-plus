@@ -1,15 +1,18 @@
 import Billboard from "../components/sections/billboard";
-import Overview from "../components/sections/overview";
+import Showcase from "../components/sections/showcase";
 import Franchise from "../components/sections/franchise";
 import Content from "../components/wrappers/content";
 import Explore from "../components/sections/explore";
+import api from "../library/api";
 
-const Page = () => {
+const Page = async () => {
+  const movie = await api.get.movie.spotlight();
+
   return (
     <>
-      <Billboard />
+      <Billboard image={movie.image.backdrop!} />
       <Content variant="primary">
-        <Overview />
+        <Showcase movie={movie} />
         <div className="content bg-background-dark">
           <Franchise />
           <Explore />

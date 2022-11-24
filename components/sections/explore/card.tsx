@@ -1,10 +1,15 @@
 import Image from "next/image";
+import type { Movie } from "../../../types";
 
-const Card = () => {
+type Props = {
+  movie: Movie;
+};
+
+const Card = ({ movie }: Props) => {
   return (
     <li className="relative aspect-[79/105] h-full w-full overflow-hidden rounded">
       <Image
-        src="https://image.tmdb.org/t/p/original/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg"
+        src={movie.image.poster!}
         fill
         alt="Cover"
         className="object-cover"

@@ -9,7 +9,7 @@ type Props = {
 const Card = ({ image, video, name }: Props) => {
   return (
     <li className="group relative z-20 grid aspect-video cursor-pointer items-center overflow-hidden rounded">
-      <div className="transition-smooth absolute inset-0 bg-zinc-900 hover:bg-transparent" />
+      <div className="transition-smooth absolute inset-0 bg-card-dark hover:bg-transparent" />
       <div className="pointer-events-none relative mx-auto h-1/2 w-1/2">
         <Image
           src={`/assets/images/${image}.png`}

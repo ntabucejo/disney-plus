@@ -19,6 +19,15 @@ module.exports = {
         typography: {
           light: "#D3D3D4",
         },
+        card: {
+          dark: "#1C1F2A",
+        },
+        action: {
+          dark: "#222326",
+        },
+        rated: {
+          dark: "#3F4043",
+        },
       },
     },
   },

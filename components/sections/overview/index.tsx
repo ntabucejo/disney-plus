@@ -15,7 +15,7 @@ const Overview = () => {
       </div>
       <div className="flex items-center gap-2">
         <p className="font-semibold">2022 • 1h 59mm • 6 Languages •</p>
-        <div className="rounded bg-neutral-700 px-2 font-semibold">PG</div>
+        <div className="rounded bg-rated-dark px-2 font-semibold">PG</div>
       </div>
       <p className="hidden desktop:block">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, voluptates

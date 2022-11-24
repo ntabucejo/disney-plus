@@ -4,10 +4,34 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
 
 type Group = "popular" | "top-rated" | "now-playing";
+type Time = "day" | "week";
 
 const api = {
   get: {
     movies: {
+      trending: async ({ time }: { time: Time }) => {
+        const response = await fetch(
+          `${TMDB_API_URL}/3/trending/movie/${time}?api_key=${TMDB_API_KEY}`
+        );
+        const { results } = await response.json();
+        const movies = results.map((movie: any) => {
+          return {
+            id: movie.id,
+            title: movie.title,
+            isForAdult: movie.adult,
+            image: {
+              poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+              backdrop: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`,
+            },
+            overview: movie.overview,
+            releasedAt: movie.release_date,
+            language: {
+              original: movie.original_language,
+            },
+          };
+        });
+        return movies as Movie[];
+      },
       group: async ({ name, page }: { name: Group; page: number }) => {
         const group = name.split("-").join("_");
         const response = await fetch(

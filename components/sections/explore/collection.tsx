@@ -25,7 +25,7 @@ const Collection = ({ title, movies }: Props) => {
         ))}
       </ul>
       {/* Show on mobile */}
-      <ul className="flex gap-2 overflow-x-scroll scrollbar-hide tablet:hidden">
+      <ul className="flex gap-1 overflow-x-scroll scrollbar-hide tablet:hidden">
         {movies.map((movie) => (
           <div key={movie.id} className="">
             <Card movie={movie} />

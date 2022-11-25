@@ -4,6 +4,7 @@ import { use } from "react";
 import api from "../../../library/api";
 import type { Movie } from "../../../types";
 import Button from "../../elements/button";
+import convertLanguage from "../../../helpers/convert-language";
 
 type Props = {
   movie: Movie;
@@ -11,6 +12,7 @@ type Props = {
 
 const Showcase = ({ movie }: Props) => {
   const logo = use(api.get.movie.logo(movie.id));
+  const language = convertLanguage(movie.language!.original!);
 
   return (
     <section className="space-y-4 tablet:max-w-md tablet:px-0">
@@ -24,8 +26,7 @@ const Showcase = ({ movie }: Props) => {
       </div>
       <div className="flex items-center gap-2">
         <p className="font-semibold">
-          {movie.releasedAt?.slice(0, 4)} • 1h 59mm •{" "}
-          {movie.language!.original!.toUpperCase()} •
+          {movie.releasedAt?.slice(0, 4)} • 1h 59m • {language?.en.name} •
         </p>
         <div className="rounded bg-rated-dark px-2 font-semibold">PG</div>
       </div>

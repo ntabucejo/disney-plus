@@ -4,9 +4,34 @@ import Franchise from "../components/sections/franchise";
 import Content from "../components/wrappers/content";
 import Explore from "../components/sections/explore";
 import api from "../library/api";
+import Collection from "../components/sections/explore/collection";
 
 const Page = async () => {
   const media = await api.get.media.spotlight();
+
+  const popularMovies = await api.get.medias.group({
+    name: "popular",
+    type: "movie",
+    page: 1,
+  });
+  const topRatedMovies = await api.get.medias.group({
+    name: "top-rated",
+    type: "movie",
+    page: 2,
+  });
+  const nowPlayingMovies = await api.get.medias.group({
+    name: "now-playing",
+    type: "movie",
+    page: 3,
+  });
+  const trendingToday = await api.get.medias.trending({
+    type: "movie",
+    time: "day",
+  });
+  const trendingThisWeek = await api.get.medias.trending({
+    type: "movie",
+    time: "week",
+  });
 
   return (
     <>
@@ -15,7 +40,13 @@ const Page = async () => {
         <Showcase media={media} />
         <div className="content bg-background-dark">
           <Franchise />
-          <Explore />
+          <Explore>
+            <Collection title="Trending Today" medias={trendingToday} />
+            <Collection title="Trending This Week" medias={trendingThisWeek} />
+            <Collection title="Now Playing" medias={nowPlayingMovies} />
+            <Collection title="Popular" medias={popularMovies} />
+            <Collection title="Top Rated" medias={topRatedMovies} />
+          </Explore>
         </div>
       </Content>
     </>

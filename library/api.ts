@@ -8,29 +8,29 @@ type Time = "day" | "week";
 
 const api = {
   get: {
-    movies: {
+    medias: {
       trending: async ({ time }: { time: Time }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/movie/${time}?api_key=${TMDB_API_KEY}`
         );
         const { results } = await response.json();
-        const movies = results.map((movie: any) => {
+        const medias = results.map((media: any) => {
           return {
-            id: movie.id,
-            title: movie.title,
-            isForAdult: movie.adult,
+            id: media.id,
+            title: media.title,
+            isForAdult: media.adult,
             image: {
-              poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-              backdrop: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`,
+              poster: `https://image.tmdb.org/t/p/w500${media.poster_path}`,
+              backdrop: `https://image.tmdb.org/t/p/w500${media.backdrop_path}`,
             },
-            overview: movie.overview,
-            releasedAt: movie.release_date,
+            overview: media.overview,
+            releasedAt: media.release_date,
             language: {
-              original: movie.original_language,
+              original: media.original_language,
             },
           };
         });
-        return movies as Media[];
+        return medias as Media[];
       },
       group: async ({ name, page }: { name: Group; page: number }) => {
         const group = name.split("-").join("_");
@@ -38,54 +38,61 @@ const api = {
           `${TMDB_API_URL}/3/movie/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`
         );
         const { results } = await response.json();
-        const movies = results.map((movie: any) => {
+        const medias = results.map((media: any) => {
           return {
-            id: movie.id,
-            title: movie.title,
-            isForAdult: movie.adult,
+            id: media.id,
+            title: media.title,
+            isForAdult: media.adult,
             image: {
-              poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-              backdrop: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`,
+              poster: `https://image.tmdb.org/t/p/w500${media.poster_path}`,
+              backdrop: `https://image.tmdb.org/t/p/w500${media.backdrop_path}`,
             },
-            overview: movie.overview,
-            releasedAt: movie.release_date,
+            overview: media.overview,
+            releasedAt: media.release_date,
             language: {
-              original: movie.original_language,
+              original: media.original_language,
             },
           };
         });
-        return movies as Media[];
+        return medias as Media[];
       },
     },
-    movie: {
-      video: async (movieId: string) => {
-        const response = await fetch(
-          `${TMDB_API_URL}/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}&language=en-US`
-        );
-        const { results } = await response.json();
-        const video = results.find((result: any) => result.type === "Trailer");
-        return {
-          id: video.id,
-          name: video.name,
-          key: video.key,
-          site: video.site,
-          size: video.size,
-          type: video.type,
-          isOfficial: video.official,
-        } as Video;
+    media: {
+      video: async ({ type, id }: { type: "movie"; id: string }) => {
+        if (type === "movie") {
+          const response = await fetch(
+            `${TMDB_API_URL}/3/movie/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`
+          );
+          const { results } = await response.json();
+          const video = results.find(
+            (result: any) =>
+              result.type === "Trailer" || result.type === "Teaser"
+          );
+          return {
+            id: video.id,
+            name: video.name,
+            key: video.key,
+            site: video.site,
+            size: video.size,
+            type: video.type,
+            isOfficial: video.official,
+          } as Video;
+        }
       },
-      logo: async (movieId: string) => {
-        const response = await fetch(
-          `${TMDB_API_URL}/3/movie/${movieId}/images?api_key=${TMDB_API_KEY}`
-        );
-        const { logos } = await response.json();
-        const logo = logos[0];
-        return {
-          aspectRatio: logo.aspect_ratio,
-          width: logo.width,
-          height: logo.height,
-          image: `https://image.tmdb.org/t/p/original/${logo.file_path}`,
-        } as Logo;
+      logo: async ({ type, id }: { type: "movie"; id: string }) => {
+        if (type === "movie") {
+          const response = await fetch(
+            `${TMDB_API_URL}/3/movie/${id}/images?api_key=${TMDB_API_KEY}`
+          );
+          const { logos } = await response.json();
+          const logo = logos[0];
+          return {
+            aspectRatio: logo.aspect_ratio,
+            width: logo.width,
+            height: logo.height,
+            image: `https://image.tmdb.org/t/p/original/${logo.file_path}`,
+          } as Logo;
+        }
       },
       spotlight: async () => {
         const response = await fetch(
@@ -96,19 +103,20 @@ const api = {
         );
         const { results } = await response.json();
         const random = Math.floor(Math.random() * results.length);
-        const movie = results[random];
+        const media = results[random];
         return {
-          id: movie.id,
-          title: movie.title,
-          isForAdult: movie.adult,
+          id: media.id,
+          title: media.title,
+          isForAdult: media.adult,
+          type: media.media_type,
           image: {
-            poster: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
-            backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+            poster: `https://image.tmdb.org/t/p/original${media.poster_path}`,
+            backdrop: `https://image.tmdb.org/t/p/original${media.backdrop_path}`,
           },
-          overview: movie.overview,
-          releasedAt: movie.release_date,
+          overview: media.overview,
+          releasedAt: media.release_date,
           language: {
-            original: movie.original_language,
+            original: media.original_language,
           },
         } as Media;
       },

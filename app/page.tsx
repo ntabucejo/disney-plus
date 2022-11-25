@@ -6,13 +6,13 @@ import Explore from "../components/sections/explore";
 import api from "../library/api";
 
 const Page = async () => {
-  const movie = await api.get.movie.spotlight();
+  const media = await api.get.media.spotlight();
 
   return (
     <>
-      <Billboard movie={movie}/>
+      <Billboard media={media} />
       <Content variant="primary">
-        <Showcase movie={movie} />
+        <Showcase media={media} />
         <div className="content bg-background-dark">
           <Franchise />
           <Explore />

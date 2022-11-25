@@ -15,7 +15,7 @@ const Explore = () => {
 
   return (
     <section className="relative overflow-x-hidden bg-background-dark pb-12">
-      <div className="space-y-12">
+      <div className="space-y-6 tablet:space-y-12">
         <Collection title="Trending Today" movies={trendingToday} />
         <Collection title="Trending This Week" movies={trendingThisWeek} />
         <Collection title="Now Playing" movies={nowPlayingMovies} />

@@ -39,9 +39,11 @@ const Showcase = async ({ media }: Props) => {
             </div>
           </div>
           {/* Overview */}
-          <p className="text-sm tablet:hidden desktop:block desktop:text-base">
-            {media.overview!.split(".")[0]}
-          </p>
+          <div className="max-h-[72px] overflow-y-auto scrollbar-none">
+            <p className="text-sm tablet:hidden desktop:block desktop:text-base">
+              {media.overview!}
+            </p>
+          </div>
         </div>
         {/* Actions */}
         <div className="flex gap-4">

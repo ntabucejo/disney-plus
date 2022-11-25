@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import { Inter } from "@next/font/google";
 import Navbar from "../components/sections/navbar";
 
-const inter = Inter();
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 type Props = {
   children: ReactNode;

@@ -1,16 +1,16 @@
 import Image from "next/image";
-import type { Movie } from "../../../types";
+import type { Media } from "../../../types";
 
 type Props = {
-  movie: Movie;
+  media: Media;
 };
 
-const Card = ({ movie }: Props) => {
+const Card = ({ media }: Props) => {
   return (
     <li
       className={`relative aspect-[79/105] w-28 overflow-hidden rounded tablet:w-auto`}>
       <Image
-        src={movie.image.poster!}
+        src={media.image.poster!}
         fill
         alt="Cover"
         className="object-cover"

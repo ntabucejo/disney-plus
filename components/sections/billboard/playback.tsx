@@ -2,7 +2,7 @@ type Props = {
   src: string;
 };
 
-const Video = ({ src }: Props) => {
+const Playback = ({ src }: Props) => {
   return (
     <iframe
       className="h-full w-full scale-150"
@@ -10,4 +10,4 @@ const Video = ({ src }: Props) => {
   );
 };
 
-export default Video;
+export default Playback;

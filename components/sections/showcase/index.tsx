@@ -1,4 +1,3 @@
-// import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import api from "../../../library/api";
 import type { Media } from "../../../types";
@@ -38,13 +37,6 @@ const Showcase = async ({ media }: Props) => {
       <p className="text-sm tablet:hidden desktop:block desktop:text-base">
         {media.overview!.slice(0, 100)}
       </p>
-      {/* <ul className="flex items-center gap-2 text-xs font-semibold tablet:text-base">
-        <li>Fantasy</li>
-        <MinusSmallIcon className="h-6 w-6 rotate-90" />
-        <li>Family</li>
-        <MinusSmallIcon className="h-6 w-6 rotate-90" />
-        <li>Comedy</li>
-      </ul> */}
       <div className="flex gap-4">
         <Button variant={{ name: "primary", type: "play" }} />
         <Button variant={{ name: "primary", type: "save" }} />

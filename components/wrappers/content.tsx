@@ -11,7 +11,7 @@ const Content = ({ children, variant }: Props) => {
   switch (variant) {
     case "primary":
       style =
-        "-mt-[100px] tablet:-mt-[250px] laptop:-mt-[450px] desktop:-mt-[600px]";
+        "-mt-[100px] tablet:-mt-[400px] laptop:-mt-[650px] desktop:-mt-[850px]";
       break;
     case "secondary":
       break;

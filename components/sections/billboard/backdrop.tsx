@@ -32,8 +32,9 @@ const Backdrop = ({ src }: Props) => {
       ) : null}
       <Image
         src={src}
-        fill
         alt="Showcase"
+        fill
+        priority
         className={`${
           isDisplayed ? "opacity-100" : "desktop:opacity-0"
         } object-cover transition-all duration-1000 ease-in`}

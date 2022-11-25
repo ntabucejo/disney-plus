@@ -69,6 +69,7 @@ const Navbar = () => {
           <Image
             alt="Disney Plus Logo"
             src="/assets/images/disney-plus-logo.svg"
+            priority
             width={68}
             height={36}
             className="object-contain"

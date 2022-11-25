@@ -81,7 +81,10 @@ const api = {
           );
           const { results } = await response.json();
           const video = results.find((result: any) => {
-            return result.type === "Trailer" || result.type === "Teaser";
+            return (
+              (result.type === "Trailer" || result.type === "Teaser") &&
+              result.official
+            );
           });
           if (!video) return null;
           return {

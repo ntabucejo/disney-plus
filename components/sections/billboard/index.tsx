@@ -1,8 +1,7 @@
-import { use } from "react";
 import api from "../../../library/api";
 import type { Media } from "../../../types";
 import Backdrop from "./backdrop";
-import Video from "./video";
+import Playback from "./playback";
 
 type Props = {
   media: Media;
@@ -14,7 +13,7 @@ const Billboard = async ({ media }: Props) => {
   return (
     <section className="sticky -z-10 aspect-video max-h-screen w-full overflow-hidden tablet:top-0">
       {video ? (
-        <Video src={`https://www.youtube.com/embed/${video.key!}`} />
+        <Playback src={`https://www.youtube.com/embed/${video.key!}`} />
       ) : null}
       <Backdrop
         src={media.image.backdrop!}

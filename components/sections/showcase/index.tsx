@@ -24,7 +24,7 @@ const Showcase = ({ movie }: Props) => {
           className="object-contain"
         />
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 text-sm tablet:text-base">
         <p className="font-semibold">
           {movie.releasedAt?.slice(0, 4)} • 1h 59m • {language?.en.name} •
         </p>

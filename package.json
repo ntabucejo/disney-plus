@@ -21,6 +21,7 @@
     "next": "13.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "typescript": "4.9.3"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.2.4"
   }
 }

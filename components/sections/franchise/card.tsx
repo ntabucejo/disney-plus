@@ -15,6 +15,7 @@ const Card = ({ image, video, name }: Props) => {
           fill
           alt={name}
           className="object-contain"
+          priority
         />
       </div>
       <div className="transition-smooth absolute inset-0 z-10 hidden bg-card-dark hover:bg-transparent tablet:block" />

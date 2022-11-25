@@ -1,5 +1,3 @@
-const humanizeDuration = require("humanize-duration");
-
 const humanizeRuntime = (amount: number) => {
   if (amount < 60) {
     return `0h ${amount}m`;

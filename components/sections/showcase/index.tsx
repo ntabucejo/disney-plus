@@ -10,15 +10,15 @@ type Props = {
   media: Media;
 };
 
-const Showcase = ({ media }: Props) => {
-  const logo = use(api.get.media.logo({ type: "movie", id: media.id }))!;
+const Showcase = async ({ media }: Props) => {
+  const logo = await api.get.media.logo({ type: "movie", id: media.id });
   const language = convertLanguage(media.language!.original!);
 
   return (
     <section className="space-y-4 tablet:max-w-md">
       <div className="relative aspect-video w-full">
         <Image
-          src={logo.image!}
+          src={logo!.image!}
           alt={media.title!}
           fill
           priority

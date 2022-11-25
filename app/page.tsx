@@ -35,8 +35,10 @@ const Page = async () => {
 
   return (
     <>
+      {/* @ts-ignore */}
       <Billboard media={media} />
       <Content variant="primary">
+        {/* @ts-ignore */}
         <Showcase media={media} />
         <div className="content bg-background-dark">
           <Franchise />

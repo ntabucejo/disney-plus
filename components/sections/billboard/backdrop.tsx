@@ -28,7 +28,7 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
       clearTimeout(firstTimeout);
       clearTimeout(secondTimeout);
     };
-  }, []);
+  }, [isAlwaysDisplayed]);
 
   return (
     <>

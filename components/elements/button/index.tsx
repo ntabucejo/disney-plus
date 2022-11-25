@@ -1,4 +1,7 @@
+"use client";
+
 import { PlayIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -11,7 +14,8 @@ const Button = ({ variant }: Props) => {
   if (variant.name === "secondary") return <button>{variant.children}</button>;
 
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05, backgroundColor: "#3F4043" }}
       className={`${
         variant.type === "play" ? "max-w-96 w-full" : ""
       } h-12 rounded bg-action-dark px-4`}>
@@ -26,7 +30,7 @@ const Button = ({ variant }: Props) => {
           <PlusSmallIcon className="h-6 w-6 fill-typography-light" />
         ) : null}
       </div>
-    </button>
+    </motion.button>
   );
 };
 

@@ -31,7 +31,7 @@ const Showcase = ({ movie }: Props) => {
         <div className="rounded bg-rated-dark px-2 font-semibold">PG</div>
       </div>
       <p className="hidden desktop:block">{movie.overview!.slice(0, 100)}</p>
-      <ul className="flex items-center gap-2 font-semibold">
+      <ul className="flex items-center gap-2 text-sm font-semibold tablet:text-base">
         <li>Fantasy</li>
         <MinusSmallIcon className="h-6 w-6 rotate-90" />
         <li>Family</li>

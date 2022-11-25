@@ -24,11 +24,11 @@ const Page = async () => {
     type: "movie",
     page: 3,
   });
-  const trendingToday = await api.get.medias.trending({
+  const trendingMoviesToday = await api.get.medias.trending({
     type: "movie",
     time: "day",
   });
-  const trendingThisWeek = await api.get.medias.trending({
+  const trendingMoviesThisWeek = await api.get.medias.trending({
     type: "movie",
     time: "week",
   });
@@ -43,8 +43,8 @@ const Page = async () => {
         <div className="content bg-background-dark">
           <Franchise />
           <Explore>
-            <Collection title="Trending Today" medias={trendingToday} />
-            <Collection title="Trending This Week" medias={trendingThisWeek} />
+            <Collection title="Trending Today" medias={trendingMoviesToday} />
+            <Collection title="Trending This Week" medias={trendingMoviesThisWeek} />
             <Collection title="Now Playing" medias={nowPlayingMovies} />
             <Collection title="Popular" medias={popularMovies} />
             <Collection title="Top Rated" medias={topRatedMovies} />

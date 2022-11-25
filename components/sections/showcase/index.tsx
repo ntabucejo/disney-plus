@@ -24,16 +24,18 @@ const Showcase = ({ movie }: Props) => {
           className="object-contain"
         />
       </div>
-      <div className="tablet:tap-2 flex items-center gap-1 text-sm tablet:text-base">
+      <div className="flex items-center gap-1 text-xs tablet:gap-2 tablet:text-base">
         <p className="font-semibold">
           {movie.releasedAt?.slice(0, 4)} • 1h 59m • {language?.en.name} •
         </p>
-        <div className="rounded bg-rated-dark px-2 font-semibold">PG</div>
+        <div className="rounded bg-rated-dark px-2 py-0.5 font-semibold tablet:py-0">
+          PG
+        </div>
       </div>
-      <p className="tablet:hidden desktop:block">
+      <p className="text-sm tablet:hidden desktop:block desktop:text-base">
         {movie.overview!.slice(0, 100)}
       </p>
-      <ul className="flex items-center gap-2 text-sm font-semibold tablet:text-base">
+      <ul className="flex items-center gap-2 text-xs font-semibold tablet:text-base">
         <li>Fantasy</li>
         <MinusSmallIcon className="h-6 w-6 rotate-90" />
         <li>Family</li>

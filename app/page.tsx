@@ -10,7 +10,7 @@ const Page = async () => {
 
   return (
     <>
-      <Billboard image={movie.image.backdrop!} />
+      <Billboard movie={movie}/>
       <Content variant="primary">
         <Showcase movie={movie} />
         <div className="content bg-background-dark">

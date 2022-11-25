@@ -1,4 +1,4 @@
-import type { Logo, Movie } from "../types";
+import type { Logo, Movie, Video } from "../types";
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
@@ -58,6 +58,22 @@ const api = {
       },
     },
     movie: {
+      video: async (movieId: string) => {
+        const response = await fetch(
+          `${TMDB_API_URL}/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}&language=en-US`
+        );
+        const { results } = await response.json();
+        const video = results.find((result: any) => result.type === "Trailer");
+        return {
+          id: video.id,
+          name: video.name,
+          key: video.key,
+          site: video.site,
+          size: video.size,
+          type: video.type,
+          isOfficial: video.official,
+        } as Video;
+      },
       logo: async (movieId: string) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/movie/${movieId}/images?api_key=${TMDB_API_KEY}`

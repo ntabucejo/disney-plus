@@ -1,13 +1,20 @@
-import Image from "next/image";
+import { use } from "react";
+import api from "../../../library/api";
+import type { Movie } from "../../../types";
+import Backdrop from "./backdrop";
+import Video from "./video";
 
 type Props = {
-  image: string;
+  movie: Movie;
 };
 
-const Billboard = ({ image }: Props) => {
+const Billboard = ({ movie }: Props) => {
+  const video = use(api.get.movie.video(movie.id));
+
   return (
-    <section className="sticky -z-10 aspect-video max-h-screen w-full tablet:top-0">
-      <Image src={image} fill alt="Showcase" className="object-cover" />
+    <section className="sticky -z-10 aspect-video max-h-screen w-full overflow-hidden tablet:top-0">
+      <Video src={`https://www.youtube.com/embed/${video.key!}`} />
+      <Backdrop src={movie.image.backdrop!} />
       <div className="absolute inset-0 z-10 hidden bg-gradient-to-r from-background-dark to-transparent tablet:block" />
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
     </section>

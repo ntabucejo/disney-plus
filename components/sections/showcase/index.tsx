@@ -13,7 +13,7 @@ type Props = {
 const Showcase = async ({ media }: Props) => {
   const logo = await api.get.media.logo({ type: "movie", id: media.id });
   const language = convertLanguage(media.language!.original!);
-
+  console.log(media);
   return (
     <section className="space-y-4 tablet:max-w-md">
       <div className="relative aspect-video w-full">
@@ -30,7 +30,7 @@ const Showcase = async ({ media }: Props) => {
           {media.releasedAt?.slice(0, 4)} • 1h 59m • {language?.en.name} •
         </p>
         <div className="rounded bg-rated-dark px-2 py-0.5 font-semibold tablet:py-0">
-          PG
+          {media.isForAdult ? "18+" : "PG"}
         </div>
       </div>
       <p className="text-sm tablet:hidden desktop:block desktop:text-base">

@@ -17,7 +17,7 @@ const Card = ({ image, video, name }: Props) => {
           className="object-contain"
         />
       </div>
-      <div className="transition-smooth absolute inset-0 z-10 bg-card-dark hover:bg-transparent" />
+      <div className="transition-smooth absolute inset-0 z-10 hidden bg-card-dark hover:bg-transparent tablet:block" />
       <video className="absolute h-full brightness-50" autoPlay loop muted>
         <source src={`/assets/videos/${video}.mp4`} type="video/mp4" />
       </video>

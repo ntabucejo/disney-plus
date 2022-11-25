@@ -18,7 +18,7 @@ const Layout = ({ children }: Props) => {
           <aside className="hidden tablet:block">
             <Navbar />
           </aside>
-          <main className="px-6 tablet:px-0">{children}</main>
+          <main>{children}</main>
         </div>
       </body>
     </html>

@@ -15,7 +15,7 @@ const Showcase = ({ movie }: Props) => {
   const language = convertLanguage(movie.language!.original!);
 
   return (
-    <section className="space-y-4 tablet:max-w-md tablet:px-0">
+    <section className="space-y-4 tablet:max-w-md">
       <div className="relative aspect-video w-full">
         <Image
           src={logo.image!}

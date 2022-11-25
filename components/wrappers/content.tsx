@@ -10,7 +10,8 @@ const Content = ({ children, variant }: Props) => {
 
   switch (variant) {
     case "primary":
-      style = "tablet:-mt-[250px] laptop:-mt-[450px] desktop:-mt-[600px]";
+      style =
+        "-mt-[100px] tablet:-mt-[250px] laptop:-mt-[450px] desktop:-mt-[600px]";
       break;
     case "secondary":
       break;
@@ -20,7 +21,7 @@ const Content = ({ children, variant }: Props) => {
 
   return (
     <div
-      className={`${style} transition-smooth space-y-12 overflow-x-hidden px-6  tablet:px-0 [&>.content]:space-y-12`}>
+      className={`${style} transition-smooth space-y-12 overflow-x-hidden px-6 tablet:px-0 [&>.content]:space-y-12`}>
       {children}
     </div>
   );

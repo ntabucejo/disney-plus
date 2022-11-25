@@ -1,10 +1,10 @@
-import { MinusSmallIcon } from "@heroicons/react/24/outline";
+// import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { use } from "react";
 import api from "../../../library/api";
 import type { Media } from "../../../types";
 import Button from "../../elements/button";
 import convertLanguage from "../../../helpers/convert-language";
+import humanizeRuntime from "../../../helpers/humanize-runtime";
 
 type Props = {
   media: Media;
@@ -12,8 +12,9 @@ type Props = {
 
 const Showcase = async ({ media }: Props) => {
   const logo = await api.get.media.logo({ type: "movie", id: media.id });
+  const measure = await api.get.media.measure({ type: "movie", id: media.id });
   const language = convertLanguage(media.language!.original!);
-  console.log(media);
+
   return (
     <section className="space-y-4 tablet:max-w-md">
       <div className="relative aspect-video w-full">
@@ -27,7 +28,8 @@ const Showcase = async ({ media }: Props) => {
       </div>
       <div className="flex items-center gap-1 text-xs tablet:gap-2 tablet:text-base">
         <p className="font-semibold">
-          {media.releasedAt?.slice(0, 4)} • 1h 59m • {language?.en.name} •
+          {media.releasedAt?.slice(0, 4)} • {humanizeRuntime(measure)} •{" "}
+          {language?.en.name} •
         </p>
         <div className="rounded bg-rated-dark px-2 py-0.5 font-semibold tablet:py-0">
           {media.isForAdult ? "18+" : "PG"}
@@ -36,13 +38,13 @@ const Showcase = async ({ media }: Props) => {
       <p className="text-sm tablet:hidden desktop:block desktop:text-base">
         {media.overview!.slice(0, 100)}
       </p>
-      <ul className="flex items-center gap-2 text-xs font-semibold tablet:text-base">
+      {/* <ul className="flex items-center gap-2 text-xs font-semibold tablet:text-base">
         <li>Fantasy</li>
         <MinusSmallIcon className="h-6 w-6 rotate-90" />
         <li>Family</li>
         <MinusSmallIcon className="h-6 w-6 rotate-90" />
         <li>Comedy</li>
-      </ul>
+      </ul> */}
       <div className="flex gap-4">
         <Button variant={{ name: "primary", type: "play" }} />
         <Button variant={{ name: "primary", type: "save" }} />

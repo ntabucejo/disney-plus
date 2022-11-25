@@ -67,6 +67,13 @@ const api = {
       },
     },
     media: {
+      measure: async ({ type, id }: { type: Type; id: string }) => {
+        const response = await fetch(
+          `${TMDB_API_URL}/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`
+        );
+        const data = await response.json();
+        return data.runtime;
+      },
       video: async ({ type, id }: { type: Type; id: string }) => {
         if (type === "movie") {
           const response = await fetch(

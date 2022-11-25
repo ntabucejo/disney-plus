@@ -35,7 +35,7 @@ const Showcase = async ({ media }: Props) => {
         </div>
       </div>
       <p className="text-sm tablet:hidden desktop:block desktop:text-base">
-        {media.overview!.slice(0, 100)}
+        {media.overview!}
       </p>
       <div className="flex gap-4">
         <Button variant={{ name: "primary", type: "play" }} />

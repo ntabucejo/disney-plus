@@ -1,9 +1,9 @@
 const Head = () => {
   return (
     <>
-      <title>Diney Plus</title>
+      <title>Disney+</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/disney-plus-icon.svg" />
     </>
   );
 };

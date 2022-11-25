@@ -29,8 +29,9 @@ const Backdrop = ({ src }: Props) => {
         src={src}
         fill
         alt="Showcase"
-        style={{ opacity: isDisplayed ? "1" : "0" }}
-        className="object-cover transition-all duration-1000 ease-in"
+        className={`${
+          isDisplayed ? "opacity-100" : "tablet:opacity-0"
+        } object-cover transition-all duration-1000 ease-in`}
       />
     </>
   );

@@ -4,6 +4,7 @@ import { use } from "react";
 import api from "../../../library/api";
 import type { Movie } from "../../../types";
 import Button from "../../elements/button";
+import convertLanguage from "../../../helpers/convert-language";
 
 type Props = {
   movie: Movie;
@@ -11,9 +12,10 @@ type Props = {
 
 const Showcase = ({ movie }: Props) => {
   const logo = use(api.get.movie.logo(movie.id));
+  const language = convertLanguage(movie.language!.original!);
 
   return (
-    <section className="max-w-md space-y-4">
+    <section className="space-y-4 tablet:max-w-md">
       <div className="relative aspect-video w-full">
         <Image
           src={logo.image!}
@@ -22,15 +24,14 @@ const Showcase = ({ movie }: Props) => {
           className="object-contain"
         />
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 text-sm tablet:text-base">
         <p className="font-semibold">
-          {movie.releasedAt?.slice(0, 4)} • 1h 59mm •{" "}
-          {movie.language!.original!.toUpperCase()} •
+          {movie.releasedAt?.slice(0, 4)} • 1h 59m • {language?.en.name} •
         </p>
         <div className="rounded bg-rated-dark px-2 font-semibold">PG</div>
       </div>
       <p className="hidden desktop:block">{movie.overview!.slice(0, 100)}</p>
-      <ul className="flex items-center gap-2 font-semibold">
+      <ul className="flex items-center gap-2 text-sm font-semibold tablet:text-base">
         <li>Fantasy</li>
         <MinusSmallIcon className="h-6 w-6 rotate-90" />
         <li>Family</li>

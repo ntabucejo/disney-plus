@@ -3,15 +3,21 @@ import api from "../../../library/api";
 import Collection from "./collection";
 
 const Explore = () => {
-  const popularMovies = use(api.get.medias.group({ name: "popular", page: 1 }));
+  const popularMovies = use(
+    api.get.medias.group({ name: "popular", type: "movie", page: 1 })
+  );
   const topRatedMovies = use(
-    api.get.medias.group({ name: "top-rated", page: 2 })
+    api.get.medias.group({ name: "top-rated", type: "movie", page: 2 })
   );
   const nowPlayingMovies = use(
-    api.get.medias.group({ name: "now-playing", page: 3 })
+    api.get.medias.group({ name: "now-playing", type: "movie", page: 3 })
   );
-  const trendingToday = use(api.get.medias.trending({ time: "day" }));
-  const trendingThisWeek = use(api.get.medias.trending({ time: "week" }));
+  const trendingToday = use(
+    api.get.medias.trending({ type: "movie", time: "day" })
+  );
+  const trendingThisWeek = use(
+    api.get.medias.trending({ type: "movie", time: "week" })
+  );
 
   return (
     <section className="relative bg-background-dark pb-12 overflow-x-hidden">

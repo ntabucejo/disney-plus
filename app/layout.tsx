@@ -18,7 +18,9 @@ const Layout = ({ children }: Props) => {
           <aside className="hidden tablet:block">
             <Navbar />
           </aside>
-          <main>{children}</main>
+          <main className="overflow-hidden tablet:overflow-visible">
+            {children}
+          </main>
         </div>
       </body>
     </html>

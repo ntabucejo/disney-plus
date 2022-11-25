@@ -64,10 +64,10 @@ const api = {
             `${TMDB_API_URL}/3/movie/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`
           );
           const { results } = await response.json();
-          const video = results.find(
-            (result: any) =>
-              result.type === "Trailer" || result.type === "Teaser"
-          );
+          const video = results.find((result: any) => {
+            return result.type === "Trailer" || result.type === "Teaser";
+          });
+          if (!video) return null;
           return {
             id: video.id,
             name: video.name,

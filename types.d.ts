@@ -3,7 +3,7 @@ export type Media = {
   title?: string;
   isForAdult?: boolean;
   overview?: string;
-  type?: string,
+  type?: string;
   image: {
     backdrop?: string;
     poster?: string;

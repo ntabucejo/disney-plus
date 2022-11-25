@@ -5,18 +5,23 @@ import { useEffect, useState } from "react";
 
 type Props = {
   src: string;
+  isAlwaysDisplayed: boolean;
 };
 
-const Backdrop = ({ src }: Props) => {
+const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
   const [isDisplayed, setIsDisplayed] = useState(true);
 
   useEffect(() => {
     const firstTimeout = setTimeout(() => {
-      setIsDisplayed(false);
+      if (isAlwaysDisplayed) {
+        setIsDisplayed(false);
+      }
     }, 5000);
 
     const secondTimeout = setTimeout(() => {
-      setIsDisplayed(true);
+      if (isAlwaysDisplayed) {
+        setIsDisplayed(true);
+      }
     }, 60000);
 
     return () => {

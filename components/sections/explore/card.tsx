@@ -1,8 +1,8 @@
 import Image from "next/image";
-import type { Movie } from "../../../types";
+import type { Media } from "../../../types";
 
 type Props = {
-  movie: Movie;
+  movie: Media;
 };
 
 const Card = ({ movie }: Props) => {

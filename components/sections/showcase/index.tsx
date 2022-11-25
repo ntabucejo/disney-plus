@@ -2,12 +2,12 @@ import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { use } from "react";
 import api from "../../../library/api";
-import type { Movie } from "../../../types";
+import type { Media } from "../../../types";
 import Button from "../../elements/button";
 import convertLanguage from "../../../helpers/convert-language";
 
 type Props = {
-  movie: Movie;
+  movie: Media;
 };
 
 const Showcase = ({ movie }: Props) => {

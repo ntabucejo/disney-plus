@@ -1,9 +1,9 @@
-import type { Movie } from "../../../types";
+import type { Media } from "../../../types";
 import Card from "./card";
 
 type Props = {
   title: string;
-  movies: Movie[];
+  movies: Media[];
 };
 
 const Collection = ({ title, movies }: Props) => {

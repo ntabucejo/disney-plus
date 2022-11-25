@@ -1,4 +1,4 @@
-import type { Logo, Movie, Video } from "../types";
+import type { Logo, Media, Video } from "../types";
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
@@ -30,7 +30,7 @@ const api = {
             },
           };
         });
-        return movies as Movie[];
+        return movies as Media[];
       },
       group: async ({ name, page }: { name: Group; page: number }) => {
         const group = name.split("-").join("_");
@@ -54,7 +54,7 @@ const api = {
             },
           };
         });
-        return movies as Movie[];
+        return movies as Media[];
       },
     },
     movie: {
@@ -110,7 +110,7 @@ const api = {
           language: {
             original: movie.original_language,
           },
-        } as Movie;
+        } as Media;
       },
     },
   },

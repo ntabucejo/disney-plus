@@ -1,8 +1,9 @@
-export type Movie = {
+export type Media = {
   id: string;
   title?: string;
   isForAdult?: boolean;
   overview?: string;
+  type?: string,
   image: {
     backdrop?: string;
     poster?: string;

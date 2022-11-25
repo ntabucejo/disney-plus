@@ -1,11 +1,11 @@
 import { use } from "react";
 import api from "../../../library/api";
-import type { Movie } from "../../../types";
+import type { Media } from "../../../types";
 import Backdrop from "./backdrop";
 import Video from "./video";
 
 type Props = {
-  movie: Movie;
+  movie: Media;
 };
 
 const Billboard = ({ movie }: Props) => {

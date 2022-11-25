@@ -21,13 +21,18 @@ const Backdrop = ({ src }: Props) => {
   }, [isDisplayed]);
 
   return (
-    <Image
-      src={src}
-      fill
-      alt="Showcase"
-      style={{ opacity: isDisplayed ? "1" : "0" }}
-      className="object-cover transition-all duration-1000 ease-in"
-    />
+    <>
+      {isDisplayed ? (
+        <div className="absolute inset-0 bg-background-dark" />
+      ) : null}
+      <Image
+        src={src}
+        fill
+        alt="Showcase"
+        style={{ opacity: isDisplayed ? "1" : "0" }}
+        className="object-cover transition-all duration-1000 ease-in"
+      />
+    </>
   );
 };
 

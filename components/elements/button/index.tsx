@@ -16,6 +16,7 @@ const Button = ({ variant }: Props) => {
   return (
     <motion.button
       whileHover={{ scale: 1.05, backgroundColor: "#3F4043" }}
+      whileTap={{ scale: 0.95 }}
       className={`${
         variant.type === "play" ? "max-w-96 w-full" : ""
       } h-12 rounded bg-action-dark px-4`}>

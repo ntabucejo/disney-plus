@@ -21,6 +21,7 @@ const Showcase = ({ media }: Props) => {
           src={logo.image!}
           alt={media.title!}
           fill
+          priority
           className="object-contain"
         />
       </div>

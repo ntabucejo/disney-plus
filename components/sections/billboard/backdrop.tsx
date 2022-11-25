@@ -11,14 +11,19 @@ const Backdrop = ({ src }: Props) => {
   const [isDisplayed, setIsDisplayed] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const firstTimeout = setTimeout(() => {
       setIsDisplayed(false);
     }, 5000);
 
+    const secondTimeout = setTimeout(() => {
+      setIsDisplayed(true);
+    }, 60000);
+
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(firstTimeout);
+      clearTimeout(secondTimeout);
     };
-  }, [isDisplayed]);
+  }, []);
 
   return (
     <>

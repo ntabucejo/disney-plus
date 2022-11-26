@@ -11,6 +11,10 @@ type Props = {
 const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
   const [isDisplayed, setIsDisplayed] = useState(true);
 
+  const image = !src.endsWith("null")
+    ? src
+    : "/assets/images/disney-plus-backdrop.png";
+
   useEffect(() => {
     const firstTimeout = setTimeout(() => {
       if (isAlwaysDisplayed) {
@@ -36,7 +40,7 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
         <div className="absolute inset-0 bg-background-dark" />
       ) : null}
       <Image
-        src={src}
+        src={image}
         alt="Showcase"
         fill
         priority

@@ -32,7 +32,7 @@ const Showcase = async ({ media }: Props) => {
       </div>
       <div className="space-y-4">
         {/* Details */}
-        <div className="flex items-center gap-1 text-xs tablet:gap-2 tablet:text-base">
+        <div className="flex items-center gap-1 text-xs tablet:text-base">
           <p className="font-semibold">
             {media.releasedAt?.slice(0, 4)} • {humanizeRuntime(measure)} •{" "}
             {language?.en.name ? language?.en.name : "English"} •

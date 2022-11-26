@@ -40,7 +40,7 @@ const list = [
   },
   {
     id: 4,
-    href: "#",
+    href: "/movies",
     Icon: FilmIcon,
     to: "Movies",
   },

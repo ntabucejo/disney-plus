@@ -4,14 +4,19 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
 
 type Group =
-  | "popular"
-  | "top-rated"
-  | "now-playing"
-  | "upcoming"
-  | "on-the-air"
-  | "airing-today";
+  | {
+      name: "popular" | "top-rated" | "now-playing" | "upcoming";
+      type: "movies";
+      page: number;
+    }
+  | {
+      name: "popular" | "top-rated" | "on-the-air" | "airing-today";
+      type: "series";
+      page: number;
+    };
+
 type Time = "day" | "week";
-type Type = "movie" | "series";
+type Type = "movies" | "series";
 
 const api = {
   get: {
@@ -19,7 +24,7 @@ const api = {
       trending: async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/${
-            type === "movie" ? type : "tv"
+            type === "movies" ? "movie" : "tv"
           }/${time}?api_key=${TMDB_API_KEY}`,
           {
             cache: "no-store",
@@ -48,19 +53,11 @@ const api = {
           });
         return medias as Media[];
       },
-      group: async ({
-        name,
-        type,
-        page,
-      }: {
-        name: Group;
-        type: Type;
-        page: number;
-      }) => {
+      group: async ({ name, type, page }: Group) => {
         const group = name.split("-").join("_");
         const response = await fetch(
           `${TMDB_API_URL}/3/${
-            type === "movie" ? type : "tv"
+            type === "movies" ? "movie" : "tv"
           }/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
           {
             cache: "no-store",
@@ -102,7 +99,7 @@ const api = {
         return data.runtime;
       },
       video: async ({ type, id }: { type: Type; id: string }) => {
-        if (type === "movie") {
+        if (type === "movies") {
           const response = await fetch(
             `${TMDB_API_URL}/3/movie/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`,
             {
@@ -129,7 +126,7 @@ const api = {
         }
       },
       logo: async ({ type, id }: { type: Type; id: string }) => {
-        if (type === "movie") {
+        if (type === "movies") {
           const response = await fetch(
             `${TMDB_API_URL}/3/movie/${id}/images?api_key=${TMDB_API_KEY}`,
             {
@@ -155,10 +152,9 @@ const api = {
           }
         );
         const { results } = await response.json();
-        const random = Math.floor(Math.random() * results.length);
+        const random = Math.floor(Math.random() * results.length - 1) + 1;
         const medias = results.filter((media: any) => media.backdrop_path);
         const media = medias[random];
-
         return {
           id: media.id,
           title: media.title,

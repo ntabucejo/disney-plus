@@ -9,9 +9,9 @@ import api from "../../../library/api";
 const Page = async ({ params: { id } }: any) => {
   const media = await api.get.media.details({ type: "series", id });
 
-  const trendingMoviesToday = await api.get.medias.trending({
-    type: "movies",
-    time: "day",
+  const similarMedias = await api.get.medias.similar({
+    type: "series",
+    id,
   });
 
   return (
@@ -24,7 +24,7 @@ const Page = async ({ params: { id } }: any) => {
         <div className="content relative bg-background-dark">
           <Fade />
           <Explore>
-            <Collection title="More Like This" medias={trendingMoviesToday} />
+            <Collection title="More Like This" medias={similarMedias} />
           </Explore>
         </div>
       </Content>

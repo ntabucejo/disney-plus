@@ -15,7 +15,7 @@ const Collection = ({ title, medias }: Props) => {
       <div className="relative">
         <ul className="hidden grid-flow-col gap-2 tablet:-mr-[19%] tablet:grid tablet:grid-cols-[repeat(4,1fr)] tala:-mr-[15%] tala:grid-cols-[repeat(5,1fr)] laptop:-mr-[12%] laptop:grid-cols-[repeat(6,1fr)] desktop:-mr-[8%] desktop:grid-cols-[repeat(8,1fr)]">
           {medias.map((media, index) => (
-            <div
+            <li
               key={media.id}
               className={`
             ${index < 3 ? "" : "hidden"}
@@ -25,7 +25,7 @@ const Collection = ({ title, medias }: Props) => {
             ${index < 8 ? "desktop:block" : "hidden"} 
             relative`}>
               <Card media={media} />
-            </div>
+            </li>
           ))}
         </ul>
         <div className="transition-smooth group absolute inset-y-0 right-0 z-10 grid cursor-pointer items-center overflow-hidden rounded-tl rounded-bl bg-gradient-to-l from-background-dark to-transparent tablet:w-[11%] tala:w-[8.1%] laptop:w-[6.8%] desktop:w-[5.55%]">
@@ -36,9 +36,9 @@ const Collection = ({ title, medias }: Props) => {
       {/* Show on mobile */}
       <ul className="flex gap-1 overflow-x-scroll scrollbar-hide tablet:hidden">
         {medias.map((media) => (
-          <div key={media.id}>
+          <li key={media.id}>
             <Card media={media} />
-          </div>
+          </li>
         ))}
       </ul>
     </div>

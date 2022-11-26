@@ -90,13 +90,15 @@ const api = {
     media: {
       measure: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
-          `${TMDB_API_URL}/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
+          `${TMDB_API_URL}/3/${
+            type === "movies" ? "movie" : "tv"
+          }/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
           {
             cache: "no-store",
           }
         );
         const data = await response.json();
-        return data.runtime;
+        return data.runtime ? data.runtime : data.number_of_seasons;
       },
       video: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(

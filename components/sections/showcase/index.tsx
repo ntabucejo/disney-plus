@@ -45,8 +45,11 @@ const Showcase = async ({ media }: Props) => {
             {media.releasedAt?.slice(0, 4)
               ? media.releasedAt?.slice(0, 4)
               : "New"}{" "}
-            • {humanizeRuntime(measure)} •{" "}
-            {language?.en.name ? language?.en.name : "English"} •
+            •{" "}
+            {type === "movies"
+              ? humanizeRuntime(measure)
+              : `${measure} Seasons`}{" "}
+            • {language?.en.name ? language?.en.name : "English"} •
           </p>
           <div className="rounded bg-rated-dark px-2 py-0.5 font-semibold tablet:py-0">
             {media.isForAdult ? "18+" : "PG"}

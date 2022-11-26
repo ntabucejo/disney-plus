@@ -10,3 +10,7 @@
     @apply space-y-6 tablet:space-y-12;
   }
 }
+
+:root {
+  color-scheme: dark;
+}

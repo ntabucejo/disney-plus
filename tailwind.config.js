@@ -5,6 +5,7 @@ module.exports = {
     screens: {
       notebook: "480px",
       tablet: "640px",
+      tala: "860px",
       laptop: "1024px",
       desktop: "1280px",
     },

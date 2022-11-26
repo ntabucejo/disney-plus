@@ -16,7 +16,7 @@ type Group =
     };
 
 type Time = "day" | "week";
-type Type = "movies" | "series";
+type Type = "movies" | "series" | "all" | string;
 
 const api = {
   get: {
@@ -99,54 +99,56 @@ const api = {
         return data.runtime;
       },
       video: async ({ type, id }: { type: Type; id: string }) => {
-        if (type === "movies") {
-          const response = await fetch(
-            `${TMDB_API_URL}/3/movie/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`,
-            {
-              cache: "no-store",
-            }
+        const response = await fetch(
+          `${TMDB_API_URL}/3/${
+            type === "movies" ? "movie" : "tv"
+          }/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`,
+          {
+            cache: "no-store",
+          }
+        );
+        const { results } = await response.json();
+        const video = results.find((result: any) => {
+          return (
+            (result.type === "Trailer" || result.type === "Teaser") &&
+            result.official
           );
-          const { results } = await response.json();
-          const video = results.find((result: any) => {
-            return (
-              (result.type === "Trailer" || result.type === "Teaser") &&
-              result.official
-            );
-          });
-          if (!video) return null;
-          return {
-            id: video.id,
-            name: video.name,
-            key: video.key,
-            site: video.site,
-            size: video.size,
-            type: video.type,
-            isOfficial: video.official,
-          } as Video;
-        }
+        });
+        if (!video) return null;
+        return {
+          id: video.id,
+          name: video.name,
+          key: video.key,
+          site: video.site,
+          size: video.size,
+          type: video.type,
+          isOfficial: video.official,
+        } as Video;
       },
       logo: async ({ type, id }: { type: Type; id: string }) => {
-        if (type === "movies") {
-          const response = await fetch(
-            `${TMDB_API_URL}/3/movie/${id}/images?api_key=${TMDB_API_KEY}`,
-            {
-              cache: "no-store",
-            }
-          );
-          const { logos } = await response.json();
-          const logo = logos[0];
-          if (!logo) return null;
-          return {
-            aspectRatio: logo.aspect_ratio,
-            width: logo.width,
-            height: logo.height,
-            image: logo.file_path,
-          } as Logo;
-        }
-      },
-      spotlight: async () => {
         const response = await fetch(
-          `${TMDB_API_URL}/3/trending/movie/day?api_key=${TMDB_API_KEY}`,
+          `${TMDB_API_URL}/3/${
+            type === "movies" ? "movie" : "tv"
+          }/${id}/images?api_key=${TMDB_API_KEY}`,
+          {
+            cache: "no-store",
+          }
+        );
+        const { logos } = await response.json();
+        const logo = logos[0];
+        if (!logo) return null;
+        return {
+          aspectRatio: logo.aspect_ratio,
+          width: logo.width,
+          height: logo.height,
+          image: logo.file_path,
+        } as Logo;
+      },
+      spotlight: async ({ type }: { type: Type }) => {
+        const response = await fetch(
+          `${TMDB_API_URL}/3/trending/${
+            type === "movies" ? "movie" : type === "series" ? "tv" : "all"
+          }/day?api_key=${TMDB_API_KEY}`,
           {
             cache: "no-store",
           }
@@ -157,20 +159,21 @@ const api = {
         const media = medias[random];
         return {
           id: media.id,
-          title: media.title,
+          title: media.title ? media.title : media.name,
           isForAdult: media.adult,
-          type: media.media_type,
+          type: media.media_type === "movie" ? "movies" : "series",
           image: {
             poster: media.poster_path,
             backdrop: media.backdrop_path,
           },
           overview: media.overview,
-          releasedAt: media.release_date,
+          releasedAt: media.release_date
+            ? media.release_date
+            : media.first_air_date,
           language: {
             original: media.original_language,
           },
         } as Media;
-        // }
       },
     },
   },

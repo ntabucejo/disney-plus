@@ -7,7 +7,7 @@ import Content from "../../components/wrappers/content";
 import api from "../../library/api";
 
 const Page = async () => {
-  const media = await api.get.media.spotlight();
+  const media = await api.get.media.spotlight({ type: "series" });
 
   const trendingSeriesToday = await api.get.medias.trending({
     type: "series",

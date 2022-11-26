@@ -10,8 +10,10 @@ type Props = {
 };
 
 const Showcase = async ({ media }: Props) => {
-  const logo = await api.get.media.logo({ type: "movies", id: media.id });
-  const measure = await api.get.media.measure({ type: "movies", id: media.id });
+  const type = media.type! as string;
+  const id = media.id;
+  const logo = await api.get.media.logo({ type, id });
+  const measure = await api.get.media.measure({ type, id });
   const language = convertLanguage(media.language!.original!);
 
   return (

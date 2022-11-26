@@ -7,7 +7,7 @@ import api from "../library/api";
 import Collection from "../components/sections/explore/collection";
 
 const Page = async () => {
-  const media = await api.get.media.spotlight();
+  const media = await api.get.media.spotlight({ type: "all" });
 
   const trendingMoviesToday = await api.get.medias.trending({
     type: "movies",

@@ -6,15 +6,14 @@ type Props = {
 };
 
 const Card = ({ media }: Props) => {
+  const image = !media.image.poster!.endsWith("null")
+    ? media.image.poster!
+    : "/assets/images/disney-plus-poster.png";
+
   return (
     <li
       className={`relative aspect-[79/105] w-28 overflow-hidden rounded tablet:w-auto`}>
-      <Image
-        src={media.image.poster!}
-        fill
-        alt="Cover"
-        className="object-cover"
-      />
+      <Image src={image} fill alt="Cover" className="object-cover" />
     </li>
   );
 };

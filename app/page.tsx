@@ -44,7 +44,10 @@ const Page = async () => {
           <Franchise />
           <Explore>
             <Collection title="Trending Today" medias={trendingMoviesToday} />
-            <Collection title="Trending This Week" medias={trendingMoviesThisWeek} />
+            <Collection
+              title="Trending This Week"
+              medias={trendingMoviesThisWeek}
+            />
             <Collection title="Now Playing" medias={nowPlayingMovies} />
             <Collection title="Popular" medias={popularMovies} />
             <Collection title="Top Rated" medias={topRatedMovies} />

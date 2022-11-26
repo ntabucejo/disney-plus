@@ -59,10 +59,8 @@ const Navbar = () => {
     <>
       <div
         className={`${
-          isOnHovered
-            ? "fixed z-10 h-screen w-screen bg-gradient-to-r from-background-dark to-transparent"
-            : ""
-        } z-40`}
+          isOnHovered ? "opacity-100" : "opacity-0"
+        } transition-smooth pointer-events-none fixed z-40 h-screen w-screen bg-gradient-to-r from-background-dark to-transparent`}
       />
       <nav className="sticky top-0 z-50 flex h-screen flex-col">
         <div className="py-8 px-4">
@@ -79,6 +77,7 @@ const Navbar = () => {
           {list.map(({ id, href, to, Icon }) => (
             <Link
               key={id}
+              id={id}
               href={href}
               to={to}
               Icon={Icon}

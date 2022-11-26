@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 type Props = {
+  id: number;
   href: string;
   to: string;
   Icon: ComponentType<React.SVGProps<SVGSVGElement>>;
   isOnHovered: boolean;
 };
 
-const Link = ({ href, to, Icon, isOnHovered }: Props) => {
+const Link = ({ id, href, to, Icon, isOnHovered }: Props) => {
   const segment = useSelectedLayoutSegment() || "/";
   const current = href !== "#" ? href.slice(1, href.length) || "/" : "#";
   const isActive = current.startsWith(segment!) ? true : false;
@@ -23,20 +24,23 @@ const Link = ({ href, to, Icon, isOnHovered }: Props) => {
         href={href}
         className={`${
           isActive ? "opacity-100" : "opacity-fade"
-        } }group relative flex items-center p-4 hover:opacity-100`}>
+        } group relative flex items-center p-4 hover:opacity-100`}>
         <Icon
           className={`${
             isActive ? "fill-white" : ""
-          } mx-auto h-6 w-6 group-hover:fill-white group-hover:text-white`}
+          } z-30 mx-auto h-6 w-6 group-hover:fill-white group-hover:text-white`}
         />
-        {isOnHovered ? (
-          <span
-            className={`${
-              isActive ? "text-white" : ""
-            } absolute ml-16 grid h-full w-full items-center text-lg group-hover:text-white`}>
-            {to}
-          </span>
-        ) : null}
+        <div className="absolute inset-y-0 left-0 z-20 w-2/3 bg-background-dark" />
+        <span
+          style={{
+            transitionDuration: `${(id + 1) * 50}ms`,
+          }}
+          className={`
+          ${isActive ? "text-white" : ""} 
+          ${isOnHovered ? "ml-16 opacity-100" : "left-0 opacity-0"}
+           transition-smooth absolute z-10 grid h-full w-full items-center text-lg group-hover:text-white`}>
+          {to}
+        </span>
       </NextLink>
     </motion.li>
   );

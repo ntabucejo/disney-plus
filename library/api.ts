@@ -200,7 +200,7 @@ const api = {
           }
         );
         const { logos } = await response.json();
-        const logo = logos[0];
+        const logo = logos.find((logo: any) => logo.iso_639_1 === "en");
         if (!logo) return null;
         return {
           aspectRatio: logo.aspect_ratio,

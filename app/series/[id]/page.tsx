@@ -24,7 +24,7 @@ const Page = async ({ params: { id } }: any) => {
         <div className="content relative bg-background-dark">
           <Fade />
           <Explore>
-            <Collection title="More Like This" medias={similarMedias} />
+            <Collection title="More like this" medias={similarMedias} />
           </Explore>
         </div>
       </Content>

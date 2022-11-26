@@ -34,13 +34,13 @@ const list = [
   },
   {
     id: 3,
-    href: "#",
+    href: "/series",
     Icon: TvIcon,
     to: "Series",
   },
   {
     id: 4,
-    href: "#",
+    href: "/movies",
     Icon: FilmIcon,
     to: "Movies",
   },

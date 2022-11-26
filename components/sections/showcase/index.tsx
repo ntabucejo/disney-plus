@@ -10,8 +10,10 @@ type Props = {
 };
 
 const Showcase = async ({ media }: Props) => {
-  const logo = await api.get.media.logo({ type: "movie", id: media.id });
-  const measure = await api.get.media.measure({ type: "movie", id: media.id });
+  const type = media.type! as string;
+  const id = media.id;
+  const logo = await api.get.media.logo({ type, id });
+  const measure = await api.get.media.measure({ type, id });
   const language = convertLanguage(media.language!.original!);
 
   return (
@@ -43,15 +45,18 @@ const Showcase = async ({ media }: Props) => {
             {media.releasedAt?.slice(0, 4)
               ? media.releasedAt?.slice(0, 4)
               : "New"}{" "}
-            • {humanizeRuntime(measure)} •{" "}
-            {language?.en.name ? language?.en.name : "English"} •
+            •{" "}
+            {type === "movies"
+              ? humanizeRuntime(measure)
+              : `${measure} Seasons`}{" "}
+            • {language?.en.name ? language?.en.name : "English"} •
           </p>
           <div className="rounded bg-rated-dark px-2 py-0.5 font-semibold tablet:py-0">
             {media.isForAdult ? "18+" : "PG"}
           </div>
         </div>
         {/* Overview */}
-        <div className="overflow-y-auto scrollbar-none tablet:max-h-[72px]">
+        <div className="overflow-y-auto scrollbar-none tablet:max-h-12">
           <p className="text-sm tablet:text-base">{media.overview!}</p>
         </div>
       </div>

@@ -7,35 +7,63 @@ import api from "../library/api";
 import Collection from "../components/sections/explore/collection";
 
 const Page = async () => {
-  const media = await api.get.media.spotlight();
+  const media = await api.get.media.spotlight({ type: "all" });
 
+  const trendingMoviesToday = await api.get.medias.trending({
+    type: "movies",
+    time: "day",
+  });
+  const trendingMoviesThisWeek = await api.get.medias.trending({
+    type: "movies",
+    time: "week",
+  });
   const popularMovies = await api.get.medias.group({
     name: "popular",
-    type: "movie",
-    page: 2,
+    type: "movies",
+    page: 1,
   });
   const topRatedMovies = await api.get.medias.group({
     name: "top-rated",
-    type: "movie",
+    type: "movies",
     page: 1,
   });
   const nowPlayingMovies = await api.get.medias.group({
     name: "now-playing",
-    type: "movie",
+    type: "movies",
     page: 1,
   });
   const upcomingMovies = await api.get.medias.group({
     name: "upcoming",
-    type: "movie",
+    type: "movies",
     page: 1,
   });
-  const trendingMoviesToday = await api.get.medias.trending({
-    type: "movie",
+  const trendingSeriesToday = await api.get.medias.trending({
+    type: "series",
     time: "day",
   });
-  const trendingMoviesThisWeek = await api.get.medias.trending({
-    type: "movie",
+  const trendingSeriesThisWeek = await api.get.medias.trending({
+    type: "series",
     time: "week",
+  });
+  const popularSeries = await api.get.medias.group({
+    name: "popular",
+    type: "series",
+    page: 2,
+  });
+  const topRatedSeries = await api.get.medias.group({
+    name: "top-rated",
+    type: "series",
+    page: 1,
+  });
+  const onTheAirSeries = await api.get.medias.group({
+    name: "on-the-air",
+    type: "series",
+    page: 1,
+  });
+  const airingTodaySeries = await api.get.medias.group({
+    name: "airing-today",
+    type: "series",
+    page: 1,
   });
 
   return (
@@ -48,15 +76,33 @@ const Page = async () => {
         <div className="content bg-background-dark">
           <Franchise />
           <Explore>
-            <Collection title="Trending Today" medias={trendingMoviesToday} />
+            <Collection
+              title="Trending Movies Today"
+              medias={trendingMoviesToday}
+            />
             <Collection
               title="Trending This Week"
               medias={trendingMoviesThisWeek}
             />
             <Collection title="Now Playing" medias={nowPlayingMovies} />
-            <Collection title="Upcoming" medias={upcomingMovies} />
-            <Collection title="Popular" medias={popularMovies} />
-            <Collection title="Top Rated" medias={topRatedMovies} />
+            <Collection title="Upcoming Movies" medias={upcomingMovies} />
+            <Collection title="Popular Movies" medias={popularMovies} />
+            <Collection title="Top Rated Series" medias={topRatedSeries} />
+            <Collection
+              title="Trending Series Today"
+              medias={trendingSeriesToday}
+            />
+            <Collection
+              title="Trending Series This Week"
+              medias={trendingSeriesThisWeek}
+            />
+            <Collection title="Top Rated Movies" medias={topRatedMovies} />
+            <Collection title="Series On The Air" medias={onTheAirSeries} />
+            <Collection title="Popular Series" medias={popularSeries} />
+            <Collection
+              title="Airing Series Today"
+              medias={airingTodaySeries}
+            />
           </Explore>
         </div>
       </Content>

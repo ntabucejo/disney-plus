@@ -142,8 +142,9 @@ const api = {
         );
         const { results } = await response.json();
         const random = Math.floor(Math.random() * results.length);
-        const media = results[random];
-        while (true) {
+        const isStream = true;
+        while (isStream) {
+          const media = results[random];
           if (!media.backdrop_path) continue;
           return {
             id: media.id,

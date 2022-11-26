@@ -7,7 +7,7 @@ import Content from "../../components/wrappers/content";
 import api from "../../library/api";
 
 const Page = async () => {
-  const media = await api.get.media.spotlight({ type: "movies"});
+  const media = await api.get.media.spotlight({ type: "movies" });
 
   const trendingMoviesToday = await api.get.medias.trending({
     type: "movies",
@@ -48,15 +48,15 @@ const Page = async () => {
         <div className="content relative bg-background-dark">
           <Fade />
           <Explore>
-            <Collection title="Trending Today" medias={trendingMoviesToday} />
+            <Collection title="Trending today" medias={trendingMoviesToday} />
             <Collection
-              title="Trending This Week"
+              title="Trending this week"
               medias={trendingMoviesThisWeek}
             />
-            <Collection title="Now Playing" medias={nowPlayingMovies} />
+            <Collection title="Now playing" medias={nowPlayingMovies} />
             <Collection title="Upcoming" medias={upcomingMovies} />
             <Collection title="Popular" medias={popularMovies} />
-            <Collection title="Top Rated" medias={topRatedMovies} />
+            <Collection title="Top rated" medias={topRatedMovies} />
           </Explore>
         </div>
       </Content>

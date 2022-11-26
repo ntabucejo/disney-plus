@@ -48,15 +48,15 @@ const Page = async () => {
         <div className="content relative bg-background-dark">
           <Fade />
           <Explore>
-            <Collection title="Trending Today" medias={trendingSeriesToday} />
+            <Collection title="Trending today" medias={trendingSeriesToday} />
             <Collection
-              title="Trending This Week"
+              title="Trending this Week"
               medias={trendingSeriesThisWeek}
             />
             <Collection title="Popular" medias={popularSeries} />
-            <Collection title="Top Rated" medias={topRatedSeries} />
-            <Collection title="On The Air" medias={onTheAirSeries} />
-            <Collection title="Airing Today" medias={airingTodaySeries} />
+            <Collection title="Top rated" medias={topRatedSeries} />
+            <Collection title="Live now" medias={onTheAirSeries} />
+            <Collection title="New episodes" medias={airingTodaySeries} />
           </Explore>
         </div>
       </Content>

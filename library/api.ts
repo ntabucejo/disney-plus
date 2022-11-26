@@ -21,6 +21,39 @@ type Type = "movies" | "series" | "all" | string;
 const api = {
   get: {
     medias: {
+      similar: async ({ type, id }: { type: Type; id: string }) => {
+        const response = await fetch(
+          `${TMDB_API_URL}/3/${
+            type === "movies" ? "movie" : "tv"
+          }/${id}/similar?api_key=${TMDB_API_KEY}&language=en-US&page=1`,
+          {
+            cache: "no-store",
+          }
+        );
+        const { results } = await response.json();
+        const medias = results
+          .filter((media: any) => media.poster_path)
+          .map((media: any) => {
+            return {
+              id: media.id,
+              title: media.title ? media.title : media.name,
+              isForAdult: media.adult,
+              type: type === "movies" ? "movies" : "series",
+              image: {
+                poster: media.poster_path,
+                backdrop: media.backdrop_path,
+              },
+              overview: media.overview,
+              releasedAt: media.release_date
+                ? media.release_date
+                : media.first_air_date,
+              language: {
+                original: media.original_language,
+              },
+            };
+          });
+        return medias as Media[];
+      },
       trending: async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/${
@@ -38,6 +71,7 @@ const api = {
               id: media.id,
               title: media.title ? media.title : media.name,
               isForAdult: media.adult,
+              type: type === "movies" ? "movies" : "series",
               image: {
                 poster: media.poster_path,
                 backdrop: media.backdrop_path,
@@ -71,6 +105,7 @@ const api = {
               id: media.id,
               title: media.title ? media.title : media.name,
               isForAdult: media.adult,
+              type: type === "movies" ? "movies" : "series",
               image: {
                 poster: media.poster_path,
                 backdrop: media.backdrop_path,
@@ -88,6 +123,34 @@ const api = {
       },
     },
     media: {
+      details: async ({ type, id }: { type: Type; id: string }) => {
+        const response = await fetch(
+          `${TMDB_API_URL}/3/${
+            type === "movies" ? "movie" : "tv"
+          }/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
+          {
+            cache: "no-store",
+          }
+        );
+        const media = await response.json();
+        return {
+          id: media.id,
+          title: media.title ? media.title : media.name,
+          isForAdult: media.adult,
+          type: type,
+          image: {
+            poster: media.poster_path,
+            backdrop: media.backdrop_path,
+          },
+          overview: media.overview,
+          releasedAt: media.release_date
+            ? media.release_date
+            : media.first_air_date,
+          language: {
+            original: media.original_language,
+          },
+        } as Media;
+      },
       measure: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${

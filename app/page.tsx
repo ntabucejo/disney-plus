@@ -77,30 +77,30 @@ const Page = async () => {
           <Franchise />
           <Explore>
             <Collection
-              title="Trending Movies Today"
+              title="Trending movies today"
               medias={trendingMoviesToday}
             />
             <Collection
-              title="Trending This Week"
+              title="Trending this week"
               medias={trendingMoviesThisWeek}
             />
-            <Collection title="Now Playing" medias={nowPlayingMovies} />
-            <Collection title="Upcoming Movies" medias={upcomingMovies} />
-            <Collection title="Popular Movies" medias={popularMovies} />
-            <Collection title="Top Rated Series" medias={topRatedSeries} />
+            <Collection title="Now playing" medias={nowPlayingMovies} />
+            <Collection title="Upcoming movies" medias={upcomingMovies} />
+            <Collection title="Popular movies" medias={popularMovies} />
+            <Collection title="Top rated series" medias={topRatedSeries} />
             <Collection
-              title="Trending Series Today"
+              title="Trending series today"
               medias={trendingSeriesToday}
             />
             <Collection
-              title="Trending Series This Week"
+              title="Trending series this week"
               medias={trendingSeriesThisWeek}
             />
-            <Collection title="Top Rated Movies" medias={topRatedMovies} />
-            <Collection title="Series On The Air" medias={onTheAirSeries} />
-            <Collection title="Popular Series" medias={popularSeries} />
+            <Collection title="Top rated movies" medias={topRatedMovies} />
+            <Collection title="Live now" medias={onTheAirSeries} />
+            <Collection title="Popular series" medias={popularSeries} />
             <Collection
-              title="Airing Series Today"
+              title="New episodes"
               medias={airingTodaySeries}
             />
           </Explore>

@@ -24,7 +24,7 @@ const Showcase = async ({ media }: Props) => {
           style={{
             aspectRatio: logo?.aspectRatio ? logo?.aspectRatio : "1.84 / 1",
           }}
-          className="relative bottom-0 w-full tablet:absolute">
+          className="relative bottom-0 max-h-56 w-full tablet:absolute">
           <Image
             src={
               logo

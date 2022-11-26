@@ -3,7 +3,7 @@ import type { Logo, Media, Video } from "../types";
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
 
-type Group = "popular" | "top-rated" | "now-playing";
+type Group = "popular" | "top-rated" | "now-playing" | "upcoming";
 type Time = "day" | "week";
 type Type = "movie";
 

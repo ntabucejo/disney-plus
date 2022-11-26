@@ -12,17 +12,22 @@ const Page = async () => {
   const popularMovies = await api.get.medias.group({
     name: "popular",
     type: "movie",
-    page: 1,
+    page: 2,
   });
   const topRatedMovies = await api.get.medias.group({
     name: "top-rated",
     type: "movie",
-    page: 2,
+    page: 1,
   });
   const nowPlayingMovies = await api.get.medias.group({
     name: "now-playing",
     type: "movie",
-    page: 3,
+    page: 1,
+  });
+  const upcomingMovies = await api.get.medias.group({
+    name: "upcoming",
+    type: "movie",
+    page: 1,
   });
   const trendingMoviesToday = await api.get.medias.trending({
     type: "movie",
@@ -49,6 +54,7 @@ const Page = async () => {
               medias={trendingMoviesThisWeek}
             />
             <Collection title="Now Playing" medias={nowPlayingMovies} />
+            <Collection title="Upcoming" medias={upcomingMovies} />
             <Collection title="Popular" medias={popularMovies} />
             <Collection title="Top Rated" medias={topRatedMovies} />
           </Explore>

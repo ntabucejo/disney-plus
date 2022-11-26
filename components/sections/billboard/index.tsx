@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Billboard = async ({ media }: Props) => {
-  const video = await api.get.media.video({ type: "movie", id: media.id });
+  const video = await api.get.media.video({ type: "movies", id: media.id });
 
   return (
     <section className="sticky -z-10 aspect-video max-h-screen w-full overflow-hidden tablet:top-0">

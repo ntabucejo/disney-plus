@@ -152,8 +152,8 @@ const api = {
           }
         );
         const { results } = await response.json();
-        const random = Math.floor(Math.random() * results.length - 1) + 1;
         const medias = results.filter((media: any) => media.backdrop_path);
+        const random = Math.floor(Math.random() * medias.length);
         const media = medias[random];
         return {
           id: media.id,

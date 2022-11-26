@@ -21,8 +21,8 @@ const api = {
             title: media.title,
             isForAdult: media.adult,
             image: {
-              poster: `https://image.tmdb.org/t/p/w500${media.poster_path}`,
-              backdrop: `https://image.tmdb.org/t/p/w500${media.backdrop_path}`,
+              poster: media.poster_path,
+              backdrop: media.backdrop_path,
             },
             overview: media.overview,
             releasedAt: media.release_date,
@@ -53,8 +53,8 @@ const api = {
             title: media.title,
             isForAdult: media.adult,
             image: {
-              poster: `https://image.tmdb.org/t/p/w500${media.poster_path}`,
-              backdrop: `https://image.tmdb.org/t/p/w500${media.backdrop_path}`,
+              poster: media.poster_path,
+              backdrop: media.backdrop_path,
             },
             overview: media.overview,
             releasedAt: media.release_date,
@@ -105,11 +105,12 @@ const api = {
           );
           const { logos } = await response.json();
           const logo = logos[0];
+          if (!logo) return null;
           return {
             aspectRatio: logo.aspect_ratio,
             width: logo.width,
             height: logo.height,
-            image: `https://image.tmdb.org/t/p/original/${logo.file_path}`,
+            image: logo.file_path,
           } as Logo;
         }
       },
@@ -129,8 +130,8 @@ const api = {
           isForAdult: media.adult,
           type: media.media_type,
           image: {
-            poster: `https://image.tmdb.org/t/p/original${media.poster_path}`,
-            backdrop: `https://image.tmdb.org/t/p/original${media.backdrop_path}`,
+            poster: media.poster_path,
+            backdrop: media.backdrop_path,
           },
           overview: media.overview,
           releasedAt: media.release_date,

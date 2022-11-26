@@ -6,8 +6,8 @@ type Props = {
 };
 
 const Card = ({ media }: Props) => {
-  const image = !media.image.poster!.endsWith("null")
-    ? media.image.poster!
+  const image = media.image.poster!
+    ? `https://image.tmdb.org/t/p/w500${media.image.poster!}`
     : "/assets/images/disney-plus-poster.png";
 
   return (

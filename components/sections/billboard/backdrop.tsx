@@ -11,8 +11,12 @@ type Props = {
 const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
   const [isDisplayed, setIsDisplayed] = useState(true);
 
-  const image = !src.endsWith("null")
-    ? src
+  const image = src
+    ? `https://image.tmdb.org/t/p/original${src}`
+    : "/assets/images/disney-plus-backdrop.png";
+
+  const placeholder = src
+    ? `https://image.tmdb.org/t/p/w500${src}`
     : "/assets/images/disney-plus-backdrop.png";
 
   useEffect(() => {
@@ -44,6 +48,8 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
         alt="Showcase"
         fill
         priority
+        blurDataURL={placeholder}
+        placeholder="blur"
         className={`${
           isDisplayed ? "opacity-100" : "desktop:opacity-0"
         } object-cover transition-all duration-1000 ease-in`}

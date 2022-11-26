@@ -10,10 +10,8 @@ const Card = ({ media }: Props) => {
     <li
       className={`relative aspect-[79/105] w-28 overflow-hidden rounded tablet:w-auto`}>
       <Image
-        src={`https://image.tmdb.org/t/p/original${media.image.poster!}`}
+        src={`https://image.tmdb.org/t/p/w500${media.image.poster!}`}
         fill
-        blurDataURL={`https://image.tmdb.org/t/p/w500${media.image.poster!}`}
-        placeholder="blur"
         alt="Cover"
         className="object-cover"
       />

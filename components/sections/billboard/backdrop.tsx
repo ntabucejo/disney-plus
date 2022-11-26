@@ -11,6 +11,14 @@ type Props = {
 const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
   const [isDisplayed, setIsDisplayed] = useState(true);
 
+  const image = src
+    ? `https://image.tmdb.org/t/p/original${src}`
+    : "/assets/images/disney-plus-backdrop.png";
+
+  const placeholder = src
+    ? `https://image.tmdb.org/t/p/w500${src}`
+    : "/assets/images/disney-plus-backdrop.png";
+
   useEffect(() => {
     const firstTimeout = setTimeout(() => {
       if (isAlwaysDisplayed) {
@@ -36,10 +44,12 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
         <div className="absolute inset-0 bg-background-dark" />
       ) : null}
       <Image
-        src={src}
+        src={image}
         alt="Showcase"
         fill
         priority
+        blurDataURL={placeholder}
+        placeholder="blur"
         className={`${
           isDisplayed ? "opacity-100" : "desktop:opacity-0"
         } object-cover transition-all duration-1000 ease-in`}

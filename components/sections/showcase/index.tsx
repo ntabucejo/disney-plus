@@ -19,10 +19,16 @@ const Showcase = async ({ media }: Props) => {
       {/* Logo */}
       <div className="relative tablet:aspect-square">
         <div
-          style={{ aspectRatio: logo?.aspectRatio }}
+          style={{
+            aspectRatio: logo?.aspectRatio ? logo?.aspectRatio : "1.84 / 1",
+          }}
           className="relative bottom-0 w-full tablet:absolute">
           <Image
-            src={logo!.image!}
+            src={
+              logo
+                ? `https://image.tmdb.org/t/p/w500${logo!.image!}`
+                : "/assets/images/disney-plus-logo.png"
+            }
             alt={media.title!}
             fill
             priority
@@ -32,9 +38,12 @@ const Showcase = async ({ media }: Props) => {
       </div>
       <div className="space-y-4">
         {/* Details */}
-        <div className="flex items-center gap-1 text-xs tablet:gap-2 tablet:text-base">
+        <div className="flex items-center gap-1 text-xs tablet:text-base">
           <p className="font-semibold">
-            {media.releasedAt?.slice(0, 4)} • {humanizeRuntime(measure)} •{" "}
+            {media.releasedAt?.slice(0, 4)
+              ? media.releasedAt?.slice(0, 4)
+              : "New"}{" "}
+            • {humanizeRuntime(measure)} •{" "}
             {language?.en.name ? language?.en.name : "English"} •
           </p>
           <div className="rounded bg-rated-dark px-2 py-0.5 font-semibold tablet:py-0">

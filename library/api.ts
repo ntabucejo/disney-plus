@@ -142,26 +142,25 @@ const api = {
         );
         const { results } = await response.json();
         const random = Math.floor(Math.random() * results.length);
-        const isStream = true;
-        while (isStream) {
-          const media = results[random];
-          if (!media.backdrop_path) continue;
-          return {
-            id: media.id,
-            title: media.title,
-            isForAdult: media.adult,
-            type: media.media_type,
-            image: {
-              poster: media.poster_path,
-              backdrop: media.backdrop_path,
-            },
-            overview: media.overview,
-            releasedAt: media.release_date,
-            language: {
-              original: media.original_language,
-            },
-          } as Media;
-        }
+        const medias = results.filter((media: any) => media.backdrop_path);
+        const media = medias[random];
+
+        return {
+          id: media.id,
+          title: media.title,
+          isForAdult: media.adult,
+          type: media.media_type,
+          image: {
+            poster: media.poster_path,
+            backdrop: media.backdrop_path,
+          },
+          overview: media.overview,
+          releasedAt: media.release_date,
+          language: {
+            original: media.original_language,
+          },
+        } as Media;
+        // }
       },
     },
   },

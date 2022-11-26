@@ -76,24 +76,33 @@ const Page = async () => {
         <div className="content bg-background-dark">
           <Franchise />
           <Explore>
-            <Collection title="Trending Today" medias={trendingMoviesToday} />
+            <Collection
+              title="Trending Movies Today"
+              medias={trendingMoviesToday}
+            />
             <Collection
               title="Trending This Week"
               medias={trendingMoviesThisWeek}
             />
             <Collection title="Now Playing" medias={nowPlayingMovies} />
-            <Collection title="Upcoming" medias={upcomingMovies} />
-            <Collection title="Popular" medias={popularMovies} />
-            <Collection title="Top Rated" medias={topRatedMovies} />
-            <Collection title="Trending Today" medias={trendingSeriesToday} />
+            <Collection title="Upcoming Movies" medias={upcomingMovies} />
+            <Collection title="Popular Movies" medias={popularMovies} />
+            <Collection title="Top Rated Series" medias={topRatedSeries} />
             <Collection
-              title="Trending This Week"
+              title="Trending Series Today"
+              medias={trendingSeriesToday}
+            />
+            <Collection
+              title="Trending Series This Week"
               medias={trendingSeriesThisWeek}
             />
-            <Collection title="Popular" medias={popularSeries} />
-            <Collection title="Top Rated" medias={topRatedSeries} />
-            <Collection title="On The Air" medias={onTheAirSeries} />
-            <Collection title="Airing Today" medias={airingTodaySeries} />
+            <Collection title="Top Rated Movies" medias={topRatedMovies} />
+            <Collection title="Series On The Air" medias={onTheAirSeries} />
+            <Collection title="Popular Series" medias={popularSeries} />
+            <Collection
+              title="Airing Series Today"
+              medias={airingTodaySeries}
+            />
           </Explore>
         </div>
       </Content>

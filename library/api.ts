@@ -3,7 +3,7 @@ import type { Logo, Media, Video } from "../types";
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
 
-type Group = "popular" | "top-rated" | "now-playing";
+type Group = "popular" | "top-rated" | "now-playing" | "upcoming";
 type Time = "day" | "week";
 type Type = "movie";
 
@@ -12,25 +12,30 @@ const api = {
     medias: {
       trending: async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
-          `${TMDB_API_URL}/3/trending/movie/${time}?api_key=${TMDB_API_KEY}`
+          `${TMDB_API_URL}/3/trending/movie/${time}?api_key=${TMDB_API_KEY}`,
+          {
+            cache: "no-store",
+          }
         );
         const { results } = await response.json();
-        const medias = results.map((media: any) => {
-          return {
-            id: media.id,
-            title: media.title,
-            isForAdult: media.adult,
-            image: {
-              poster: media.poster_path,
-              backdrop: media.backdrop_path,
-            },
-            overview: media.overview,
-            releasedAt: media.release_date,
-            language: {
-              original: media.original_language,
-            },
-          };
-        });
+        const medias = results
+          .filter((media: any) => media.poster_path)
+          .map((media: any) => {
+            return {
+              id: media.id,
+              title: media.title,
+              isForAdult: media.adult,
+              image: {
+                poster: media.poster_path,
+                backdrop: media.backdrop_path,
+              },
+              overview: media.overview,
+              releasedAt: media.release_date,
+              language: {
+                original: media.original_language,
+              },
+            };
+          });
         return medias as Media[];
       },
       group: async ({
@@ -44,32 +49,40 @@ const api = {
       }) => {
         const group = name.split("-").join("_");
         const response = await fetch(
-          `${TMDB_API_URL}/3/movie/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`
+          `${TMDB_API_URL}/3/movie/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
+          {
+            cache: "no-store",
+          }
         );
         const { results } = await response.json();
-        const medias = results.map((media: any) => {
-          return {
-            id: media.id,
-            title: media.title,
-            isForAdult: media.adult,
-            image: {
-              poster: media.poster_path,
-              backdrop: media.backdrop_path,
-            },
-            overview: media.overview,
-            releasedAt: media.release_date,
-            language: {
-              original: media.original_language,
-            },
-          };
-        });
+        const medias = results
+          .filter((media: any) => media.poster_path)
+          .map((media: any) => {
+            return {
+              id: media.id,
+              title: media.title,
+              isForAdult: media.adult,
+              image: {
+                poster: media.poster_path,
+                backdrop: media.backdrop_path,
+              },
+              overview: media.overview,
+              releasedAt: media.release_date,
+              language: {
+                original: media.original_language,
+              },
+            };
+          });
         return medias as Media[];
       },
     },
     media: {
       measure: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
-          `${TMDB_API_URL}/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`
+          `${TMDB_API_URL}/3/movie/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
+          {
+            cache: "no-store",
+          }
         );
         const data = await response.json();
         return data.runtime;
@@ -77,7 +90,10 @@ const api = {
       video: async ({ type, id }: { type: Type; id: string }) => {
         if (type === "movie") {
           const response = await fetch(
-            `${TMDB_API_URL}/3/movie/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`
+            `${TMDB_API_URL}/3/movie/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`,
+            {
+              cache: "no-store",
+            }
           );
           const { results } = await response.json();
           const video = results.find((result: any) => {
@@ -101,7 +117,10 @@ const api = {
       logo: async ({ type, id }: { type: Type; id: string }) => {
         if (type === "movie") {
           const response = await fetch(
-            `${TMDB_API_URL}/3/movie/${id}/images?api_key=${TMDB_API_KEY}`
+            `${TMDB_API_URL}/3/movie/${id}/images?api_key=${TMDB_API_KEY}`,
+            {
+              cache: "no-store",
+            }
           );
           const { logos } = await response.json();
           const logo = logos[0];
@@ -123,7 +142,9 @@ const api = {
         );
         const { results } = await response.json();
         const random = Math.floor(Math.random() * results.length);
-        const media = results[random];
+        const medias = results.filter((media: any) => media.backdrop_path);
+        const media = medias[random];
+
         return {
           id: media.id,
           title: media.title,
@@ -139,6 +160,7 @@ const api = {
             original: media.original_language,
           },
         } as Media;
+        // }
       },
     },
   },

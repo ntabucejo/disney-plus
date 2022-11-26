@@ -13,8 +13,9 @@ type Props = {
 };
 
 const Link = ({ href, to, Icon, isOnHovered }: Props) => {
-  const segment = useSelectedLayoutSegment();
-  const isActive = href === "/" ? true : href === segment ? true : false;
+  const segment = useSelectedLayoutSegment() || "/";
+  const current = href !== "#" ? href.slice(1, href.length) || "/" : "#";
+  const isActive = current.startsWith(segment!) ? true : false;
 
   return (
     <motion.li whileHover={{ scale: 1.1, x: "5px" }}>

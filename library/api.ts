@@ -3,16 +3,24 @@ import type { Logo, Media, Video } from "../types";
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
 
-type Group = "popular" | "top-rated" | "now-playing" | "upcoming";
+type Group =
+  | "popular"
+  | "top-rated"
+  | "now-playing"
+  | "upcoming"
+  | "on-the-air"
+  | "airing-today";
 type Time = "day" | "week";
-type Type = "movie";
+type Type = "movie" | "series";
 
 const api = {
   get: {
     medias: {
       trending: async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
-          `${TMDB_API_URL}/3/trending/movie/${time}?api_key=${TMDB_API_KEY}`,
+          `${TMDB_API_URL}/3/trending/${
+            type === "movie" ? type : "tv"
+          }/${time}?api_key=${TMDB_API_KEY}`,
           {
             cache: "no-store",
           }
@@ -23,14 +31,16 @@ const api = {
           .map((media: any) => {
             return {
               id: media.id,
-              title: media.title,
+              title: media.title ? media.title : media.name,
               isForAdult: media.adult,
               image: {
                 poster: media.poster_path,
                 backdrop: media.backdrop_path,
               },
               overview: media.overview,
-              releasedAt: media.release_date,
+              releasedAt: media.release_date
+                ? media.release_date
+                : media.first_air_date,
               language: {
                 original: media.original_language,
               },
@@ -49,7 +59,9 @@ const api = {
       }) => {
         const group = name.split("-").join("_");
         const response = await fetch(
-          `${TMDB_API_URL}/3/movie/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
+          `${TMDB_API_URL}/3/${
+            type === "movie" ? type : "tv"
+          }/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
           {
             cache: "no-store",
           }
@@ -60,14 +72,16 @@ const api = {
           .map((media: any) => {
             return {
               id: media.id,
-              title: media.title,
+              title: media.title ? media.title : media.name,
               isForAdult: media.adult,
               image: {
                 poster: media.poster_path,
                 backdrop: media.backdrop_path,
               },
               overview: media.overview,
-              releasedAt: media.release_date,
+              releasedAt: media.release_date
+                ? media.release_date
+                : media.first_air_date,
               language: {
                 original: media.original_language,
               },

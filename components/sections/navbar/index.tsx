@@ -34,7 +34,7 @@ const list = [
   },
   {
     id: 3,
-    href: "#",
+    href: "/series",
     Icon: TvIcon,
     to: "Series",
   },

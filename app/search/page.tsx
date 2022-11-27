@@ -18,7 +18,7 @@ const Page = async () => {
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
   return (
-    <Browse title="Popular searches">
+    <Browse>
       {popularMedias.map((media: any) => (
         // @ts-ignore
         <Card media={media} />

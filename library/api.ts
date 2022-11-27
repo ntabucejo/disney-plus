@@ -30,13 +30,13 @@ const api = {
         );
         const { results } = await responseMovies.json();
         const medias = results
-          .filter(
-            (media: any) =>
-              (media.poster_path &&
-                media.backdrop_path &&
-                media.media_type === "movie") ||
-              media.media_type === "tv"
-          )
+          .filter((media: any) => {
+            if (media.poster_path && media.backdrop_path) {
+              if (media.media_type === "movie" || media.media_type === "tv") {
+                return true;
+              }
+            }
+          })
           .map((media: any) => {
             return {
               id: media.id,

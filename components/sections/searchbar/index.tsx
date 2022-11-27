@@ -15,17 +15,19 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="flex items-center gap-4 rounded bg-card-dark px-5 py-3">
-      <MagnifyingGlassIcon className="h-6 w-6" />
-      <input
-        type="text"
-        placeholder="Search Movies and Series"
-        value={query}
-        onKeyDown={handleSendQuery}
-        onChange={(event) => setQuery(event.target.value)}
-        className="h-full w-full bg-transparent focus:outline-none"
-      />
-    </div>
+    <section>
+      <div className="flex items-center gap-4 rounded bg-card-dark px-5 py-3">
+        <MagnifyingGlassIcon className="h-6 w-6" />
+        <input
+          type="text"
+          placeholder="Search Movies and Series"
+          value={query}
+          onKeyDown={handleSendQuery}
+          onChange={(event) => setQuery(event.target.value)}
+          className="h-full w-full bg-transparent focus:outline-none"
+        />
+      </div>
+    </section>
   );
 };
 

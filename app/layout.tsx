@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { ReactNode } from "react";
 import { Inter } from "@next/font/google";
 import Sidebar from "../components/sections/sidebar";
+import Bottombar from "../components/sections/bottombar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ const Layout = ({ children }: Props) => {
           <main className="min-h-screen overflow-hidden tablet:overflow-visible">
             {children}
           </main>
-          <div></div>
+          <Bottombar />
         </div>
       </body>
     </html>

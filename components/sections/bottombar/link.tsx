@@ -13,13 +13,15 @@ const Link = ({ href, Icon }: Props) => {
   const isActive = useActiveSegment(href);
 
   return (
-    <NextLink href={href}>
-      <Icon
-        className={`${
-          isActive ? "fill-typography-light opacity-100" : "opacity-fade"
-        } h-6 w-6`}
-      />
-    </NextLink>
+    <li>
+      <NextLink href={href} aria-label="This is a link">
+        <Icon
+          className={`${
+            isActive ? "fill-typography-light opacity-100" : "opacity-fade"
+          } h-6 w-6`}
+        />
+      </NextLink>
+    </li>
   );
 };
 

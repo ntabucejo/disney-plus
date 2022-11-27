@@ -17,6 +17,7 @@ const Button = ({ variant, isInverted }: Props) => {
   return (
     <motion.button
       whileTap={{ scale: 0.95 }}
+      aria-label={variant.name}
       className={`
         ${variant.type === "watch" ? "max-w-96 w-full" : ""} 
         ${

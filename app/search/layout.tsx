@@ -8,7 +8,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="transition-smooth space-y-4 pt-4 tablet:pr-6 tablet:pt-6">
+    <div className="transition-smooth space-y-4 pt-4 tablet:pr-6 tablet:pt-8">
       <Content variant="secondary">
         <Searchbar />
         {children}

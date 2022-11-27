@@ -2,7 +2,6 @@ import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
 import Explore from "../../components/sections/explore";
 import Collection from "../../components/sections/explore/collection";
-import Franchise from "../../components/sections/franchise";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
 import api from "../../library/api";

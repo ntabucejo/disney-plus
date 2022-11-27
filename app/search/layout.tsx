@@ -8,7 +8,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <Content variant="secondary">
+    <Content variant="tertiary">
       <Searchbar />
       {children}
     </Content>

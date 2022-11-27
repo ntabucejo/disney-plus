@@ -46,7 +46,7 @@ const Collection = ({ title, medias }: Props) => {
         setCollection(medias.slice(0, 4));
       }
     }
-  }, [width]);
+  }, [width, isOnOrigin, medias]);
 
   return (
     <div className="space-y-3 tablet:space-y-4">

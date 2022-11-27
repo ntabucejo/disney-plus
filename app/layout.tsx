@@ -20,12 +20,9 @@ const Layout = ({ children }: Props) => {
           <aside className="hidden tablet:block">
             <Navbar />
           </aside>
-          <div>
-            <main className="min-h-screen overflow-hidden tablet:overflow-visible">
-              {children}
-            </main>
-            <footer className="mt-12"></footer>
-          </div>
+          <main className="min-h-screen overflow-hidden tablet:overflow-visible">
+            {children}
+          </main>
         </div>
       </body>
     </html>

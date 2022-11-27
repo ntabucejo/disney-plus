@@ -14,7 +14,7 @@ const Link = ({ href, Icon }: Props) => {
 
   return (
     <li>
-      <NextLink href={href}>
+      <NextLink href={href} aria-label="This is a link">
         <Icon
           className={`${
             isActive ? "fill-typography-light opacity-100" : "opacity-fade"

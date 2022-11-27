@@ -1,5 +1,6 @@
 import Browse from "../../components/sections/browse";
 import Card from "../../components/sections/browse/card";
+import Content from "../../components/wrappers/content";
 import api from "../../library/api";
 import type { Media } from "../../types";
 
@@ -18,12 +19,14 @@ const Page = async () => {
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
   return (
-    <Browse>
-      {popularMedias.map((media: any) => (
-        // @ts-ignore
-        <Card key={media.id} media={media} />
-      ))}
-    </Browse>
+    <Content variant="secondary">
+      <Browse>
+        {popularMedias.map((media: any) => (
+          // @ts-ignore
+          <Card key={media.id} media={media} />
+        ))}
+      </Browse>
+    </Content>
   );
 };
 

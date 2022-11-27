@@ -9,7 +9,6 @@ const Head = () => {
         content="Disney+ clone with Nextjs and Talwindcss by Nikko Abucejo"
       />
       <meta property="og:image" content="/assets/images/og.png" />
-      <meta name="robots" content="noindex"/>
     </>
   );
 };

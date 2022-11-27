@@ -8,10 +8,10 @@ const Page = async ({ params: { query } }: any) => {
   });
 
   return (
-    <Browse>
+    <Browse isOnQuery={true}>
       {medias.map((media: any) => (
         // @ts-ignore
-        <Card key={media.id} media={media} />
+        <Card key={media.id} media={media} isOnQuery={true} />
       ))}
     </Browse>
   );

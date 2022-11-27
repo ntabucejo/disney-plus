@@ -18,10 +18,10 @@ const Page = async () => {
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
   return (
-    <Browse>
+    <Browse isOnQuery={false}>
       {popularMedias.map((media: any) => (
         // @ts-ignore
-        <Card key={media.id} media={media} />
+        <Card key={media.id} media={media} isOnQuery={false} />
       ))}
     </Browse>
   );

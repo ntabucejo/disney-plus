@@ -6,37 +6,37 @@ const Franchise = () => {
   const list = [
     {
       id: 1,
-      name: "Disney",
+      name: "disney",
       image: "disney-logo",
       video: "disney-opening",
     },
     {
       id: 2,
-      name: "Pixar",
+      name: "pixar",
       image: "pixar-logo",
       video: "pixar-opening",
     },
     {
       id: 3,
-      name: "Marvel",
+      name: "marvel",
       image: "marvel-logo",
       video: "marvel-opening",
     },
     {
       id: 4,
-      name: "Starwars",
+      name: "starwars",
       image: "starwars-logo",
       video: "starwars-opening",
     },
     {
       id: 5,
-      name: "National Geographic",
+      name: "national-geographic",
       image: "national-geographic-logo",
       video: "national-geographic-opening",
     },
     {
       id: 6,
-      name: "Star",
+      name: "star",
       image: "star-logo",
       video: "star-opening",
     },

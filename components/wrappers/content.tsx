@@ -14,9 +14,11 @@ const Content = ({ children, variant }: Props) => {
         "-mt-[100px] tablet:-mt-[500px] laptop:-mt-[650px] desktop:-mt-[800px] content";
       break;
     case "secondary":
-      style = "pt-4 tablet:pr-6 tablet:pt-8 space-y-4 tablet:space-y-8";
+      style =
+        "-mt-[400px] tablet:-mt-[800px] laptop:-mt-[950px] desktop:-mt-[1100px] content";
       break;
     case "tertiary":
+      style = "pt-4 tablet:pr-6 tablet:pt-8 space-y-4 tablet:space-y-8";
       break;
   }
 

@@ -22,9 +22,10 @@ const Link = ({ id, href, to, Icon, isOnHovered }: Props) => {
     <motion.li whileHover={{ scale: 1.1, x: "5px" }}>
       <NextLink
         href={href}
-        className={`${
-          isActive ? "opacity-100" : "opacity-fade"
-        } group relative flex items-center p-4 hover:opacity-100`}>
+        className={`
+          ${isActive ? "opacity-100" : "opacity-fade"}
+          ${href === "#" ? "cursor-not-allowed" : ""} 
+         group relative flex items-center p-4 hover:opacity-100`}>
         <Icon
           className={`${
             isActive ? "fill-white" : ""

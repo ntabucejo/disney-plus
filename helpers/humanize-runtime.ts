@@ -1,4 +1,5 @@
 const humanizeRuntime = (amount: number) => {
+  if (!amount) return "Unknown";
   if (amount < 60) {
     return `0h ${amount}m`;
   }

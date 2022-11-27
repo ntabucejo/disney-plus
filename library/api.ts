@@ -21,6 +21,43 @@ type Type = "movies" | "series" | "all" | string;
 const api = {
   get: {
     medias: {
+      search: async ({ query }: { query: string }) => {
+        const responseMovies = await fetch(
+          `${TMDB_API_URL}/3/search/multi?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
+          {
+            cache: "no-store",
+          }
+        );
+        const { results } = await responseMovies.json();
+        const medias = results
+          .filter((media: any) => {
+            if (media.poster_path && media.backdrop_path) {
+              if (media.media_type === "movie" || media.media_type === "tv") {
+                return true;
+              }
+            }
+          })
+          .map((media: any) => {
+            return {
+              id: media.id,
+              title: media.title ? media.title : media.name,
+              isForAdult: media.adult,
+              type: media.media_type === "movie" ? "movies" : "series",
+              image: {
+                poster: media.poster_path,
+                backdrop: media.backdrop_path,
+              },
+              overview: media.overview,
+              releasedAt: media.release_date
+                ? media.release_date
+                : media.first_air_date,
+              language: {
+                original: media.original_language,
+              },
+            };
+          });
+        return medias as Media[];
+      },
       similar: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${
@@ -32,7 +69,7 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path)
+          .filter((media: any) => media.poster_path && media.backdrop_path)
           .map((media: any) => {
             return {
               id: media.id,
@@ -65,7 +102,7 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path)
+          .filter((media: any) => media.poster_path && media.backdrop_path)
           .map((media: any) => {
             return {
               id: media.id,
@@ -99,7 +136,7 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path)
+          .filter((media: any) => media.poster_path && media.backdrop_path)
           .map((media: any) => {
             return {
               id: media.id,

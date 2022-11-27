@@ -52,7 +52,7 @@ const list = [
   },
 ];
 
-const Navbar = () => {
+const Sidebar = () => {
   const [isOnHovered, setIsOnHovered] = useState(false);
 
   return (
@@ -90,4 +90,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Sidebar;

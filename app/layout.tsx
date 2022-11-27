@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { ReactNode } from "react";
 import { Inter } from "@next/font/google";
-import Navbar from "../components/sections/navbar";
+import Sidebar from "../components/sections/sidebar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,11 +18,12 @@ const Layout = ({ children }: Props) => {
       <body className={inter.className}>
         <div className="grid tablet:grid-cols-[auto,1fr]">
           <aside className="hidden tablet:block">
-            <Navbar />
+            <Sidebar />
           </aside>
           <main className="min-h-screen overflow-hidden tablet:overflow-visible">
             {children}
           </main>
+          <div></div>
         </div>
       </body>
     </html>

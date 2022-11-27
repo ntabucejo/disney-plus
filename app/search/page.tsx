@@ -1,5 +1,7 @@
 import Browse from "../../components/sections/browse";
 import Card from "../../components/sections/browse/card";
+import Explore from "../../components/sections/explore";
+import Collection from "../../components/sections/explore/collection";
 import api from "../../library/api";
 import type { Media } from "../../types";
 
@@ -17,13 +19,24 @@ const Page = async () => {
 
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
+  const popularSearch = await api.get.medias.group({
+    name: "top-rated",
+    type: "movies",
+    page: Math.floor(Math.random() * 20) + 5,
+  });
+
   return (
-    <Browse>
-      {popularMedias.map((media: any) => (
-        // @ts-ignore
-        <Card key={media.id} media={media} />
-      ))}
-    </Browse>
+    <div className="content">
+      <Explore>
+        <Collection title="Popular search" medias={popularSearch} />
+      </Explore>
+      <Browse title="Best search" isOnQuery={false}>
+        {popularMedias.map((media: any) => (
+          // @ts-ignore
+          <Card key={media.id} media={media} isOnQuery={false} />
+        ))}
+      </Browse>
+    </div>
   );
 };
 

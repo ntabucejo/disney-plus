@@ -25,7 +25,7 @@ const Card = async ({ media }: Props) => {
           />
           <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
         </div>
-        <div className="pb-2 pr-4">
+        <div className="relative z-10 -mt-6 px-4 pb-2">
           <p className="font-semibold">{media.title}</p>
           <small>
             <p className="font-semibold">

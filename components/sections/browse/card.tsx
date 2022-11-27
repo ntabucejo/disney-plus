@@ -62,17 +62,17 @@ const Card = async ({ media, isOnQuery }: Props) => {
           />
         </div>
         <div className="relative z-10 pr-4 pb-2">
-          <p className="font-semibold">{media.title}</p>
-          <small>
-            <p className="font-semibold text-gray-500">
-              {media.releasedAt?.slice(0, 4)
-                ? media.releasedAt?.slice(0, 4)
-                : "New"}{" "}
-              •{" "}
-              {type === "movies"
-                ? humanizeRuntime(measure)
-                : `${measure} Seasons`}
-            </p>
+          <p className="text-xs font-semibold tablet:text-base">
+            {media.title}
+          </p>
+          <small className="font-semibold text-gray-500">
+            {media.releasedAt?.slice(0, 4)
+              ? media.releasedAt?.slice(0, 4)
+              : "New"}{" "}
+            •{" "}
+            {type === "movies"
+              ? humanizeRuntime(measure)
+              : `${measure} Seasons`}
           </small>
         </div>
       </Link>

@@ -4,6 +4,7 @@ import NextLink from "next/link";
 import { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { useSelectedLayoutSegment } from "next/navigation";
+import useActiveSegment from "../../../hooks/use-active-segment";
 
 type Props = {
   id: number;
@@ -14,9 +15,7 @@ type Props = {
 };
 
 const Link = ({ id, href, to, Icon, isOnHovered }: Props) => {
-  const segment = useSelectedLayoutSegment() || "/";
-  const current = href !== "#" ? href.slice(1, href.length) || "/" : "#";
-  const isActive = current.startsWith(segment!) ? true : false;
+  const isActive = useActiveSegment(href);
 
   return (
     <motion.li whileHover={{ scale: 1.1, x: "5px" }}>

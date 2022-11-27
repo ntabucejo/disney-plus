@@ -32,7 +32,7 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path)
+          .filter((media: any) => media.poster_path && media.backdrop_path)
           .map((media: any) => {
             return {
               id: media.id,
@@ -65,7 +65,7 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path)
+          .filter((media: any) => media.poster_path && media.backdrop_path)
           .map((media: any) => {
             return {
               id: media.id,
@@ -99,7 +99,7 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path)
+          .filter((media: any) => media.poster_path && media.backdrop_path)
           .map((media: any) => {
             return {
               id: media.id,

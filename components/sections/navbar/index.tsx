@@ -46,7 +46,7 @@ const list = [
   },
   {
     id: 5,
-    href: "#",
+    href: "/originals",
     Icon: SparklesIcon,
     to: "Originals",
   },

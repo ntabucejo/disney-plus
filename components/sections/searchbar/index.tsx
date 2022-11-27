@@ -9,9 +9,7 @@ const Searchbar = () => {
   const router = useRouter();
 
   const handleSendQuery = (event: KeyboardEvent<HTMLDivElement>) => {
-    console.log("hello");
     if (query && event.code === "Enter") {
-      console.log("Enterd");
       router.push(`/search/${query}`);
     }
   };

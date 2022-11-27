@@ -23,7 +23,7 @@ const Searchbar = () => {
   }, []);
 
   return (
-    <form>
+    <form className="tablet:pr-6">
       <div className="flex items-center gap-4 rounded bg-card-dark px-5 py-3">
         <MagnifyingGlassIcon className="h-6 w-6" />
         <input

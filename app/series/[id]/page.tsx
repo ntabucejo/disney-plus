@@ -1,5 +1,7 @@
 import Fade from "../../../components/elements/fade";
 import Billboard from "../../../components/sections/billboard";
+import Browse from "../../../components/sections/browse";
+import Card from "../../../components/sections/browse/card";
 import Explore from "../../../components/sections/explore";
 import Collection from "../../../components/sections/explore/collection";
 import Showcase from "../../../components/sections/showcase";
@@ -12,6 +14,11 @@ const Page = async ({ params: { id } }: any) => {
   const similarMedias = await api.get.medias.similar({
     type: "series",
     id,
+  });
+  const popularSeries = await api.get.medias.group({
+    name: "popular",
+    type: "series",
+    page: 2,
   });
 
   return (
@@ -26,6 +33,12 @@ const Page = async ({ params: { id } }: any) => {
           <Explore>
             <Collection title="More like this" medias={similarMedias} />
           </Explore>
+          <Browse title="Popular series" isOnQuery={false}>
+            {popularSeries.map((media: any) => (
+              // @ts-ignore
+              <Card key={media.id} media={media} isOnQuery={false} />
+            ))}
+          </Browse>
         </div>
       </Content>
     </>

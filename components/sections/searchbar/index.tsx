@@ -12,7 +12,7 @@ const Searchbar = () => {
   const handleSendQuery = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (query) {
-      router.push(`/search/${query}`);
+      router.push(`/search/${query.split(" ").join("-")}`);
       setQuery("");
     }
   };

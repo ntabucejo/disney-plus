@@ -22,7 +22,7 @@ const list = [
   },
   {
     id: 1,
-    href: "#",
+    href: "/search",
     Icon: MagnifyingGlassIcon,
     to: "Search",
   },

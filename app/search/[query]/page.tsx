@@ -9,7 +9,7 @@ const Page = async ({ params: { query } }: any) => {
     query,
   });
   const youMightAlsoWant = await api.get.medias.group({
-    name: "popular",
+    name: "now-playing",
     type: "movies",
     page: Math.floor(Math.random() * 20) + 5,
   });

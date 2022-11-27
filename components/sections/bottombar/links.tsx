@@ -15,11 +15,11 @@ const Links = ({ children }: Props) => {
         </li>
         <MinusSmallIcon className="w-4 rotate-90" />
         <li>
-          <Link href="/movies">Series</Link>
+          <Link href="/series">Series</Link>
         </li>
         <MinusSmallIcon className="w-4 rotate-90" />
         <li>
-          <Link href="/movies">Originals</Link>
+          <Link href="/originals">Originals</Link>
         </li>
       </ul>
       <ul className="rounded-t4 flex items-center justify-evenly gap-4 rounded-tl bg-black/80 p-4 backdrop-blur">

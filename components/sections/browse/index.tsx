@@ -10,7 +10,7 @@ const Browse = ({ children, isOnQuery }: Props) => {
     return (
       <section>
         {/* Show on tablet */}
-        <ul className="hidden gap-2 tablet:grid tablet:grid-cols-[repeat(4,1fr)] tala:grid-cols-[repeat(5,1fr)] laptop:grid-cols-[repeat(6,1fr)] desktop:grid-cols-[repeat(8,1fr)]">
+        <ul className="hidden gap-2 tablet:grid tablet:grid-cols-[repeat(3,1fr)] tala:grid-cols-[repeat(4,1fr)] laptop:grid-cols-[repeat(5,1fr)] desktop:grid-cols-[repeat(7,1fr)]">
           {children}
         </ul>
         {/* Show on mobile */}

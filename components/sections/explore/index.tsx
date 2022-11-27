@@ -6,7 +6,7 @@ type Props = {
 
 const Explore = ({ children }: Props) => {
   return (
-    <section className="relative bg-background-dark pb-12 overflow-x-hidden">
+    <section className="relative bg-background-dark overflow-x-hidden">
       <div className="space-y-6 tablet:space-y-12">{children}</div>
     </section>
   );

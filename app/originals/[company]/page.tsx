@@ -170,21 +170,19 @@ const Page = async ({ params: { company } }: any) => {
   return (
     <>
       <Cover company={company} />
-      <div className="">
-        <Content variant="secondary">
-          <div className="content">
-            <Explore>
-              {collections.map((collection) => (
-                <Collection
-                  key={collection.id}
-                  title={collection.title}
-                  medias={collection.medias}
-                />
-              ))}
-            </Explore>
-          </div>
-        </Content>
-      </div>
+      <Content variant="secondary">
+        <div className="content">
+          <Explore>
+            {collections.map((collection) => (
+              <Collection
+                key={collection.id}
+                title={collection.title}
+                medias={collection.medias}
+              />
+            ))}
+          </Explore>
+        </div>
+      </Content>
     </>
   );
 };

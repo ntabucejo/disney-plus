@@ -13,8 +13,6 @@ const Card = async ({ media }: Props) => {
   const id = media.id;
   const measure = await api.get.media.measure({ type, id });
 
-  console.log({ type, id, measure });
-
   return (
     <li className="space-y-2">
       <Link href={`/${media.type}/${media.id}`}>
@@ -27,7 +25,7 @@ const Card = async ({ media }: Props) => {
           />
           <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
         </div>
-        <div className="px-4 pb-2">
+        <div className="pb-2 pr-4">
           <p className="font-semibold">{media.title}</p>
           <small>
             <p className="font-semibold">

@@ -7,9 +7,10 @@ import humanizeRuntime from "../../../helpers/humanize-runtime";
 
 type Props = {
   media: Media;
+  isMediaSelected: boolean;
 };
 
-const Showcase = async ({ media }: Props) => {
+const Showcase = async ({ media, isMediaSelected }: Props) => {
   const type = media.type! as string;
   const id = media.id;
   const logo = await api.get.media.logo({ type, id });
@@ -62,8 +63,14 @@ const Showcase = async ({ media }: Props) => {
       </div>
       {/* Actions */}
       <div className="flex gap-4">
-        <Button variant={{ name: "primary", type: "play" }} />
-        <Button variant={{ name: "primary", type: "save" }} />
+        <Button
+          variant={{ name: "primary", type: "play" }}
+          isInverted={isMediaSelected}
+        />
+        <Button
+          variant={{ name: "primary", type: "save" }}
+          isInverted={false}
+        />
       </div>
     </section>
   );

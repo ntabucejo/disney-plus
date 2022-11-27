@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 
 type Props = {
   variant:
-    | { name: "primary"; type: "play" | "save" }
+    | { name: "primary"; type: "watch" | "save" }
     | { name: "secondary"; children: ReactNode };
   isInverted: boolean;
 };
@@ -18,7 +18,7 @@ const Button = ({ variant, isInverted }: Props) => {
     <motion.button
       whileTap={{ scale: 0.95 }}
       className={`
-        ${variant.type === "play" ? "max-w-96 w-full" : ""} 
+        ${variant.type === "watch" ? "max-w-96 w-full" : ""} 
         ${
           isInverted
             ? "bg-typography-light text-action-dark hover:bg-typography-light/fade"
@@ -26,7 +26,7 @@ const Button = ({ variant, isInverted }: Props) => {
         }
       transition-smooth h-12 rounded px-4 transition-colors`}>
       <div className="mx-auto flex w-min items-center gap-2">
-        {variant.type === "play" ? (
+        {variant.type === "watch" ? (
           <>
             <PlayIcon
               className={`${

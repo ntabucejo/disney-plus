@@ -64,7 +64,7 @@ const Showcase = async ({ media, isMediaSelected }: Props) => {
       {/* Actions */}
       <div className="flex gap-4">
         <Button
-          variant={{ name: "primary", type: "play" }}
+          variant={{ name: "primary", type: "watch" }}
           isInverted={isMediaSelected}
         />
         <Button

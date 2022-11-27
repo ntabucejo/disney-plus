@@ -21,6 +21,66 @@ type Type = "movies" | "series" | "all" | string;
 const api = {
   get: {
     medias: {
+      search: async ({ query }: { query: string }) => {
+        const responseMovies = await fetch(
+          `${TMDB_API_URL}/3/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
+          {
+            cache: "no-store",
+          }
+        );
+        const { results: resultMovies } = await responseMovies.json();
+        const movies = resultMovies
+          .filter((media: any) => media.poster_path && media.backdrop_path)
+          .map((media: any) => {
+            return {
+              id: media.id,
+              title: media.title ? media.title : media.name,
+              isForAdult: media.adult,
+              type: "movies",
+              image: {
+                poster: media.poster_path,
+                backdrop: media.backdrop_path,
+              },
+              overview: media.overview,
+              releasedAt: media.release_date
+                ? media.release_date
+                : media.first_air_date,
+              language: {
+                original: media.original_language,
+              },
+            };
+          });
+        const responseSeries = await fetch(
+          `${TMDB_API_URL}/3/search/tv?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
+          {
+            cache: "no-store",
+          }
+        );
+        const { results: resultSeries } = await responseSeries.json();
+        const series = resultSeries
+          .filter((media: any) => media.poster_path && media.backdrop_path)
+          .map((media: any) => {
+            return {
+              id: media.id,
+              title: media.title ? media.title : media.name,
+              isForAdult: media.adult,
+              type: "series",
+              image: {
+                poster: media.poster_path,
+                backdrop: media.backdrop_path,
+              },
+              overview: media.overview,
+              releasedAt: media.release_date
+                ? media.release_date
+                : media.first_air_date,
+              language: {
+                original: media.original_language,
+              },
+            };
+          });
+        const medias = [...movies, ...series];
+        return medias as Media[];
+      },
       similar: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${

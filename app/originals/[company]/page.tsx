@@ -1,11 +1,9 @@
-import Billboard from "../../../components/sections/billboard";
 import Content from "../../../components/wrappers/content";
 import Explore from "../../../components/sections/explore";
 import api from "../../../library/api";
 import Collection from "../../../components/sections/explore/collection";
-import Fade from "../../../components/elements/fade";
-import Showcase from "../../../components/sections/showcase";
 import type { Media } from "../../../types";
+import Cover from "../../../components/sections/cover";
 
 const Page = async ({ params: { company } }: any) => {
   let collections: {
@@ -169,32 +167,24 @@ const Page = async ({ params: { company } }: any) => {
       break;
   }
 
-  const showcaseMedias = await api.get.medias.search({
-    query: company,
-  });
-
   return (
     <>
-      {/* @ts-ignore */}
-      <Billboard media={showcaseMedias[0]} />
-      <Content variant="secondary">
-        <div className="opacity-0">
-          {/* @ts-ignore */}
-          <Showcase media={showcaseMedias[0]} isMediaSelected={false} />
-        </div>
-        <div className="content relative bg-background-dark">
-          <Fade />
-          <Explore>
-            {collections.map((collection) => (
-              <Collection
-                key={collection.id}
-                title={collection.title}
-                medias={collection.medias}
-              />
-            ))}
-          </Explore>
-        </div>
-      </Content>
+      <Cover company={company} />
+      <div className="">
+        <Content variant="secondary">
+          <div className="content">
+            <Explore>
+              {collections.map((collection) => (
+                <Collection
+                  key={collection.id}
+                  title={collection.title}
+                  medias={collection.medias}
+                />
+              ))}
+            </Explore>
+          </div>
+        </Content>
+      </div>
     </>
   );
 };

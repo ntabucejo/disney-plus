@@ -11,7 +11,7 @@ const Page = async ({ params: { query } }: any) => {
     <Browse>
       {medias.map((media: any) => (
         // @ts-ignore
-        <Card media={media} />
+        <Card key={media.id} media={media} />
       ))}
     </Browse>
   );

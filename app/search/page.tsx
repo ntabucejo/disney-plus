@@ -21,7 +21,7 @@ const Page = async () => {
     <Browse>
       {popularMedias.map((media: any) => (
         // @ts-ignore
-        <Card media={media} />
+        <Card key={media.id} media={media} />
       ))}
     </Browse>
   );

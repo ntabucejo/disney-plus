@@ -16,7 +16,7 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
       if (isAlwaysDisplayed) {
         setIsDisplayed(false);
       }
-    }, 5000);
+    }, 10000);
 
     const secondTimeout = setTimeout(() => {
       if (isAlwaysDisplayed) {

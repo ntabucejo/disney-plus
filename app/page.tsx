@@ -72,7 +72,7 @@ const Page = async () => {
       <Billboard media={media} />
       <Content variant="primary">
         {/* @ts-ignore */}
-        <Showcase media={media} />
+        <Showcase media={media} isMediaSelected={false} />
         <div className="content bg-background-dark">
           <Franchise />
           <Explore>
@@ -99,10 +99,7 @@ const Page = async () => {
             <Collection title="Top rated movies" medias={topRatedMovies} />
             <Collection title="Live now" medias={onTheAirSeries} />
             <Collection title="Popular series" medias={popularSeries} />
-            <Collection
-              title="New episodes"
-              medias={airingTodaySeries}
-            />
+            <Collection title="New episodes" medias={airingTodaySeries} />
           </Explore>
         </div>
       </Content>

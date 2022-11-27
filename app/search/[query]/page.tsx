@@ -19,7 +19,9 @@ const Page = async ({ params: { query } }: any) => {
       <Explore>
         <Collection title="You might also want" medias={youMightAlsoWant} />
       </Explore>
-      <Browse isOnQuery={true}>
+      <Browse
+        title={`Search for ${query.split("-").join(" ")}`}
+        isOnQuery={true}>
         {medias.map((media: any) => (
           // @ts-ignore
           <Card key={media.id} media={media} isOnQuery={true} />

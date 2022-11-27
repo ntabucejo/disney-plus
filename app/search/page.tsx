@@ -28,9 +28,9 @@ const Page = async () => {
   return (
     <div className="content">
       <Explore>
-        <Collection title="Popular Search" medias={popularSearch} />
+        <Collection title="Popular search" medias={popularSearch} />
       </Explore>
-      <Browse isOnQuery={false}>
+      <Browse title="Best search" isOnQuery={false}>
         {popularMedias.map((media: any) => (
           // @ts-ignore
           <Card key={media.id} media={media} isOnQuery={false} />

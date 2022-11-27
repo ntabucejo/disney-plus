@@ -14,6 +14,7 @@ const Searchbar = () => {
     if (query) {
       router.push(`/search/${query.split(" ").join("-")}`);
       setQuery("");
+      ref.current.blur();
     }
   };
 

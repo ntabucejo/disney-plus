@@ -13,6 +13,9 @@ module.exports = {
       opacity: {
         fade: 0.6,
       },
+      fontSize: {
+        ms: "10px",
+      },
       colors: {
         background: {
           dark: "#101115",

@@ -65,7 +65,7 @@ const Card = async ({ media, isOnQuery }: Props) => {
           <p className="text-xs font-semibold tablet:text-base">
             {media.title}
           </p>
-          <small className="font-semibold text-gray-500">
+          <small className="text-ms font-semibold text-gray-500 tablet:text-xs">
             {media.releasedAt?.slice(0, 4)
               ? media.releasedAt?.slice(0, 4)
               : "New"}{" "}

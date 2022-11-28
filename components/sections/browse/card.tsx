@@ -35,7 +35,7 @@ const Card = async ({ media, isOnQuery }: Props) => {
           <Link
             href={`/${media.type}/${media.id}`}
             className="group flex items-center gap-4">
-            <div className="relative aspect-video w-24 flex-none overflow-hidden rounded">
+            <div className="relative aspect-video w-28 flex-none overflow-hidden rounded">
               <Image
                 src={`https://image.tmdb.org/t/p/w500${media.image.backdrop!}`}
                 alt={media.title!}
@@ -43,7 +43,18 @@ const Card = async ({ media, isOnQuery }: Props) => {
                 className="transition-smooth object-cover group-hover:brightness-[130%]"
               />
             </div>
-            <p className="text-xs font-semibold">{media.title}</p>
+            <div>
+              <p className="text-xs font-semibold">{media.title}</p>
+              <small className="text-ms font-semibold text-gray-500 tablet:text-xs">
+                {media.releasedAt?.slice(0, 4)
+                  ? media.releasedAt?.slice(0, 4)
+                  : "New"}{" "}
+                •{" "}
+                {type === "movies"
+                  ? humanizeRuntime(measure)
+                  : `${measure} Seasons`}
+              </small>
+            </div>
           </Link>
         </li>
       </>

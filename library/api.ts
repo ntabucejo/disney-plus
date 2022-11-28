@@ -1,5 +1,4 @@
 import type { Logo, Media, Video } from "../types";
-import { cache } from "react";
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
@@ -22,7 +21,7 @@ type Type = "movies" | "series" | "all" | string;
 const api = {
   get: {
     medias: {
-      search: cache(async ({ query }: { query: string }) => {
+      search: async ({ query }: { query: string }) => {
         const responseMovies = await fetch(
           `${TMDB_API_URL}/3/search/multi?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
           {
@@ -58,8 +57,8 @@ const api = {
             };
           });
         return medias as Media[];
-      }),
-      similar: cache(async ({ type, id }: { type: Type; id: string }) => {
+      },
+      similar: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${
             type === "movies" ? "movie" : "tv"
@@ -91,8 +90,8 @@ const api = {
             };
           });
         return medias as Media[];
-      }),
-      trending: cache(async ({ type, time }: { type: Type; time: Time }) => {
+      },
+      trending: async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/${
             type === "movies" ? "movie" : "tv"
@@ -124,8 +123,8 @@ const api = {
             };
           });
         return medias as Media[];
-      }),
-      group: cache(async ({ name, type, page }: Group) => {
+      },
+      group: async ({ name, type, page }: Group) => {
         const group = name.split("-").join("_");
         const response = await fetch(
           `${TMDB_API_URL}/3/${
@@ -158,10 +157,10 @@ const api = {
             };
           });
         return medias as Media[];
-      }),
+      },
     },
     media: {
-      details: cache(async ({ type, id }: { type: Type; id: string }) => {
+      details: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${
             type === "movies" ? "movie" : "tv"
@@ -188,8 +187,8 @@ const api = {
             original: media.original_language,
           },
         } as Media;
-      }),
-      measure: cache(async ({ type, id }: { type: Type; id: string }) => {
+      },
+      measure: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${
             type === "movies" ? "movie" : "tv"
@@ -200,8 +199,8 @@ const api = {
         );
         const data = await response.json();
         return data.runtime ? data.runtime : data.number_of_seasons;
-      }),
-      video: cache(async ({ type, id }: { type: Type; id: string }) => {
+      },
+      video: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${
             type === "movies" ? "movie" : "tv"
@@ -227,8 +226,8 @@ const api = {
           type: video.type,
           isOfficial: video.official,
         } as Video;
-      }),
-      logo: cache(async ({ type, id }: { type: Type; id: string }) => {
+      },
+      logo: async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/${
             type === "movies" ? "movie" : "tv"
@@ -246,8 +245,8 @@ const api = {
           height: logo.height,
           image: logo.file_path,
         } as Logo;
-      }),
-      spotlight: cache(async ({ type }: { type: Type }) => {
+      },
+      spotlight: async ({ type }: { type: Type }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/${
             type === "movies" ? "movie" : type === "series" ? "tv" : "all"
@@ -277,7 +276,7 @@ const api = {
             original: media.original_language,
           },
         } as Media;
-      }),
+      },
     },
   },
 };

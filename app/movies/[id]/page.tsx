@@ -1,7 +1,6 @@
 import Fade from "../../../components/elements/fade";
 import Billboard from "../../../components/sections/billboard";
 import Browse from "../../../components/sections/browse";
-import Card from "../../../components/sections/browse/card";
 import Explore from "../../../components/sections/explore";
 import Collection from "../../../components/sections/explore/collection";
 import Showcase from "../../../components/sections/showcase";
@@ -33,12 +32,11 @@ const Page = async ({ params: { id } }: any) => {
           <Explore>
             <Collection title="More like this" medias={similarMedias} />
           </Explore>
-          <Browse title="Popular movies" isOnQuery={false}>
-            {popularMovies.map((media: any) => (
-              // @ts-ignore
-              <Card key={media.id} media={media} isOnQuery={false} />
-            ))}
-          </Browse>
+          <Browse
+            title="Popular Movies"
+            variant="primary"
+            medias={popularMovies}
+          />
         </div>
       </Content>
     </>

@@ -5,59 +5,24 @@ import Content from "../components/wrappers/content";
 import Explore from "../components/sections/explore";
 import api from "../library/api";
 import Collection from "../components/sections/explore/collection";
+import shuffleMedias from "../helpers/shuffle-medias";
 
 const Page = async () => {
-  const media = await api.get.media.spotlight({ type: "all" });
-
-  const trendingMoviesToday = await api.get.medias.trending({
-    type: "movies",
-    time: "day",
-  });
-  const trendingMoviesThisWeek = await api.get.medias.trending({
-    type: "movies",
-    time: "week",
-  });
+  const spotlightMedia = await api.get.media.spotlight({ type: "all" });
   const popularMovies = await api.get.medias.group({
     name: "popular",
     type: "movies",
     page: 1,
   });
-  const topRatedMovies = await api.get.medias.group({
-    name: "top-rated",
-    type: "movies",
-    page: 1,
-  });
-  const nowPlayingMovies = await api.get.medias.group({
-    name: "now-playing",
-    type: "movies",
-    page: 1,
-  });
-  const upcomingMovies = await api.get.medias.group({
-    name: "upcoming",
-    type: "movies",
-    page: 1,
-  });
-  const trendingSeriesToday = await api.get.medias.trending({
-    type: "series",
-    time: "day",
-  });
-  const trendingSeriesThisWeek = await api.get.medias.trending({
-    type: "series",
-    time: "week",
-  });
   const popularSeries = await api.get.medias.group({
     name: "popular",
     type: "series",
-    page: 2,
-  });
-  const topRatedSeries = await api.get.medias.group({
-    name: "top-rated",
-    type: "series",
     page: 1,
   });
-  const onTheAirSeries = await api.get.medias.group({
-    name: "on-the-air",
-    type: "series",
+  // New to Disney+
+  const nowPlayingMovies = await api.get.medias.group({
+    name: "now-playing",
+    type: "movies",
     page: 1,
   });
   const airingTodaySeries = await api.get.medias.group({
@@ -65,41 +30,52 @@ const Page = async () => {
     type: "series",
     page: 1,
   });
+  const newToDisneyPlusMedias = shuffleMedias([
+    ...nowPlayingMovies,
+    ...airingTodaySeries,
+  ]);
+  // Featured Marvel
+  const ironManMedias = await api.get.medias.search({
+    query: "iron man",
+  });
+  const avengersMedias = await api.get.medias.search({
+    query: "avengers",
+  });
+  const spiderManMedias = await api.get.medias.search({
+    query: "spider man",
+  });
+  const featuredMarvelMedias = shuffleMedias([
+    ...ironManMedias,
+    ...avengersMedias,
+    ...spiderManMedias,
+  ]);
+  const pixarMedias = await api.get.medias.search({
+    query: "pixar",
+  });
+  const disneyMedias = await api.get.medias.search({
+    query: "disney",
+  });
+  const starwarsMedias = await api.get.medias.search({
+    query: "star wars",
+  });
 
   return (
     <>
       {/* @ts-ignore */}
-      <Billboard media={media} />
+      <Billboard media={spotlightMedia} />
       <Content variant="primary">
         {/* @ts-ignore */}
-        <Showcase media={media} isMediaSelected={false} />
+        <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content bg-background-dark">
           <Franchise />
           <Explore>
-            <Collection
-              title="Trending movies today"
-              medias={trendingMoviesToday}
-            />
-            <Collection
-              title="Trending this week"
-              medias={trendingMoviesThisWeek}
-            />
-            <Collection title="Now playing" medias={nowPlayingMovies} />
-            <Collection title="Upcoming movies" medias={upcomingMovies} />
-            <Collection title="Popular movies" medias={popularMovies} />
-            <Collection title="Top rated series" medias={topRatedSeries} />
-            <Collection
-              title="Trending series today"
-              medias={trendingSeriesToday}
-            />
-            <Collection
-              title="Trending series this week"
-              medias={trendingSeriesThisWeek}
-            />
-            <Collection title="Top rated movies" medias={topRatedMovies} />
-            <Collection title="Live now" medias={onTheAirSeries} />
-            <Collection title="Popular series" medias={popularSeries} />
-            <Collection title="New episodes" medias={airingTodaySeries} />
+            <Collection title="New to Disney+" medias={newToDisneyPlusMedias} />
+            <Collection title="Featured Marvel" medias={featuredMarvelMedias} />
+            <Collection title="Disney Originals" medias={disneyMedias} />
+            <Collection title="Popular Movies" medias={popularMovies} />
+            <Collection title="Popular Series" medias={popularSeries} />
+            <Collection title="Featured Starwars" medias={starwarsMedias} />
+            <Collection title="Best of Pixar" medias={pixarMedias} />
           </Explore>
         </div>
       </Content>

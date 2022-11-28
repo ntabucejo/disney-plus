@@ -7,7 +7,7 @@ const Playback = ({ src }: Props) => {
     <iframe
       src={`${src}/?autoplay=1&mute=1&loop=1&controls=0`}
       title="Playback"
-      className="h-full w-full scale-150"></iframe>
+      className="h-full w-full scale-150 brightness-150"></iframe>
   );
 };
 

@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Disney Plus - Clone
+A fully interactive and responsive Disney+ website build with [Next.js](https://nextjs.org/) , [TailwindCSS](https://tailwindcss.com/) and [TMDB API](https://www.themoviedb.org/)
 
-## Getting Started
+## Live Demo on:
+Hosted on both [Vercel](https://vercel.com/) and [Netlify](https://www.netlify.com/)
+* [Netlify - disney-plus-ntabucejo.netlify.app](https://disney-plus-ntabucejo.netlify.app/)
+* [Vercel - disney-plus-ntabucejo.vercel.app](disney-plus-ntabucejo.vercel.app/)
 
-First, run the development server:
+## View on Desktop:
+Dekstop layout view on every pages
+![desktop-views](https://user-images.githubusercontent.com/76921233/204301602-104569bc-17ce-4e8a-a0ac-5f51d4bd25ce.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## View on Mobile:
+Mobile layout view on every pages
+![mobile-views](https://user-images.githubusercontent.com/76921233/204303591-1ac103c8-ba14-4407-98b5-e6cb82d54606.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Desktop Test:
+A quick demo on using it on desktop
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+https://user-images.githubusercontent.com/76921233/204299713-28514b80-e5c0-4d2b-b485-d161744a0a78.mp4
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Live Responsive Test:
+A quick demo for responsiveness
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+https://user-images.githubusercontent.com/76921233/204300037-aacc5774-ad8e-4cff-b904-524f64b61963.mp4
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

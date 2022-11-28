@@ -26,7 +26,7 @@ const api = {
         const responseMovies = await fetch(
           `${TMDB_API_URL}/3/search/multi?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { results } = await responseMovies.json();
@@ -65,7 +65,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}/similar?api_key=${TMDB_API_KEY}&language=en-US&page=1`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { results } = await response.json();
@@ -98,7 +98,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${time}?api_key=${TMDB_API_KEY}`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { results } = await response.json();
@@ -132,7 +132,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { results } = await response.json();
@@ -167,7 +167,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const media = await response.json();
@@ -195,7 +195,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const data = await response.json();
@@ -207,7 +207,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { results } = await response.json();
@@ -234,7 +234,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}/images?api_key=${TMDB_API_KEY}`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { logos } = await response.json();
@@ -253,7 +253,7 @@ const api = {
             type === "movies" ? "movie" : type === "series" ? "tv" : "all"
           }/day?api_key=${TMDB_API_KEY}`,
           {
-            next: { revalidate: 3600 },
+            cache: 'no-store'
           }
         );
         const { results } = await response.json();

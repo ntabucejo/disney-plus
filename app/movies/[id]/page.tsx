@@ -8,8 +8,7 @@ import Content from "../../../components/wrappers/content";
 import api from "../../../library/api";
 
 const Page = async ({ params: { id } }: any) => {
-  const media = await api.get.media.details({ type: "movies", id });
-
+  const spotlightMedia = await api.get.media.details({ type: "movies", id });
   const similarMedias = await api.get.medias.similar({
     type: "movies",
     id,
@@ -23,10 +22,10 @@ const Page = async ({ params: { id } }: any) => {
   return (
     <>
       {/* @ts-ignore */}
-      <Billboard media={media} />
+      <Billboard media={spotlightMedia} />
       <Content variant="primary">
         {/* @ts-ignore */}
-        <Showcase media={media} isMediaSelected={true} />
+        <Showcase media={mspotlightMediaedia} isMediaSelected={true} />
         <div className="content relative bg-background-dark">
           <Fade />
           <Explore>

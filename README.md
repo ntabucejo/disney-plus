@@ -2,8 +2,6 @@
 A fully interactive and responsive Disney+ website build with [Next.js](https://nextjs.org/) , [TailwindCSS](https://tailwindcss.com/) and [TMDB API](https://www.themoviedb.org/)
 
 ## Live Demo on:
-Hosted on both [Vercel](https://vercel.com/) and [Netlify](https://www.netlify.com/)
-* [Netlify - disney-plus-ntabucejo.netlify.app](https://disney-plus-ntabucejo.netlify.app/)
 * [Vercel - disney-plus-ntabucejo.vercel.app](disney-plus-ntabucejo.vercel.app/)
 
 ## View on Desktop:

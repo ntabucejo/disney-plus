@@ -19,7 +19,7 @@ const Links = ({ children }: Props) => {
         <MinusSmallIcon className="w-4 rotate-90" />
         <Link href="/originals" to="Originals" />
       </ul>
-      <ul className="rounded-t4 flex items-center justify-evenly gap-4 rounded-tl bg-black/80 p-4 backdrop-blur">
+      <ul className="flex items-center justify-evenly gap-4 bg-black/80 p-4 backdrop-blur">
         {children}
       </ul>
     </>

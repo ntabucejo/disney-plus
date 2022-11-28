@@ -6,15 +6,15 @@ import type { Media } from "../../../types";
 
 type Props = {
   media: Media;
-  isOnQuery: boolean;
+  variant: "primary" | "secondary";
 };
 
-const Card = async ({ media, isOnQuery }: Props) => {
+const Card = async ({ media, variant }: Props) => {
   const type = media.type! as string;
   const id = media.id;
   const measure = await api.get.media.measure({ type, id });
 
-  if (!isOnQuery) {
+  if (variant === "secondary") {
     return (
       <>
         {/* Show on tablet */}

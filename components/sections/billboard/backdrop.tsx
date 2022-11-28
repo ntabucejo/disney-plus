@@ -42,7 +42,7 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
         priority
         className={`${
           isDisplayed ? "opacity-100" : "desktop:opacity-0"
-        } object-cover brightness-150 transition-all duration-1000 ease-in`}
+        } object-cover brightness-110 transition-all duration-1000 ease-in`}
       />
     </>
   );

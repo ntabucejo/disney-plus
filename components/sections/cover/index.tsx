@@ -7,7 +7,7 @@ type Props = {
 const Cover = ({ company }: Props) => {
   return (
     <section className="relative -z-10 grid aspect-[16/4.6] w-full items-center">
-      <video className="absolute w-full brightness-150" autoPlay loop muted>
+      <video className="absolute w-full brightness-110" autoPlay loop muted>
         <source
           src={`/assets/videos/${company}-opening.mp4`}
           type="video/mp4"

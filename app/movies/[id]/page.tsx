@@ -25,7 +25,7 @@ const Page = async ({ params: { id } }: any) => {
       <Billboard media={spotlightMedia} />
       <Content variant="primary">
         {/* @ts-ignore */}
-        <Showcase media={mspotlightMediaedia} isMediaSelected={true} />
+        <Showcase media={spotlightMedia} isMediaSelected={true} />
         <div className="content relative bg-background-dark">
           <Fade />
           <Explore>

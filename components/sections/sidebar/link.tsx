@@ -3,7 +3,6 @@
 import NextLink from "next/link";
 import { ComponentType } from "react";
 import { motion } from "framer-motion";
-import { useSelectedLayoutSegment } from "next/navigation";
 import useActiveSegment from "../../../hooks/use-active-segment";
 
 type Props = {

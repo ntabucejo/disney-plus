@@ -23,14 +23,14 @@ const Page = async ({ params: { company } }: any) => {
       });
       collections.push({
         id: 2,
-        title: "Iron man",
+        title: "Iron Man",
         medias: await api.get.medias.search({
           query: "iron man",
         }),
       });
       collections.push({
         id: 3,
-        title: "Doctor strange",
+        title: "Thor",
         medias: await api.get.medias.search({
           query: "thor",
         }),
@@ -42,18 +42,25 @@ const Page = async ({ params: { company } }: any) => {
           query: "hulk",
         }),
       });
+      collections.push({
+        id: 5,
+        title: "Spider Man",
+        medias: await api.get.medias.search({
+          query: "spider man",
+        }),
+      });
       break;
     case "pixar":
       collections.push({
         id: 1,
-        title: "Best of pixar",
+        title: "Featured",
         medias: await api.get.medias.search({
           query: "pixar",
         }),
       });
       collections.push({
         id: 2,
-        title: "Toy story",
+        title: "Toy Story",
         medias: await api.get.medias.search({
           query: "toy story",
         }),
@@ -67,7 +74,7 @@ const Page = async ({ params: { company } }: any) => {
       });
       collections.push({
         id: 4,
-        title: "The incredibles",
+        title: "The Incredibles",
         medias: await api.get.medias.search({
           query: "the incredibles",
         }),
@@ -99,55 +106,81 @@ const Page = async ({ params: { company } }: any) => {
     case "disney":
       collections.push({
         id: 1,
-        title: "Despicable me",
+        title: "Featured",
+        medias: await api.get.medias.search({
+          query: "disney",
+        }),
+      });
+      collections.push({
+        id: 2,
+        title: "Despicable Me",
+        medias: [
+          ...(await api.get.medias.search({
+            query: "despicable me",
+          })),
+          ...(await api.get.medias.search({
+            query: "shrek",
+          })),
+        ],
+      });
+      collections.push({
+        id: 3,
+        title: "More on Disney",
         medias: await api.get.medias.search({
           query: "despicable me",
         }),
       });
       collections.push({
-        id: 2,
+        id: 4,
         title: "Minions",
         medias: await api.get.medias.search({
           query: "Minions",
         }),
       });
       collections.push({
-        id: 3,
+        id: 5,
         title: "Shrek",
         medias: await api.get.medias.search({
           query: "shrek",
-        }),
-      });
-      collections.push({
-        id: 4,
-        title: "Best of disney",
-        medias: await api.get.medias.search({
-          query: "disney",
         }),
       });
       break;
     case "national-geographic":
       collections.push({
         id: 1,
-        title: "Wild",
+        title: "Our Planet Earth",
         medias: await api.get.medias.search({
-          query: "wild",
+          query: "Earth",
         }),
       });
       collections.push({
         id: 2,
-        title: "Forest",
+        title: "Space Exploration",
         medias: await api.get.medias.search({
-          query: "forest",
+          query: "space",
+        }),
+      });
+      collections.push({
+        id: 3,
+        title: "Documentary Series",
+        medias: await api.get.medias.search({
+          query: "documentary",
+        }),
+      });
+      collections.push({
+        id: 4,
+        title: "Outer Space",
+        medias: await api.get.medias.search({
+          query: "sun",
         }),
       });
       break;
     case "star":
       collections.push({
         id: 1,
-        title: "Drama",
+        title: "Shows",
         medias: await api.get.medias.search({
-          query: "drama",
+          query: "show",
         }),
       });
       collections.push({
@@ -162,6 +195,13 @@ const Page = async ({ params: { company } }: any) => {
         title: "Comedy",
         medias: await api.get.medias.search({
           query: "comedy",
+        }),
+      });
+      collections.push({
+        id: 4,
+        title: "Action",
+        medias: await api.get.medias.search({
+          query: "action",
         }),
       });
       break;

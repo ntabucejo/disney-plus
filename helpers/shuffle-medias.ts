@@ -13,7 +13,16 @@ const shuffleMedias = (medias: Media[]) => {
     ];
   }
 
-  return medias;
+  const uniqueIds: any = [];
+
+  return medias.filter((element) => {
+    const isDuplicate = uniqueIds.includes(element.id);
+    if (!isDuplicate) {
+      uniqueIds.push(element.id);
+      return true;
+    }
+    return false;
+  });
 };
 
 export default shuffleMedias;

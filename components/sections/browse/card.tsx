@@ -34,7 +34,7 @@ const Card = async ({ media, isOnQuery }: Props) => {
         <li className="tablet:hidden">
           <Link
             href={`/${media.type}/${media.id}`}
-            className="group flex items-center gap-4">
+            className="group flex items-center gap-2">
             <div className="relative aspect-video w-28 flex-none overflow-hidden rounded">
               <Image
                 src={`https://image.tmdb.org/t/p/w500${media.image.backdrop!}`}

@@ -1,5 +1,6 @@
 import type { Logo, Media, Video } from "../types";
 import { cache } from "react";
+import shuffleMedias from "../helpers/shuffle-medias";
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const TMDB_API_URL = process.env.TMDB_API_URL!;
@@ -26,7 +27,7 @@ const api = {
         const responseMovies = await fetch(
           `${TMDB_API_URL}/3/search/multi?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { results } = await responseMovies.json();
@@ -57,7 +58,7 @@ const api = {
               },
             };
           });
-        return medias as Media[];
+        return shuffleMedias(medias) as Media[];
       }),
       similar: cache(async ({ type, id }: { type: Type; id: string }) => {
         const response = await fetch(
@@ -65,7 +66,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}/similar?api_key=${TMDB_API_KEY}&language=en-US&page=1`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { results } = await response.json();
@@ -90,7 +91,7 @@ const api = {
               },
             };
           });
-        return medias as Media[];
+        return shuffleMedias(medias) as Media[];
       }),
       trending: cache(async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
@@ -98,7 +99,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${time}?api_key=${TMDB_API_KEY}`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { results } = await response.json();
@@ -123,7 +124,7 @@ const api = {
               },
             };
           });
-        return medias as Media[];
+        return shuffleMedias(medias) as Media[];
       }),
       group: cache(async ({ name, type, page }: Group) => {
         const group = name.split("-").join("_");
@@ -132,7 +133,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${group}?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { results } = await response.json();
@@ -157,7 +158,7 @@ const api = {
               },
             };
           });
-        return medias as Media[];
+        return shuffleMedias(medias) as Media[];
       }),
     },
     media: {
@@ -167,7 +168,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const media = await response.json();
@@ -195,7 +196,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}?api_key=${TMDB_API_KEY}&language=en-US`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const data = await response.json();
@@ -207,7 +208,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}/videos?api_key=${TMDB_API_KEY}&language=en-US`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { results } = await response.json();
@@ -234,7 +235,7 @@ const api = {
             type === "movies" ? "movie" : "tv"
           }/${id}/images?api_key=${TMDB_API_KEY}`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { logos } = await response.json();
@@ -253,7 +254,7 @@ const api = {
             type === "movies" ? "movie" : type === "series" ? "tv" : "all"
           }/day?api_key=${TMDB_API_KEY}`,
           {
-            cache: 'no-store'
+            cache: "no-store",
           }
         );
         const { results } = await response.json();

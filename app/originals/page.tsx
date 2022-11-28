@@ -64,7 +64,6 @@ const Page = async () => {
             <Collection title="Featured" medias={featuredMedias} />
             <Collection title="Minions" medias={minionsMedias} />
             <Collection title="Avengers" medias={avengersMedias} />
-            <Collection title="Avengers" medias={avengersMedias} />
             <Collection title="Starwars" medias={starwarsMedias} />
             <Collection title="Disney" medias={disneyMedias} />
             <Collection title="Pixar" medias={pixarMedias} />

@@ -58,7 +58,7 @@ const Showcase = async ({ media, isMediaSelected }: Props) => {
         </div>
         {/* Overview */}
         <div className="overflow-y-auto scrollbar-none tablet:max-h-12">
-          <p className="text-sm tablet:text-base">{media.overview!}</p>
+          <p className="text-xs tablet:text-base">{media.overview!}</p>
         </div>
       </div>
       {/* Actions */}

@@ -17,7 +17,7 @@ const Content = ({ children, variant }: Props) => {
       style = "bg-background-dark pt-6";
       break;
     case "tertiary":
-      style = "pt-4 tablet:pt-8 space-y-4 tablet:space-y-8";
+      style = "pt-4 tablet:pt-8 content";
       break;
   }
 

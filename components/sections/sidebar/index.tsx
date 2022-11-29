@@ -82,6 +82,7 @@ const Sidebar = () => {
               to={to}
               Icon={Icon}
               isOnHovered={isOnHovered}
+              setIsOnHovered={setIsOnHovered}
             />
           ))}
         </Links>

@@ -1,7 +1,7 @@
 "use client";
 
 import NextLink from "next/link";
-import { ComponentType } from "react";
+import type { ComponentType, Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import useActiveSegment from "../../../hooks/use-active-segment";
 
@@ -11,13 +11,23 @@ type Props = {
   to: string;
   Icon: ComponentType<React.SVGProps<SVGSVGElement>>;
   isOnHovered: boolean;
+  setIsOnHovered: Dispatch<SetStateAction<boolean>>;
 };
 
-const Link = ({ id, href, to, Icon, isOnHovered }: Props) => {
+const Link = ({ id, href, to, Icon, isOnHovered, setIsOnHovered }: Props) => {
   const isActive = useActiveSegment(href);
 
+  const hadnleCollapseSidebar = () => {
+    setTimeout(() => {
+      setIsOnHovered(false);
+    }, 1000);
+  };
+
   return (
-    <motion.li whileHover={{ scale: 1.1, x: "5px" }}>
+    <motion.li
+      onClick={hadnleCollapseSidebar}
+      whileHover={{ scale: 1.1, x: "5px" }}
+      whileTap={{ scale: 0.95 }}>
       <NextLink
         href={href}
         className={`

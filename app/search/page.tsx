@@ -17,7 +17,11 @@ const Page = async () => {
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
   return (
-    <Browse title="Explore Search" medias={popularMedias} variant="secondary" />
+    <Browse
+      title="Recommended for you"
+      medias={popularMedias}
+      variant="secondary"
+    />
   );
 };
 

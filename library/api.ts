@@ -59,7 +59,7 @@ const api = {
                 },
               };
             });
-          return shuffleMedias(medias) as Media[];
+          return medias as Media[];
         }
       ),
       similar: cache(

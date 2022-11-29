@@ -1,6 +1,7 @@
 "use client";
 
 import { MinusSmallIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 import NextLink from "next/link";
 import type { ReactNode } from "react";
 import useActiveSegment from "../../../hooks/use-active-segment";
@@ -32,12 +33,12 @@ const Link = ({ href, to }: { href: string; to: string }) => {
   const isActive = useActiveSegment(href);
 
   return (
-    <li>
+    <motion.li whileTap={{ scale: 0.75 }}>
       <NextLink
         href={href}
         className={`${isActive ? "opacity-100" : "opacity-fade"}`}>
         {to}
       </NextLink>
-    </li>
+    </motion.li>
   );
 };

@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Billboard = async ({ media }: Props) => {
-  const type = media.type! as string;
+  const type = media.type!;
   const id = media.id;
   const video = await api.get.media.video({ type, id });
 

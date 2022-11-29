@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Card = async ({ media, variant }: Props) => {
-  const type = media.type! as string;
+  const type = media.type!;
   const id = media.id;
   const measure = await api.get.media.measure({ type, id });
 

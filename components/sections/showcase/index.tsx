@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Showcase = async ({ media, isMediaSelected }: Props) => {
-  const type = media.type! as string;
+  const type = media.type!;
   const id = media.id;
   const logo = await api.get.media.logo({ type, id });
   const measure = await api.get.media.measure({ type, id });

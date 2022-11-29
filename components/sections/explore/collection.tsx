@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import useWindowSize from "../../../hooks/use-window-size";
 import type { Media } from "../../../types";
@@ -52,7 +52,7 @@ const Collection = ({ title, medias }: Props) => {
     <div className="space-y-3 tablet:space-y-4">
       <strong className="tablet:text-2xl">{title}</strong>
       {/* Show on tablet */}
-      <div className="relative">
+      <div className="group relative">
         <ul
           className={`${
             isOnOrigin
@@ -77,12 +77,17 @@ const Collection = ({ title, medias }: Props) => {
           onClick={handlePagination}
           className={`${
             isOnOrigin ? "right-0 bg-gradient-to-l" : "left-0 bg-gradient-to-r"
-          } transition-smooth group absolute inset-y-0 z-10 grid cursor-pointer items-center overflow-hidden from-background-dark to-transparent tablet:w-[11%] tala:w-[8.1%] laptop:w-[6.8%] desktop:w-[5.55%]`}>
-          {isOnOrigin ? (
-            <ChevronRightIcon className="absolute right-[10%] h-6 w-6 text-white opacity-0 group-hover:opacity-100" />
-          ) : (
-            <ChevronLeftIcon className="absolute left-[10%] h-6 w-6 text-white opacity-0 group-hover:opacity-100" />
-          )}
+          } transition-smooth absolute inset-y-0 z-10 grid items-center overflow-hidden from-background-dark to-transparent tablet:w-[11%] tala:w-[8.1%] laptop:w-[6.8%] desktop:w-[5.55%]`}>
+          <div
+            className={`${
+              isOnOrigin ? "bg-gradient-to-l" : "bg-gradient-to-r"
+            } transition-smooth absolute inset-0 from-background-dark to-transparent opacity-0 group-hover:opacity-100`}
+          />
+          <ChevronRightIcon
+            className={`${
+              isOnOrigin ? "right-[10%]" : "left-[10%] rotate-180"
+            } transition-smooth absolute h-6 w-6 stroke-2 text-white opacity-0 transition-opacity group-hover:opacity-100`}
+          />
         </div>
       </div>
       {/* Show on mobile */}

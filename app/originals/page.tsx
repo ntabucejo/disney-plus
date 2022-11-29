@@ -12,27 +12,35 @@ const Page = async () => {
   // Featured
   const ironManMedias = await api.get.medias.search({
     query: "iron man",
+    page: 1,
   });
   const avengersMedias = await api.get.medias.search({
     query: "avengers",
+    page: 1,
   });
   const spiderManMedias = await api.get.medias.search({
     query: "spider man",
+    page: 1,
   });
   const pixarMedias = await api.get.medias.search({
     query: "pixar",
+    page: 1,
   });
   const disneyMedias = await api.get.medias.search({
     query: "disney",
+    page: 1,
   });
   const starwarsMedias = await api.get.medias.search({
     query: "star wars",
+    page: 1,
   });
   const shrekMedias = await api.get.medias.search({
     query: "shrek",
+    page: 1,
   });
   const minionsMedias = await api.get.medias.search({
     query: "minions",
+    page: 1,
   });
   const featuredMedias = shuffleMedias([
     ...ironManMedias,

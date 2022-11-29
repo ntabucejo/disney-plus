@@ -19,6 +19,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Avengers",
         medias: await api.get.medias.search({
           query: "avengers",
+          page: 1,
         }),
       });
       collections.push({
@@ -26,6 +27,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Iron Man",
         medias: await api.get.medias.search({
           query: "iron man",
+          page: 1,
         }),
       });
       collections.push({
@@ -33,6 +35,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Thor",
         medias: await api.get.medias.search({
           query: "thor",
+          page: 1,
         }),
       });
       collections.push({
@@ -40,6 +43,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Hulk",
         medias: await api.get.medias.search({
           query: "hulk",
+          page: 1,
         }),
       });
       collections.push({
@@ -47,6 +51,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Spider Man",
         medias: await api.get.medias.search({
           query: "spider man",
+          page: 1,
         }),
       });
       break;
@@ -56,6 +61,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Featured",
         medias: await api.get.medias.search({
           query: "pixar",
+          page: 1,
         }),
       });
       collections.push({
@@ -63,6 +69,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Toy Story",
         medias: await api.get.medias.search({
           query: "toy story",
+          page: 1,
         }),
       });
       collections.push({
@@ -70,6 +77,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Cars",
         medias: await api.get.medias.search({
           query: "Cars",
+          page: 1,
         }),
       });
       collections.push({
@@ -77,6 +85,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "The Incredibles",
         medias: await api.get.medias.search({
           query: "the incredibles",
+          page: 1,
         }),
       });
       break;
@@ -86,6 +95,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Starwars",
         medias: await api.get.medias.search({
           query: "star wars",
+          page: 1,
         }),
       });
       collections.push({
@@ -93,6 +103,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Jedi",
         medias: await api.get.medias.search({
           query: "jedi",
+          page: 1,
         }),
       });
       collections.push({
@@ -100,6 +111,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Troopers",
         medias: await api.get.medias.search({
           query: "troopers",
+          page: 1,
         }),
       });
       break;
@@ -109,6 +121,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Featured",
         medias: await api.get.medias.search({
           query: "disney",
+          page: 1,
         }),
       });
       collections.push({
@@ -117,9 +130,11 @@ const Page = async ({ params: { company } }: any) => {
         medias: [
           ...(await api.get.medias.search({
             query: "despicable me",
+            page: 1,
           })),
           ...(await api.get.medias.search({
             query: "shrek",
+            page: 1,
           })),
         ],
       });
@@ -128,6 +143,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "More on Disney",
         medias: await api.get.medias.search({
           query: "despicable me",
+          page: 1,
         }),
       });
       collections.push({
@@ -135,6 +151,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Minions",
         medias: await api.get.medias.search({
           query: "Minions",
+          page: 1,
         }),
       });
       collections.push({
@@ -142,6 +159,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Shrek",
         medias: await api.get.medias.search({
           query: "shrek",
+          page: 1,
         }),
       });
       break;
@@ -151,6 +169,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Our Planet Earth",
         medias: await api.get.medias.search({
           query: "Earth",
+          page: 1,
         }),
       });
       collections.push({
@@ -158,6 +177,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Space Exploration",
         medias: await api.get.medias.search({
           query: "space",
+          page: 1,
         }),
       });
       collections.push({
@@ -165,6 +185,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Documentary Series",
         medias: await api.get.medias.search({
           query: "documentary",
+          page: 1,
         }),
       });
       collections.push({
@@ -172,6 +193,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Outer Space",
         medias: await api.get.medias.search({
           query: "sun",
+          page: 1,
         }),
       });
       break;
@@ -181,6 +203,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Shows",
         medias: await api.get.medias.search({
           query: "show",
+          page: 1,
         }),
       });
       collections.push({
@@ -188,6 +211,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Romantic",
         medias: await api.get.medias.search({
           query: "romantic",
+          page: 1,
         }),
       });
       collections.push({
@@ -195,6 +219,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Comedy",
         medias: await api.get.medias.search({
           query: "comedy",
+          page: 1,
         }),
       });
       collections.push({
@@ -202,6 +227,7 @@ const Page = async ({ params: { company } }: any) => {
         title: "Action",
         medias: await api.get.medias.search({
           query: "action",
+          page: 1,
         }),
       });
       break;

@@ -23,79 +23,91 @@ type Type = "movies" | "series" | "all" | string;
 const api = {
   get: {
     medias: {
-      search: cache(async ({ query }: { query: string }) => {
-        const responseMovies = await fetch(
-          `${TMDB_API_URL}/3/search/multi?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
-          {
-            next: { revalidate: 3600 },
-          }
-        );
-        const { results } = await responseMovies.json();
-        const medias = results
-          .filter((media: any) => {
-            if (media.poster_path && media.backdrop_path && media.overview) {
-              if (media.media_type === "movie" || media.media_type === "tv") {
-                return true;
-              }
+      search: cache(
+        async ({ query, page }: { query: string; page: number }) => {
+          const responseMovies = await fetch(
+            `${TMDB_API_URL}/3/search/multi?api_key=${TMDB_API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`,
+            {
+              next: { revalidate: 3600 },
             }
-          })
-          .map((media: any) => {
-            return {
-              id: media.id,
-              title: media.title ? media.title : media.name,
-              isForAdult: media.adult,
-              type: media.media_type === "movie" ? "movies" : "series",
-              image: {
-                poster: media.poster_path,
-                backdrop: media.backdrop_path,
-              },
-              overview: media.overview,
-              releasedAt: media.release_date
-                ? media.release_date
-                : media.first_air_date,
-              language: {
-                original: media.original_language,
-              },
-            };
-          });
-        return shuffleMedias(medias) as Media[];
-      }),
-      similar: cache(async ({ type, id }: { type: Type; id: string }) => {
-        const response = await fetch(
-          `${TMDB_API_URL}/3/${
-            type === "movies" ? "movie" : "tv"
-          }/${id}/similar?api_key=${TMDB_API_KEY}&language=en-US&page=1`,
-          {
-            next: { revalidate: 3600 },
-          }
-        );
-        const { results } = await response.json();
-        const medias = results
-          .filter(
-            (media: any) =>
-              media.poster_path && media.backdrop_path && media.overview
-          )
-          .map((media: any) => {
-            return {
-              id: media.id,
-              title: media.title ? media.title : media.name,
-              isForAdult: media.adult,
-              type: type === "movies" ? "movies" : "series",
-              image: {
-                poster: media.poster_path,
-                backdrop: media.backdrop_path,
-              },
-              overview: media.overview,
-              releasedAt: media.release_date
-                ? media.release_date
-                : media.first_air_date,
-              language: {
-                original: media.original_language,
-              },
-            };
-          });
-        return shuffleMedias(medias) as Media[];
-      }),
+          );
+          const { results } = await responseMovies.json();
+          const medias = results
+            .filter((media: any) => {
+              if (media.poster_path && media.backdrop_path && media.overview) {
+                if (media.media_type === "movie" || media.media_type === "tv") {
+                  return true;
+                }
+              }
+            })
+            .map((media: any) => {
+              return {
+                id: media.id,
+                title: media.title ? media.title : media.name,
+                isForAdult: media.adult,
+                type: media.media_type === "movie" ? "movies" : "series",
+                image: {
+                  poster: media.poster_path,
+                  backdrop: media.backdrop_path,
+                },
+                overview: media.overview,
+                releasedAt: media.release_date
+                  ? media.release_date
+                  : media.first_air_date,
+                language: {
+                  original: media.original_language,
+                },
+              };
+            });
+          return shuffleMedias(medias) as Media[];
+        }
+      ),
+      similar: cache(
+        async ({
+          type,
+          id,
+          page,
+        }: {
+          type: Type;
+          id: string;
+          page: number;
+        }) => {
+          const response = await fetch(
+            `${TMDB_API_URL}/3/${
+              type === "movies" ? "movie" : "tv"
+            }/${id}/similar?api_key=${TMDB_API_KEY}&language=en-US&page=${page}`,
+            {
+              next: { revalidate: 3600 },
+            }
+          );
+          const { results } = await response.json();
+          const medias = results
+            .filter(
+              (media: any) =>
+                media.poster_path && media.backdrop_path && media.overview
+            )
+            .map((media: any) => {
+              return {
+                id: media.id,
+                title: media.title ? media.title : media.name,
+                isForAdult: media.adult,
+                type: type === "movies" ? "movies" : "series",
+                image: {
+                  poster: media.poster_path,
+                  backdrop: media.backdrop_path,
+                },
+                overview: media.overview,
+                releasedAt: media.release_date
+                  ? media.release_date
+                  : media.first_air_date,
+                language: {
+                  original: media.original_language,
+                },
+              };
+            });
+          return shuffleMedias(medias) as Media[];
+        }
+      ),
       trending: cache(async ({ type, time }: { type: Type; time: Time }) => {
         const response = await fetch(
           `${TMDB_API_URL}/3/trending/${

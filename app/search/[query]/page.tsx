@@ -6,6 +6,7 @@ import api from "../../../library/api";
 const Page = async ({ params: { query } }: any) => {
   const searchedMedias = await api.get.medias.search({
     query,
+    page: 1,
   });
   const youMightAlsoWant = await api.get.medias.group({
     name: "now-playing",

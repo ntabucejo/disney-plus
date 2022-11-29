@@ -12,11 +12,12 @@ const Page = async ({ params: { id } }: any) => {
   const similarMedias = await api.get.medias.similar({
     type: "series",
     id,
+    page: 1,
   });
   const popularSeries = await api.get.medias.group({
     name: "popular",
     type: "series",
-    page: 2,
+    page: 1,
   });
 
   return (

@@ -34,6 +34,7 @@ const Showcase = async ({ media, isMediaSelected }: Props) => {
             }
             alt={media.title!}
             fill
+            sizes="500px"
             priority
             className="object-contain"
           />

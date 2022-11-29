@@ -70,7 +70,8 @@ const Sidebar = () => {
             priority
             width={68}
             height={36}
-            className="object-contain"
+            sizes="100px"
+            className="h-[36px] w-[68px] object-contain"
           />
         </div>
         <Links setIsOnHovered={setIsOnHovered}>

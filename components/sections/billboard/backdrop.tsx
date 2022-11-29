@@ -39,6 +39,7 @@ const Backdrop = ({ src, isAlwaysDisplayed }: Props) => {
         src={`https://image.tmdb.org/t/p/original${src}`}
         alt="Showcase"
         fill
+        sizes="100vw"
         priority
         className={`${
           isDisplayed ? "opacity-100" : "desktop:opacity-0"

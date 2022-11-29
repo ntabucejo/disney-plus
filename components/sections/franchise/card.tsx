@@ -17,6 +17,7 @@ const Card = ({ image, video, name }: Props) => {
           <Image
             src={`/assets/images/${image}.png`}
             fill
+            sizes="500px"
             alt={name}
             className="object-contain"
             priority

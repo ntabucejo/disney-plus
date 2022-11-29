@@ -25,6 +25,7 @@ const Card = async ({ media, variant }: Props) => {
                 src={`https://image.tmdb.org/t/p/w500${media.image.poster!}`}
                 alt={media.title!}
                 fill
+                sizes="500px"
                 className="transition-smooth object-cover hover:brightness-[130%]"
               />
             </div>
@@ -40,6 +41,7 @@ const Card = async ({ media, variant }: Props) => {
                 src={`https://image.tmdb.org/t/p/w500${media.image.backdrop!}`}
                 alt={media.title!}
                 fill
+                sizes="500px"
                 className="transition-smooth object-cover group-hover:brightness-[130%]"
               />
             </div>
@@ -69,6 +71,7 @@ const Card = async ({ media, variant }: Props) => {
             src={`https://image.tmdb.org/t/p/w500${media.image.backdrop!}`}
             alt={media.title!}
             fill
+            sizes="500px"
             className="transition-smooth object-cover group-hover:brightness-[130%]"
           />
         </div>

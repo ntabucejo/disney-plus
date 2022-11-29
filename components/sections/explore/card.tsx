@@ -14,7 +14,8 @@ const Card = ({ media }: Props) => {
       <Image
         src={`https://image.tmdb.org/t/p/w500${media.image.poster!}`}
         fill
-        alt="Cover"
+        sizes="350px"
+        alt={media.title!}
         className="transition-smooth object-cover hover:brightness-[130%]"
       />
     </Link>

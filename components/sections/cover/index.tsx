@@ -18,6 +18,7 @@ const Cover = ({ company }: Props) => {
           src={`/assets/images/${company}-logo.png`}
           alt="Originals"
           fill
+          sizes="35%"
           className="object-contain"
         />
       </div>

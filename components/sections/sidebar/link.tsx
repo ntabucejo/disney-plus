@@ -17,7 +17,7 @@ type Props = {
 const Link = ({ id, href, to, Icon, isOnHovered, setIsOnHovered }: Props) => {
   const isActive = useActiveSegment(href);
 
-  const hadnleCollapseSidebar = () => {
+  const handleCollapseSidebar = () => {
     setTimeout(() => {
       setIsOnHovered(false);
     }, 1000);
@@ -25,7 +25,7 @@ const Link = ({ id, href, to, Icon, isOnHovered, setIsOnHovered }: Props) => {
 
   return (
     <motion.li
-      onClick={hadnleCollapseSidebar}
+      onClick={handleCollapseSidebar}
       whileHover={{ scale: 1.1, x: "5px" }}
       whileTap={{ scale: 0.95 }}>
       <NextLink

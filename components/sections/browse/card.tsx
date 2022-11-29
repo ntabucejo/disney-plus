@@ -21,6 +21,7 @@ const Card = async ({ media, variant }: Props) => {
         <li>
           <Link href={`/${media.type}/${media.id}`}>
             <div className="relative hidden aspect-[79/105] overflow-hidden rounded tablet:block">
+              <div className="absolute inset-0 animate-pulse bg-card-dark" />
               <Image
                 src={`https://image.tmdb.org/t/p/w500${media.image.poster!}`}
                 alt={media.title!}
@@ -37,6 +38,7 @@ const Card = async ({ media, variant }: Props) => {
             href={`/${media.type}/${media.id}`}
             className="group flex items-center gap-2">
             <div className="relative aspect-video w-28 flex-none overflow-hidden rounded">
+              <div className="absolute inset-0 animate-pulse bg-card-dark" />
               <Image
                 src={`https://image.tmdb.org/t/p/w500${media.image.backdrop!}`}
                 alt={media.title!}
@@ -67,6 +69,7 @@ const Card = async ({ media, variant }: Props) => {
     <li>
       <Link href={`/${media.type}/${media.id}`} className="space-y-2">
         <div className="group relative aspect-video overflow-hidden rounded">
+          <div className="absolute inset-0 animate-pulse bg-card-dark" />
           <Image
             src={`https://image.tmdb.org/t/p/w500${media.image.backdrop!}`}
             alt={media.title!}

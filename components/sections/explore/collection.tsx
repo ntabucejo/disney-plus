@@ -84,9 +84,9 @@ const Collection = ({ title, medias }: Props) => {
             } absolute inset-0 hidden from-background-dark to-transparent group-hover:block`}
           />
           {isOnOrigin ? (
-            <ChevronRightIcon className="absolute right-[10%] h-6 w-6 text-white opacity-0 group-hover:opacity-100" />
+            <ChevronRightIcon className="absolute right-[10%] h-6 w-6 stroke-2 text-white opacity-0 group-hover:opacity-100" />
           ) : (
-            <ChevronLeftIcon className="absolute left-[10%] h-6 w-6 text-white opacity-0 group-hover:opacity-100" />
+            <ChevronLeftIcon className="absolute left-[10%] h-6 w-6 stroke-2 text-white opacity-0 group-hover:opacity-100" />
           )}
         </div>
       </div>

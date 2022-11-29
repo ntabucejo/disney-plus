@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import NextLink from "next/link";
 import type { ComponentType } from "react";
 import useActiveSegment from "../../../hooks/use-active-segment";
@@ -13,7 +14,7 @@ const Link = ({ href, Icon }: Props) => {
   const isActive = useActiveSegment(href);
 
   return (
-    <li>
+    <motion.li whileTap={{ scale: 0.75 }}>
       <NextLink href={href} aria-label="This is a link">
         <Icon
           className={`${
@@ -21,7 +22,7 @@ const Link = ({ href, Icon }: Props) => {
           } h-6 w-6`}
         />
       </NextLink>
-    </li>
+    </motion.li>
   );
 };
 

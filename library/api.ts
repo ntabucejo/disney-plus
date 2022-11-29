@@ -33,7 +33,7 @@ const api = {
         const { results } = await responseMovies.json();
         const medias = results
           .filter((media: any) => {
-            if (media.poster_path && media.backdrop_path) {
+            if (media.poster_path && media.backdrop_path && media.overview) {
               if (media.media_type === "movie" || media.media_type === "tv") {
                 return true;
               }
@@ -71,7 +71,10 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path && media.backdrop_path)
+          .filter(
+            (media: any) =>
+              media.poster_path && media.backdrop_path && media.overview
+          )
           .map((media: any) => {
             return {
               id: media.id,
@@ -104,7 +107,10 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path && media.backdrop_path)
+          .filter(
+            (media: any) =>
+              media.poster_path && media.backdrop_path && media.overview
+          )
           .map((media: any) => {
             return {
               id: media.id,
@@ -138,7 +144,10 @@ const api = {
         );
         const { results } = await response.json();
         const medias = results
-          .filter((media: any) => media.poster_path && media.backdrop_path)
+          .filter(
+            (media: any) =>
+              media.poster_path && media.backdrop_path && media.overview
+          )
           .map((media: any) => {
             return {
               id: media.id,
@@ -258,7 +267,9 @@ const api = {
           }
         );
         const { results } = await response.json();
-        const medias = results.filter((media: any) => media.backdrop_path);
+        const medias = results.filter(
+          (media: any) => media.backdrop_path && media.overview
+        );
         const random = Math.floor(Math.random() * medias.length);
         const media = medias[random];
         return {

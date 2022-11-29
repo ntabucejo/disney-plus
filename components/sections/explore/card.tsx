@@ -17,8 +17,6 @@ const Card = ({ media }: Props) => {
         fill
         sizes="350px"
         alt={media.title!}
-        blurDataURL={`https://image.tmdb.org/t/p/w500${media.image.poster!}`}
-        placeholder="blur"
         className="transition-smooth object-cover hover:brightness-[130%]"
       />
     </Link>

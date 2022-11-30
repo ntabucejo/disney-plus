@@ -21,5 +21,3 @@ export const config = {
     "/search/:path*",
   ],
 };
-
-// http://localhost:3000/sign-in

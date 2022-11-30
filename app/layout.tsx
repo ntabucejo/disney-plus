@@ -19,8 +19,6 @@ type Props = {
 const Layout = async ({ children }: Props) => {
   const { session } = await useAuth();
 
-  console.log(session);
-
   return (
     <html lang="en" className="bg-background-dark text-typography-light">
       <head />

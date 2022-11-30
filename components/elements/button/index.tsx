@@ -32,9 +32,7 @@ const Button = ({ children, variant, isFull, onClick = () => {} }: Props) => {
         variant.name === "secondary"
           ? "bg-action-brand text-typography-light"
           : ""
-      }  ${
-        isFull ? "w-full" : ""
-      } transition-smooth h-12 rounded px-4 transition-colors hover:bg-opacity-60`}>
+      }  ${isFull ? "w-full" : ""} h-12 rounded px-4`}>
       <div className="mx-auto flex w-min items-center gap-2">
         {variant.name === "primary" && variant.type === "watch" ? (
           <PlayIcon

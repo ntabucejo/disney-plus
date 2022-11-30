@@ -27,7 +27,7 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 * **NEXT**: Dynamic Routing Across Pages
 * **NEXT**: Uses Image, Link Tags
 * **NEXT**: Uses NextJs Middleware
-* **NEXTAUTH**: With Authentication
+* **NEXTAUTH**: With User Authentication
 * **NEXTAUTH**: Protected Routes with NextJs Middleware
 * **JAVASCRIPT**: Uses ES6 Features
 * **TYPESCRIPT**: Properly Typed Data
@@ -38,8 +38,8 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 * **API**: Uses TMDB API to handle data
 
 ### Disney+ Features
-* User Authentication
-* Protected Routes When Unauthenticated
+* User authentication
+* Protected routes with nextauth and nextjs middleware
 * Shows latest movies and series available
 * Updates movies and series every 60 seconds
 * Search movies and series and display data in real time

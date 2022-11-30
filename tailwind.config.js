@@ -27,6 +27,7 @@ module.exports = {
           dark: "#1C1F2A",
         },
         action: {
+          brand: "#062794",
           dark: "#222326",
         },
         rated: {

@@ -1,5 +1,6 @@
 # [Disney Plus - Clone](https://disney-plus-itznonex.vercel.app/)
 
+
 ### Description
 A fully interactive and responsive one to one multi-page disney+ clone web application build by Nikko Abucejo.
 
@@ -13,7 +14,7 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 
 ### Strategies Involved
 * **CSS**: Grid Layout
-* **CSS**: Flexbox Layout
+* **CSS**: Flex-box Layout
 * **CSS**: Responsive Media Queries
 * **CSS**: Uses Animations
 * **CSS**: Includes Relative, Absolute, Fixed, Sticky Positions
@@ -21,8 +22,8 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 * **REACT**: Follows React18 Best Practices
 * **REACT**: Uses Server Component and Client Component
 * **REACT**: Uses Custom Hooks
-* **NEXT**: Follows NextJs13 Bext Practices
-* **NEXT**: Uses App Dirrectory
+* **NEXT**: Follows NextJs13 Best Practices
+* **NEXT**: Uses App Directory
 * **NEXT**: Dynamic Routing Across Pages
 * **NEXT**: Uses Image, Link Tags
 * **JAVASCRIPT**: Uses ES6 Features
@@ -36,7 +37,7 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 ### Disney+ Features
 * Shows latest movies and series available
 * Updates movies and series every 60 seconds
-* Search movies and series and display data in realtime
+* Search movies and series and display data in real time
 * Responsive layout from mobile, tablet, laptop to desktop with smooth transitions
 
 ### Sample Screenshots

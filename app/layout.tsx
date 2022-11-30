@@ -3,6 +3,10 @@ import type { ReactNode } from "react";
 import { Inter } from "@next/font/google";
 import Sidebar from "../components/sections/sidebar";
 import Bottombar from "../components/sections/bottombar";
+import Providers from "../components/wrappers/providers";
+import useAuth from "../hooks/use-auth";
+import Access from "../components/sections/access";
+import Image from "next/image";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,20 +16,43 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: Props) => {
+const Layout = async ({ children }: Props) => {
+  const { session } = await useAuth();
+
+  console.log(session);
+
   return (
     <html lang="en" className="bg-background-dark text-typography-light">
       <head />
       <body className={inter.className}>
-        <div className="grid tablet:grid-cols-[auto,1fr]">
-          <aside className="hidden tablet:block">
-            <Sidebar />
-          </aside>
-          <main className="min-h-screen overflow-hidden tablet:overflow-visible">
-            {children}
-          </main>
-          <Bottombar />
-        </div>
+        <Providers>
+          {session ? (
+            <div className="grid tablet:grid-cols-[auto,1fr]">
+              <aside className="hidden tablet:block">
+                <Sidebar />
+              </aside>
+              <main className="min-h-screen overflow-hidden tablet:overflow-visible">
+                {children}
+              </main>
+              <Bottombar />
+            </div>
+          ) : (
+            <main className="relative grid h-screen w-screen items-center">
+              <div className="absolute -z-10 h-full w-full">
+                <Image
+                  src="/assets/images/disney-plus-background.png"
+                  alt="Disney Background"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
+              </div>
+              <Access />
+            </main>
+          )}
+        </Providers>
       </body>
     </html>
   );

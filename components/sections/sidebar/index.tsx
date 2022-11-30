@@ -12,6 +12,7 @@ import {
   SparklesIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import NextLink from "next/link";
 
 const list = [
   {
@@ -63,7 +64,9 @@ const Sidebar = () => {
         } transition-smooth pointer-events-none fixed z-40 h-screen w-screen bg-gradient-to-r from-background-dark to-transparent`}
       />
       <nav className="sticky top-0 z-50 flex h-screen flex-col">
-        <div className="py-8 px-4">
+        <NextLink
+          href="https://github.com/ntabucejo/disney-plus"
+          className="py-8 px-4">
           <Image
             alt="Disney Plus Logo"
             src="/assets/images/disney-plus-logo.svg"
@@ -73,7 +76,7 @@ const Sidebar = () => {
             sizes="100px"
             className="h-[36px] w-[68px] object-contain"
           />
-        </div>
+        </NextLink>
         <Links setIsOnHovered={setIsOnHovered}>
           {list.map(({ id, href, to, Icon }) => (
             <Link

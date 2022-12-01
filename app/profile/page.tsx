@@ -1,7 +1,7 @@
 import User from "../../components/sections/user";
 import Content from "../../components/wrappers/content";
 
-const Page = () => {
+const Page = async () => {
   return (
     <>
       <Content variant="secondary">

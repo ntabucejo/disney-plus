@@ -19,7 +19,7 @@ const Page = async () => {
 
   return (
     <>
-      <Cover company="starwars" isImageHidden={true} />
+      <Cover company="disney-plus" />
       <Content variant="secondary">
         {/* @ts-ignore */}
         <User />

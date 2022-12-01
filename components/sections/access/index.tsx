@@ -22,7 +22,7 @@ const Access = () => {
       <Button
         variant={{ name: "secondary" }}
         isFull
-        onClick={() => signIn("github")}>
+        onClick={() => signIn("google")}>
         Subscribe Now
       </Button>
     </section>

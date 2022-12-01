@@ -4,7 +4,11 @@ const nextConfig = {
   swcMinify: true,
   experimental: { appDir: true },
   images: {
-    domains: ["image.tmdb.org", "img1.hotstarext.com"],
+    domains: [
+      "image.tmdb.org",
+      "img1.hotstarext.com",
+      "avatars.githubusercontent.com",
+    ],
   },
 };
 

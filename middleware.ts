@@ -19,5 +19,6 @@ export const config = {
     "/series/:path*",
     "/originals/:path*",
     "/search/:path*",
+    "/profile/:path*",
   ],
 };

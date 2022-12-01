@@ -17,7 +17,7 @@ import NextLink from "next/link";
 const list = [
   {
     id: 0,
-    href: "#",
+    href: "/profile",
     Icon: UserIcon,
     to: "Profile",
   },

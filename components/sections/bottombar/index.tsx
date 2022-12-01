@@ -21,7 +21,7 @@ const list = [
   },
   {
     id: 3,
-    href: "#",
+    href: "/profile",
     Icon: UserIcon,
   },
 ];

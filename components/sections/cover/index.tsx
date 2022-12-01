@@ -2,10 +2,10 @@ import Image from "next/image";
 
 type Props = {
   company: string;
-  isNoImage?: boolean;
+  isImageHidden?: boolean;
 };
 
-const Cover = ({ company, isNoImage }: Props) => {
+const Cover = ({ company, isImageHidden }: Props) => {
   return (
     <section className="relative -z-10 grid aspect-[16/4.6] w-full items-center">
       <video className="absolute w-full brightness-110" autoPlay loop muted>
@@ -14,7 +14,7 @@ const Cover = ({ company, isNoImage }: Props) => {
           type="video/mp4"
         />
       </video>
-      {isNoImage ? (
+      {!isImageHidden ? (
         <div className="relative z-20 mx-auto aspect-video w-[35%]">
           <Image
             src={`/assets/images/${company}-logo.png`}

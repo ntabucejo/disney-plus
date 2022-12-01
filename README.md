@@ -41,7 +41,7 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 * User authentication
 * Protected routes with nextauth and nextjs middleware
 * Shows latest movies and series available
-* Updates movies and series every 60 seconds
+* Updates movies and series in real time
 * Search movies and series and display data in real time
 * Responsive layout from mobile, tablet, laptop to desktop with smooth transitions
 

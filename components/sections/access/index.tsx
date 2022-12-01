@@ -13,6 +13,7 @@ const Access = () => {
           alt="Disney Logo"
           fill
           sizes="500px"
+          priority
           className="object-cover"
         />
       </div>

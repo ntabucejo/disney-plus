@@ -2,7 +2,7 @@ export const DefaultHeadTags = () => {
   return (
     <>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="icon" href="/disney-plus-icon.svg" />
+      <link rel="icon" href="/disney-plus-icon.ico" />
       <meta
         name="description"
         content="Disney+ clone with Nextjs and Talwindcss by Nikko Abucejo"

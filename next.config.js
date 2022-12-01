@@ -8,6 +8,7 @@ const nextConfig = {
       "image.tmdb.org",
       "img1.hotstarext.com",
       "avatars.githubusercontent.com",
+      "lh3.googleusercontent.com",
     ],
   },
 };

@@ -1,8 +1,8 @@
+import Browse from "../../components/sections/browse";
 import Cover from "../../components/sections/cover";
-import Explore from "../../components/sections/explore";
-import Collection from "../../components/sections/explore/collection";
 import User from "../../components/sections/user";
 import Content from "../../components/wrappers/content";
+import shuffleMedias from "../../helpers/shuffle-medias";
 import api from "../../library/api";
 
 const Page = async () => {
@@ -17,16 +17,15 @@ const Page = async () => {
     page: 1,
   });
 
+  const popularMedias = shuffleMedias([...popularMovies, ...popularSeries]);
+
   return (
     <>
-      <Cover company="starwars" isImageHidden={true} />
+      <Cover company="disney-plus" />
       <Content variant="secondary">
         {/* @ts-ignore */}
         <User />
-        <Explore>
-          <Collection title="Movies for you" medias={popularMovies} />
-          <Collection title="Series for you" medias={popularSeries} />
-        </Explore>
+        <Browse title="Just for you" variant="primary" medias={popularMedias} />
       </Content>
     </>
   );

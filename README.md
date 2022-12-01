@@ -20,7 +20,7 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 * **CSS**: Includes Relative, Absolute, Fixed, Sticky Positions
 * **HTML**: Follows Semantic HTML5
 * **REACT**: Follows React18 Best Practices
-* **REACT**: Uses Server Component and Client Component
+* **REACT**: Uses Server Components and Client Components
 * **REACT**: Uses Custom Hooks
 * **NEXT**: Follows NextJs13 Best Practices
 * **NEXT**: Uses App Directory
@@ -35,13 +35,12 @@ A fully interactive and responsive one to one multi-page disney+ clone web appli
 * **FRAMER MOTION**: Uses Simple Animation
 * **TAILWIND**: Uses Tailwind Design Patterns/System
 * **SEO**: Properly Configured SEO
-* **API**: Uses TMDB API to handle data
+* **API**: Uses TMDB API
 
 ### Disney+ Features
 * User authentication
 * Protected routes with nextauth and nextjs middleware
 * Shows latest movies and series available
-* Updates movies and series in real time
 * Search movies and series and display data in real time
 * Responsive layout from mobile, tablet, laptop to desktop with smooth transitions
 

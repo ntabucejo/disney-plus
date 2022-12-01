@@ -14,7 +14,7 @@ const Access = () => {
           fill
           sizes="500px"
           priority
-          className="object-cover"
+          className="object-contain"
         />
       </div>
       <h1 className="text-center font-bold tablet:text-2xl">

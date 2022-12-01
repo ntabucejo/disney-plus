@@ -42,6 +42,7 @@ const Layout = async ({ children }: Props) => {
                   alt="Disney Background"
                   fill
                   sizes="100vw"
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />

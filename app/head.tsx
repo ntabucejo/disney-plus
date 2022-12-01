@@ -5,7 +5,7 @@ export const DefaultHeadTags = () => {
       <link rel="icon" href="/disney-plus-icon.ico" />
       <meta
         name="description"
-        content="Disney+ clone with Nextjs and Talwindcss by Nikko Abucejo"
+        content="A fully interactive and responsive one to one multi-page disney+ clone web application build by Nikko Abucejo."
       />
       <meta property="og:image" content="/assets/images/og.png" />
     </>

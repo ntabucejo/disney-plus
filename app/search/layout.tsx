@@ -20,7 +20,7 @@ const Layout = async ({ children }: Props) => {
     <Content variant="tertiary">
       <Searchbar />
       <Explore>
-        <Collection title="Popular Search" medias={popularSearch} />
+        <Collection title="Popular Searches" medias={popularSearch} />
       </Explore>
       {children}
     </Content>

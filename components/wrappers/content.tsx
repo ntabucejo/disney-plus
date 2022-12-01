@@ -11,19 +11,19 @@ const Content = ({ children, variant }: Props) => {
   switch (variant) {
     case "primary":
       style =
-        "-mt-[100px] tablet:-mt-[400px] laptop:-mt-[650px] desktop:-mt-[800px] content";
+        "-mt-[100px] tablet:-mt-[400px] laptop:-mt-[650px] desktop:-mt-[800px]";
       break;
     case "secondary":
-      style = "bg-background-dark pt-6";
+      style = "bg-background-dark pt-6 tablet:pt-12";
       break;
     case "tertiary":
-      style = "pt-4 tablet:pt-8 content";
+      style = "pt-4 tablet:pt-8";
       break;
   }
 
   return (
     <div
-      className={`${style} transition-smooth px-2 pb-28 overflow-x-hidden tablet:px-0 tablet:pb-12`}>
+      className={`${style} content transition-smooth px-2 pb-28 overflow-x-hidden tablet:px-0`}>
       {children}
     </div>
   );

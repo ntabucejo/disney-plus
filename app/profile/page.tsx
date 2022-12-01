@@ -4,7 +4,7 @@ import Content from "../../components/wrappers/content";
 const Page = async () => {
   return (
     <>
-      <Content variant="secondary">
+      <Content variant="tertiary">
         {/* @ts-ignore */}
         <User />
       </Content>

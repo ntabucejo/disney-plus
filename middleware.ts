@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 const middleware = (request: NextRequestWithAuth) => {
   const token = request.nextauth.token;
   const pathname = request.nextUrl.pathname;
-  if (!token && pathname !== "/sign-in") {
+  if (!token && pathname !== "/") {
     return NextResponse.redirect(new URL("/", request.url));
   }
 };

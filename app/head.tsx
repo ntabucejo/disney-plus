@@ -7,7 +7,7 @@ export const DefaultHeadTags = () => {
         name="description"
         content="A fully interactive and responsive one to one multi-page disney+ clone web application build by Nikko Abucejo."
       />
-      <meta property="og:image" content="/assets/images/og.png" />
+      <meta property="og:image" content="/disney-plus-og.png" />
     </>
   );
 };

@@ -69,7 +69,7 @@ const Sidebar = () => {
           className="py-8 px-4">
           <Image
             alt="Disney Plus Logo"
-            src="/assets/images/disney-plus-logo.svg"
+            src="/assets/images/disney-plus-logo.png"
             priority
             width={68}
             height={36}

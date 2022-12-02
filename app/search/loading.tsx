@@ -1,5 +1,5 @@
 const Loading = () => {
-  return <></>;
+  return <div className="h-screen"></div>;
 };
 
 export default Loading;

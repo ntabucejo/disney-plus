@@ -3,12 +3,17 @@ import type { Media } from "../types";
 import api from "./api";
 import cuid from "cuid";
 
-type Page = "/home" | "/series" | "/movies" | "/originals";
+type Page =
+  | "home"
+  | "series"
+  | "movies"
+  | "originals"
+  | "marvel";
 type Data = { id: string; name: string; medias: Media[] };
 
 const data = async (page: Page): Promise<Data[]> => {
   switch (page) {
-    case "/home": {
+    case "home": {
       return [
         {
           id: cuid(),
@@ -80,7 +85,7 @@ const data = async (page: Page): Promise<Data[]> => {
         },
       ];
     }
-    case "/series": {
+    case "series": {
       return [
         {
           id: cuid(),
@@ -134,7 +139,7 @@ const data = async (page: Page): Promise<Data[]> => {
         },
       ];
     }
-    case "/movies": {
+    case "movies": {
       return [
         {
           id: cuid(),
@@ -188,7 +193,7 @@ const data = async (page: Page): Promise<Data[]> => {
         },
       ];
     }
-    case "/originals": {
+    case "originals": {
       const ironManMedias = await api.get.medias.search({
         query: "iron man",
         page: 1,
@@ -243,6 +248,9 @@ const data = async (page: Page): Promise<Data[]> => {
         { id: cuid(), name: "Pixar", medias: pixarMedias },
         { id: cuid(), name: "Shrek", medias: shrekMedias },
       ];
+    }
+    case "marvel": {
+      
     }
     default:
       return [];

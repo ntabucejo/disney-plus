@@ -8,7 +8,7 @@ import data from "../../library/data";
 
 const Page = async () => {
   const spotlightMedia = await api.get.media.spotlight({ type: "movies" });
-  const collections = await data("/series");
+  const collections = await data("movies");
 
   return (
     <>

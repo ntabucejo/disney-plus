@@ -7,7 +7,7 @@ import randomNumber from "../../helpers/random-number";
 import data from "../../library/data";
 
 const Page = async () => {
-  const collections = await data("/originals");
+  const collections = await data("originals");
   const spotlightMedia = collections[randomNumber(0, collections.length)];
 
   return (

@@ -8,15 +8,15 @@ import data from "../../library/data";
 
 const Page = async () => {
   const collections = await data("originals");
-  const spotlightMedia = collections[randomNumber(0, collections.length)];
+  const spotlight = collections[randomNumber(0, collections.length)];
 
   return (
     <>
       {/* @ts-ignore */}
-      <Billboard media={spotlightMedia} />
+      <Billboard media={spotlight.medias} />
       <Content variant="primary">
         {/* @ts-ignore */}
-        <Showcase media={spotlightMedia} isMediaSelected={false} />
+        <Showcase media={spotlight.medias} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
           {collections.map(({ id, name, medias }) => (

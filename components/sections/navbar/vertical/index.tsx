@@ -53,7 +53,7 @@ const list = [
   },
 ];
 
-const Sidebar = () => {
+const Vertical = () => {
   const [isOnHovered, setIsOnHovered] = useState(false);
 
   return (
@@ -95,4 +95,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Vertical;

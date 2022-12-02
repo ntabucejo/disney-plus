@@ -1,6 +1,6 @@
 import Image from "next/image";
 import useAuth from "../../../hooks/use-auth";
-import Actions from "./actions";
+import SignOut from "./sign-out";
 
 const User = async () => {
   const { session } = await useAuth();
@@ -23,7 +23,7 @@ const User = async () => {
           <p className="text-xs">{session?.user?.email}</p>
         </div>
       </div>
-      <Actions />
+      <SignOut />
     </section>
   );
 };

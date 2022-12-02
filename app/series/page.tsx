@@ -1,7 +1,7 @@
 import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
-import Explore from "../../components/sections/collection";
 import Collection from "../../components/sections/collection";
+import Explore from "../../components/sections/collection/portrait";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
 import randomNumber from "../../helpers/random-number";
@@ -55,11 +55,20 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection title="Trending Series" medias={trendingMedias} />
-          <Collection title="Live Now" medias={onTheAirSeries} />
-          <Collection title="Popular Series" medias={popularSeries} />
-          <Collection title="Top Rated Series" medias={topRatedSeries} />
-          <Collection title="New Episodes" medias={airingTodaySeries} />
+          <Collection.Portrait
+            title="Trending Series"
+            medias={trendingMedias}
+          />
+          <Collection.Portrait title="Live Now" medias={onTheAirSeries} />
+          <Collection.Portrait title="Popular Series" medias={popularSeries} />
+          <Collection.Portrait
+            title="Top Rated Series"
+            medias={topRatedSeries}
+          />
+          <Collection.Portrait
+            title="New Episodes"
+            medias={airingTodaySeries}
+          />
         </div>
       </Content>
     </>

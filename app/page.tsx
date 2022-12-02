@@ -3,8 +3,8 @@ import Showcase from "../components/sections/showcase";
 import Franchise from "../components/sections/franchise";
 import Content from "../components/wrappers/content";
 import api from "../library/api";
-import Collection from "../components/sections/collection";
 import shuffleMedias from "../helpers/shuffle-medias";
+import Collection from "../components/sections/collection";
 
 const Page = async () => {
   const spotlightMedia = await api.get.media.spotlight({ type: "all" });
@@ -73,13 +73,22 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content bg-background-dark">
           <Franchise />
-          <Collection title="New to Disney+" medias={newToDisneyPlusMedias} />
-          <Collection title="Featured Marvel" medias={featuredMarvelMedias} />
-          <Collection title="Disney Originals" medias={disneyMedias} />
-          <Collection title="Popular Movies" medias={popularMovies} />
-          <Collection title="Popular Series" medias={popularSeries} />
-          <Collection title="Featured Starwars" medias={starwarsMedias} />
-          <Collection title="Best of Pixar" medias={pixarMedias} />
+          <Collection.Portrait
+            title="New to Disney+"
+            medias={newToDisneyPlusMedias}
+          />
+          <Collection.Portrait
+            title="Featured Marvel"
+            medias={featuredMarvelMedias}
+          />
+          <Collection.Portrait title="Disney Originals" medias={disneyMedias} />
+          <Collection.Portrait title="Popular Movies" medias={popularMovies} />
+          <Collection.Portrait title="Popular Series" medias={popularSeries} />
+          <Collection.Portrait
+            title="Featured Starwars"
+            medias={starwarsMedias}
+          />
+          <Collection.Portrait title="Best of Pixar" medias={pixarMedias} />
         </div>
       </Content>
     </>

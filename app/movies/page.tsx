@@ -1,6 +1,5 @@
 import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
-import Explore from "../../components/sections/collection";
 import Collection from "../../components/sections/collection";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
@@ -52,11 +51,20 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection title="Trending Movies" medias={trendingMedias} />
-          <Collection title="Now Showing" medias={nowPlayingMovies} />
-          <Collection title="Upcoming Movies" medias={upcomingMovies} />
-          <Collection title="Popular Movies" medias={popularMovies} />
-          <Collection title="Top Rated Movies" medias={topRatedMovies} />
+          <Collection.Portrait
+            title="Trending Movies"
+            medias={trendingMedias}
+          />
+          <Collection.Portrait title="Now Showing" medias={nowPlayingMovies} />
+          <Collection.Portrait
+            title="Upcoming Movies"
+            medias={upcomingMovies}
+          />
+          <Collection.Portrait title="Popular Movies" medias={popularMovies} />
+          <Collection.Portrait
+            title="Top Rated Movies"
+            medias={topRatedMovies}
+          />
         </div>
       </Content>
     </>

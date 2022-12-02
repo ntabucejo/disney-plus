@@ -1,6 +1,5 @@
 import Fade from "../../../components/elements/fade";
 import Billboard from "../../../components/sections/billboard";
-import Browse from "../../../components/sections/browse";
 import Collection from "../../../components/sections/collection";
 import Showcase from "../../../components/sections/showcase";
 import Content from "../../../components/wrappers/content";
@@ -28,8 +27,8 @@ const Page = async ({ params: { id } }: any) => {
         <Showcase media={spotlightMedia} isMediaSelected={true} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection title="More like this" medias={similarMedias} />
-          <Browse title="Popular Series" medias={popularSeries} />
+          <Collection.Portrait title="More like this" medias={similarMedias} />
+          <Collection.Landscape title="Popular Series" medias={popularSeries} />
         </div>
       </Content>
     </>

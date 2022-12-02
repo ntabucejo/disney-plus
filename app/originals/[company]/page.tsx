@@ -1,9 +1,8 @@
 import Content from "../../../components/wrappers/content";
-import Explore from "../../../components/sections/collection";
 import api from "../../../library/api";
-import Collection from "../../../components/sections/collection";
 import type { Media } from "../../../types";
 import Cover from "../../../components/sections/cover";
+import Collection from "../../../components/sections/collection";
 
 const Page = async ({ params: { company } }: any) => {
   let collections: {
@@ -238,7 +237,7 @@ const Page = async ({ params: { company } }: any) => {
       <Cover company={company} />
       <Content variant="secondary">
         {collections.map((collection) => (
-          <Collection
+          <Collection.Landscape
             key={collection.id}
             title={collection.title}
             medias={collection.medias}

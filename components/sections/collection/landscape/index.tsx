@@ -1,4 +1,4 @@
-import type { Media } from "../../../types";
+import type { Media } from "../../../../types";
 import Card from "./card";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   medias: Media[];
 };
 
-const Browse = ({ title, medias }: Props) => {
+const Landscape = ({ title, medias }: Props) => {
   return (
     <section className="space-y-3 tablet:space-y-4">
       <strong className="tablet:text-2xl">{title}</strong>
@@ -26,4 +26,4 @@ const Browse = ({ title, medias }: Props) => {
   );
 };
 
-export default Browse;
+export default Landscape;

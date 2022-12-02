@@ -1,4 +1,4 @@
-import Browse from "../../components/sections/browse";
+import Collection from "../../components/sections/collection";
 import api from "../../library/api";
 import type { Media } from "../../types";
 
@@ -17,11 +17,7 @@ const Page = async () => {
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
   return (
-    <Browse
-      title="Recommended for you"
-      medias={popularMedias}
-      variant="secondary"
-    />
+    <Collection.Landscape title="Recommended for you" medias={popularMedias} />
   );
 };
 

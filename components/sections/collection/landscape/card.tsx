@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import humanizeRuntime from "../../../helpers/humanize-runtime";
-import api from "../../../library/api";
-import type { Media } from "../../../types";
+import humanizeRuntime from "../../../../helpers/humanize-runtime";
+import api from "../../../../library/api";
+import type { Media } from "../../../../types";
 
 type Props = {
   media: Media;

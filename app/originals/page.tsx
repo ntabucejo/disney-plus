@@ -1,6 +1,5 @@
 import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
-import Explore from "../../components/sections/collection";
 import Collection from "../../components/sections/collection";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
@@ -68,13 +67,13 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection title="Featured" medias={featuredMedias} />
-          <Collection title="Minions" medias={minionsMedias} />
-          <Collection title="Avengers" medias={avengersMedias} />
-          <Collection title="Starwars" medias={starwarsMedias} />
-          <Collection title="Disney" medias={disneyMedias} />
-          <Collection title="Pixar" medias={pixarMedias} />
-          <Collection title="Shrek" medias={shrekMedias} />
+          <Collection.Portrait title="Featured" medias={featuredMedias} />
+          <Collection.Portrait title="Minions" medias={minionsMedias} />
+          <Collection.Portrait title="Avengers" medias={avengersMedias} />
+          <Collection.Portrait title="Starwars" medias={starwarsMedias} />
+          <Collection.Portrait title="Disney" medias={disneyMedias} />
+          <Collection.Portrait title="Pixar" medias={pixarMedias} />
+          <Collection.Portrait title="Shrek" medias={shrekMedias} />
         </div>
       </Content>
     </>

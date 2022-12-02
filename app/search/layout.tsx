@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Explore from "../../components/sections/collection";
 import Collection from "../../components/sections/collection";
 import Searchbar from "../../components/sections/searchbar";
 import Content from "../../components/wrappers/content";
@@ -19,7 +18,7 @@ const Layout = async ({ children }: Props) => {
   return (
     <Content variant="tertiary">
       <Searchbar />
-      <Collection title="Popular Searches" medias={popularSearch} />
+      <Collection.Portrait title="Popular Searches" medias={popularSearch} />
       {children}
     </Content>
   );

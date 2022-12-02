@@ -4,59 +4,11 @@ import Collection from "../../components/sections/collection";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
 import randomNumber from "../../helpers/random-number";
-import shuffleMedias from "../../helpers/shuffle-medias";
-import api from "../../library/api";
+import data from "../../library/data";
 
 const Page = async () => {
-  // Featured
-  const ironManMedias = await api.get.medias.search({
-    query: "iron man",
-    page: 1,
-  });
-  const avengersMedias = await api.get.medias.search({
-    query: "avengers",
-    page: 1,
-  });
-  const spiderManMedias = await api.get.medias.search({
-    query: "spider man",
-    page: 1,
-  });
-  const pixarMedias = await api.get.medias.search({
-    query: "pixar",
-    page: 1,
-  });
-  const disneyMedias = await api.get.medias.search({
-    query: "disney",
-    page: 1,
-  });
-  const starwarsMedias = await api.get.medias.search({
-    query: "star wars",
-    page: 1,
-  });
-  const shrekMedias = await api.get.medias.search({
-    query: "shrek",
-    page: 1,
-  });
-  const minionsMedias = await api.get.medias.search({
-    query: "minions",
-    page: 1,
-  });
-  const featuredMedias = shuffleMedias([
-    ...ironManMedias,
-    ...avengersMedias,
-    ...starwarsMedias,
-    ...minionsMedias,
-    ...spiderManMedias,
-  ]);
-  const spotlightMedias = shuffleMedias([
-    ...ironManMedias,
-    ...avengersMedias,
-    ...starwarsMedias,
-    ...minionsMedias,
-    ...spiderManMedias,
-  ]);
-  const spotlightMedia =
-    spotlightMedias[randomNumber(0, spotlightMedias.length)];
+  const collections = await data("/originals");
+  const spotlightMedia = collections[randomNumber(0, collections.length)];
 
   return (
     <>
@@ -67,13 +19,9 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection.Portrait name="Featured" medias={featuredMedias} />
-          <Collection.Portrait name="Minions" medias={minionsMedias} />
-          <Collection.Portrait name="Avengers" medias={avengersMedias} />
-          <Collection.Portrait name="Starwars" medias={starwarsMedias} />
-          <Collection.Portrait name="Disney" medias={disneyMedias} />
-          <Collection.Portrait name="Pixar" medias={pixarMedias} />
-          <Collection.Portrait name="Shrek" medias={shrekMedias} />
+          {collections.map(({ id, name, medias }) => (
+            <Collection.Portrait key={id} name={name} medias={medias} />
+          ))}
         </div>
       </Content>
     </>

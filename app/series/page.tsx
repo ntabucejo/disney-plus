@@ -1,50 +1,14 @@
 import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
 import Collection from "../../components/sections/collection";
-import Explore from "../../components/sections/collection/portrait";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
-import randomNumber from "../../helpers/random-number";
-import shuffleMedias from "../../helpers/shuffle-medias";
 import api from "../../library/api";
+import data from "../../library/data";
 
 const Page = async () => {
-  const popularSeries = await api.get.medias.group({
-    name: "popular",
-    type: "series",
-    page: 1,
-  });
-  const topRatedSeries = await api.get.medias.group({
-    name: "top-rated",
-    type: "series",
-    page: 1,
-  });
-  const onTheAirSeries = await api.get.medias.group({
-    name: "on-the-air",
-    type: "series",
-    page: 1,
-  });
-  const airingTodaySeries = await api.get.medias.group({
-    name: "airing-today",
-    type: "series",
-    page: 1,
-  });
-  // Trending Series
-  const trendingSeriesToday = await api.get.medias.trending({
-    type: "series",
-    time: "day",
-  });
-  const trendingSeriesThisWeek = await api.get.medias.trending({
-    type: "series",
-    time: "week",
-  });
-  const trendingMedias = shuffleMedias([
-    ...trendingSeriesToday,
-    ...trendingSeriesThisWeek,
-  ]);
-  const spotlightMedias = [...trendingSeriesThisWeek, ...popularSeries];
-  const spotlightMedia =
-    spotlightMedias[randomNumber(0, spotlightMedias.length)];
+  const spotlightMedia = await api.get.media.spotlight({ type: "series" });
+  const collections = await data("/series");
 
   return (
     <>
@@ -55,14 +19,9 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection.Portrait name="Trending Series" medias={trendingMedias} />
-          <Collection.Portrait name="Live Now" medias={onTheAirSeries} />
-          <Collection.Portrait name="Popular Series" medias={popularSeries} />
-          <Collection.Portrait
-            name="Top Rated Series"
-            medias={topRatedSeries}
-          />
-          <Collection.Portrait name="New Episodes" medias={airingTodaySeries} />
+          {collections.map(({ id, name, medias }) => (
+            <Collection.Portrait key={id} name={name} medias={medias} />
+          ))}
         </div>
       </Content>
     </>

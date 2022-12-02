@@ -1,11 +1,11 @@
 import "../styles/globals.css";
 import type { ReactNode } from "react";
 import { Inter } from "@next/font/google";
-import Providers from "../components/wrappers/providers";
 import useAuth from "../hooks/use-auth";
 import Access from "../components/sections/access";
 import Image from "next/image";
 import Navbar from "../components/sections/navbar";
+import Providers from "../components/wrappers/providers";
 
 const inter = Inter({
   subsets: ["latin"],

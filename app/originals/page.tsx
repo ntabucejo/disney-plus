@@ -67,13 +67,13 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection.Portrait title="Featured" medias={featuredMedias} />
-          <Collection.Portrait title="Minions" medias={minionsMedias} />
-          <Collection.Portrait title="Avengers" medias={avengersMedias} />
-          <Collection.Portrait title="Starwars" medias={starwarsMedias} />
-          <Collection.Portrait title="Disney" medias={disneyMedias} />
-          <Collection.Portrait title="Pixar" medias={pixarMedias} />
-          <Collection.Portrait title="Shrek" medias={shrekMedias} />
+          <Collection.Portrait name="Featured" medias={featuredMedias} />
+          <Collection.Portrait name="Minions" medias={minionsMedias} />
+          <Collection.Portrait name="Avengers" medias={avengersMedias} />
+          <Collection.Portrait name="Starwars" medias={starwarsMedias} />
+          <Collection.Portrait name="Disney" medias={disneyMedias} />
+          <Collection.Portrait name="Pixar" medias={pixarMedias} />
+          <Collection.Portrait name="Shrek" medias={shrekMedias} />
         </div>
       </Content>
     </>

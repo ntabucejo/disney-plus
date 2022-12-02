@@ -17,7 +17,7 @@ const Page = async () => {
   const popularMedias: Media[] = [...popularMovies, ...popularSeries];
 
   return (
-    <Collection.Landscape title="Recommended for you" medias={popularMedias} />
+    <Collection.Landscape name="Recommended for you" medias={popularMedias} />
   );
 };
 

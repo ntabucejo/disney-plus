@@ -18,7 +18,7 @@ const Layout = async ({ children }: Props) => {
   return (
     <Content variant="tertiary">
       <Searchbar />
-      <Collection.Portrait title="Popular Searches" medias={popularSearch} />
+      <Collection.Portrait name="Popular Searches" medias={popularSearch} />
       {children}
     </Content>
   );

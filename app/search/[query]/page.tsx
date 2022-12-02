@@ -9,7 +9,7 @@ const Page = async ({ params: { query } }: any) => {
 
   return (
     <Collection.Landscape
-      title={`Search for ${query.split("-").join(" ")}`}
+      name={`Search for ${query.split("-").join(" ")}`}
       medias={searchedMedias}
     />
   );

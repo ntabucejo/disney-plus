@@ -55,20 +55,14 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
+          <Collection.Portrait name="Trending Series" medias={trendingMedias} />
+          <Collection.Portrait name="Live Now" medias={onTheAirSeries} />
+          <Collection.Portrait name="Popular Series" medias={popularSeries} />
           <Collection.Portrait
-            title="Trending Series"
-            medias={trendingMedias}
-          />
-          <Collection.Portrait title="Live Now" medias={onTheAirSeries} />
-          <Collection.Portrait title="Popular Series" medias={popularSeries} />
-          <Collection.Portrait
-            title="Top Rated Series"
+            name="Top Rated Series"
             medias={topRatedSeries}
           />
-          <Collection.Portrait
-            title="New Episodes"
-            medias={airingTodaySeries}
-          />
+          <Collection.Portrait name="New Episodes" medias={airingTodaySeries} />
         </div>
       </Content>
     </>

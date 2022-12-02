@@ -1,15 +1,16 @@
 import type { Media } from "../../../../types";
+import Name from "../name";
 import Card from "./card";
 
 type Props = {
-  title: string;
+  name: string;
   medias: Media[];
 };
 
-const Landscape = ({ title, medias }: Props) => {
+const Landscape = ({ name, medias }: Props) => {
   return (
     <section className="space-y-3 tablet:space-y-4">
-      <strong className="tablet:text-2xl">{title}</strong>
+      <Name>{name}</Name>
       <ul className="hidden grid-cols-[repeat(2,1fr)] gap-x-2 gap-y-4 tablet:grid tala:grid-cols-[repeat(3,1fr)] laptop:grid-cols-[repeat(4,1fr)] desktop:grid-cols-[repeat(5,1fr)]">
         {medias.map((media) => (
           // @ts-ignore

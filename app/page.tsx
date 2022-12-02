@@ -74,21 +74,21 @@ const Page = async () => {
         <div className="content bg-background-dark">
           <Franchise />
           <Collection.Portrait
-            title="New to Disney+"
+            name="New to Disney+"
             medias={newToDisneyPlusMedias}
           />
           <Collection.Portrait
-            title="Featured Marvel"
+            name="Featured Marvel"
             medias={featuredMarvelMedias}
           />
-          <Collection.Portrait title="Disney Originals" medias={disneyMedias} />
-          <Collection.Portrait title="Popular Movies" medias={popularMovies} />
-          <Collection.Portrait title="Popular Series" medias={popularSeries} />
+          <Collection.Portrait name="Disney Originals" medias={disneyMedias} />
+          <Collection.Portrait name="Popular Movies" medias={popularMovies} />
+          <Collection.Portrait name="Popular Series" medias={popularSeries} />
           <Collection.Portrait
-            title="Featured Starwars"
+            name="Featured Starwars"
             medias={starwarsMedias}
           />
-          <Collection.Portrait title="Best of Pixar" medias={pixarMedias} />
+          <Collection.Portrait name="Best of Pixar" medias={pixarMedias} />
         </div>
       </Content>
     </>

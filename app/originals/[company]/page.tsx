@@ -239,7 +239,7 @@ const Page = async ({ params: { company } }: any) => {
         {collections.map((collection) => (
           <Collection.Landscape
             key={collection.id}
-            title={collection.title}
+            name={collection.title}
             medias={collection.medias}
           />
         ))}

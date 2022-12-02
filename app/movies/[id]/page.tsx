@@ -27,8 +27,8 @@ const Page = async ({ params: { id } }: any) => {
         <Showcase media={spotlightMedia} isMediaSelected={true} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Collection.Portrait title="More like this" medias={similarMedias} />
-          <Collection.Landscape title="Popular Movies" medias={popularMovies} />
+          <Collection.Portrait name="More like this" medias={similarMedias} />
+          <Collection.Landscape name="Popular Movies" medias={popularMovies} />
         </div>
       </Content>
     </>

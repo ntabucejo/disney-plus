@@ -1,7 +1,7 @@
 import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
-import Explore from "../../components/sections/explore";
-import Collection from "../../components/sections/explore/collection";
+import Explore from "../../components/sections/collection";
+import Collection from "../../components/sections/collection";
 import Showcase from "../../components/sections/showcase";
 import Content from "../../components/wrappers/content";
 import shuffleMedias from "../../helpers/shuffle-medias";
@@ -52,13 +52,11 @@ const Page = async () => {
         <Showcase media={spotlightMedia} isMediaSelected={false} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Explore>
-            <Collection title="Trending Movies" medias={trendingMedias} />
-            <Collection title="Now Showing" medias={nowPlayingMovies} />
-            <Collection title="Upcoming Movies" medias={upcomingMovies} />
-            <Collection title="Popular Movies" medias={popularMovies} />
-            <Collection title="Top Rated Movies" medias={topRatedMovies} />
-          </Explore>
+          <Collection title="Trending Movies" medias={trendingMedias} />
+          <Collection title="Now Showing" medias={nowPlayingMovies} />
+          <Collection title="Upcoming Movies" medias={upcomingMovies} />
+          <Collection title="Popular Movies" medias={popularMovies} />
+          <Collection title="Top Rated Movies" medias={topRatedMovies} />
         </div>
       </Content>
     </>

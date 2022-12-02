@@ -1,7 +1,7 @@
 import Content from "../../../components/wrappers/content";
-import Explore from "../../../components/sections/explore";
+import Explore from "../../../components/sections/collection";
 import api from "../../../library/api";
-import Collection from "../../../components/sections/explore/collection";
+import Collection from "../../../components/sections/collection";
 import type { Media } from "../../../types";
 import Cover from "../../../components/sections/cover";
 
@@ -237,15 +237,13 @@ const Page = async ({ params: { company } }: any) => {
     <>
       <Cover company={company} />
       <Content variant="secondary">
-        <Explore>
-          {collections.map((collection) => (
-            <Collection
-              key={collection.id}
-              title={collection.title}
-              medias={collection.medias}
-            />
-          ))}
-        </Explore>
+        {collections.map((collection) => (
+          <Collection
+            key={collection.id}
+            title={collection.title}
+            medias={collection.medias}
+          />
+        ))}
       </Content>
     </>
   );

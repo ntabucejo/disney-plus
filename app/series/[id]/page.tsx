@@ -1,8 +1,8 @@
 import Fade from "../../../components/elements/fade";
 import Billboard from "../../../components/sections/billboard";
 import Browse from "../../../components/sections/browse";
-import Explore from "../../../components/sections/explore";
-import Collection from "../../../components/sections/explore/collection";
+import Explore from "../../../components/sections/collection";
+import Collection from "../../../components/sections/collection";
 import Showcase from "../../../components/sections/showcase";
 import Content from "../../../components/wrappers/content";
 import api from "../../../library/api";
@@ -29,9 +29,7 @@ const Page = async ({ params: { id } }: any) => {
         <Showcase media={spotlightMedia} isMediaSelected={true} />
         <div className="content relative bg-background-dark">
           <Fade />
-          <Explore>
-            <Collection title="More like this" medias={similarMedias} />
-          </Explore>
+          <Collection title="More like this" medias={similarMedias} />
           <Browse
             title="Popular Series"
             variant="primary"

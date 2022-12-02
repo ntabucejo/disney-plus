@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Name = ({ children }: Props) => {
-  return <span className="tablet:text-2xl">{children}</span>;
+  return <span className="font-semibold tablet:text-2xl">{children}</span>;
 };
 
 export default Name;

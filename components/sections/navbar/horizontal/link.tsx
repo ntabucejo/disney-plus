@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import NextLink from "next/link";
 import type { ComponentType } from "react";
-import useActiveSegment from "../../../hooks/use-active-segment";
+import useActiveSegment from "../../../../hooks/use-active-segment";
 
 type Props = {
   href: string;

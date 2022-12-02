@@ -26,7 +26,7 @@ const list = [
   },
 ];
 
-const Bottombar = () => {
+const Horizontal = () => {
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 tablet:hidden">
       <Links>
@@ -38,4 +38,4 @@ const Bottombar = () => {
   );
 };
 
-export default Bottombar;
+export default Horizontal;

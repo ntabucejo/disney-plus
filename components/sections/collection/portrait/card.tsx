@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Media } from "../../../types";
+import type { Media } from "../../../../types";
 
 type Props = {
   media: Media;

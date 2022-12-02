@@ -1,4 +1,4 @@
-import Browse from "../../../components/sections/browse";
+import Collection from "../../../components/sections/collection";
 import api from "../../../library/api";
 
 const Page = async ({ params: { query } }: any) => {
@@ -8,9 +8,8 @@ const Page = async ({ params: { query } }: any) => {
   });
 
   return (
-    <Browse
-      title={`Search for ${query.split("-").join(" ")}`}
-      variant="primary"
+    <Collection.Landscape
+      name={`Search for ${query.split("-").join(" ")}`}
       medias={searchedMedias}
     />
   );

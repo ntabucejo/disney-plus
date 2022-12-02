@@ -1,4 +1,4 @@
-import Browse from "../../components/sections/browse";
+import Collection from "../../components/sections/collection";
 import Cover from "../../components/sections/cover";
 import User from "../../components/sections/user";
 import Content from "../../components/wrappers/content";
@@ -25,7 +25,7 @@ const Page = async () => {
       <Content variant="secondary">
         {/* @ts-ignore */}
         <User />
-        <Browse title="Just for you" variant="primary" medias={popularMedias} />
+        <Collection.Landscape name="Just for you" medias={popularMedias} />
       </Content>
     </>
   );

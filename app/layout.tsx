@@ -1,12 +1,11 @@
 import "../styles/globals.css";
 import type { ReactNode } from "react";
 import { Inter } from "@next/font/google";
-import Sidebar from "../components/sections/sidebar";
-import Bottombar from "../components/sections/bottombar";
-import Providers from "../components/wrappers/providers";
 import useAuth from "../hooks/use-auth";
 import Access from "../components/sections/access";
 import Image from "next/image";
+import Navbar from "../components/sections/navbar";
+import Providers from "../components/wrappers/providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,12 +26,12 @@ const Layout = async ({ children }: Props) => {
           {session ? (
             <div className="grid tablet:grid-cols-[auto,1fr]">
               <aside className="hidden tablet:block">
-                <Sidebar />
+                <Navbar.Vertical />
               </aside>
               <main className="min-h-screen overflow-hidden tablet:overflow-visible">
                 {children}
               </main>
-              <Bottombar />
+              <Navbar.Horizontal />
             </div>
           ) : (
             <main className="relative grid h-screen w-screen items-center">

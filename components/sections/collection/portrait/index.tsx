@@ -2,16 +2,17 @@
 
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import useWindowSize from "../../../hooks/use-window-size";
-import type { Media } from "../../../types";
+import useWindowSize from "../../../../hooks/use-window-size";
+import type { Media } from "../../../../types";
+import Name from "../name";
 import Card from "./card";
 
 type Props = {
-  title: string;
+  name: string;
   medias: Media[];
 };
 
-const Collection = ({ title, medias }: Props) => {
+const Portrait = ({ name, medias }: Props) => {
   const [collection, setCollection] = useState(medias);
   const [isOnOrigin, setIsOnOrigin] = useState(true);
   const { width } = useWindowSize();
@@ -50,7 +51,7 @@ const Collection = ({ title, medias }: Props) => {
 
   return (
     <div className="space-y-3 tablet:space-y-4">
-      <strong className="tablet:text-2xl">{title}</strong>
+      <Name>{name}</Name>
       {/* Show on tablet */}
       <div className="group relative">
         <ul
@@ -102,4 +103,4 @@ const Collection = ({ title, medias }: Props) => {
   );
 };
 
-export default Collection;
+export default Portrait;

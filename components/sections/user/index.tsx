@@ -6,7 +6,7 @@ const User = async () => {
   const { session } = await useAuth();
 
   return (
-    <section className="items-center justify-between gap-4 space-y-6 tablet:flex tablet:space-y-0 tablet:pr-6">
+    <section className="grid items-center gap-4 tablet:grid-cols-[1fr,auto] tablet:pr-6">
       <div className="flex items-center gap-4">
         <div className="relative h-12 w-12 flex-none overflow-hidden rounded-full">
           <Image

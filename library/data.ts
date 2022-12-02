@@ -236,36 +236,12 @@ const data = async (page: Page): Promise<Data[]> => {
             ...pixarMedias,
           ]),
         },
-        {
-          id: cuid(),
-          name: "Minions",
-          medias: minionsMedias,
-        },
-        {
-          id: cuid(),
-          name: "Avengers",
-          medias: avengersMedias,
-        },
-        {
-          id: cuid(),
-          name: "Starwars",
-          medias: starwarsMedias,
-        },
-        {
-          id: cuid(),
-          name: "Disney",
-          medias: disneyMedias,
-        },
-        {
-          id: cuid(),
-          name: "Pixar",
-          medias: pixarMedias,
-        },
-        {
-          id: cuid(),
-          name: "Shrek",
-          medias: shrekMedias,
-        },
+        { id: cuid(), name: "Minions", medias: minionsMedias },
+        { id: cuid(), name: "Avengers", medias: avengersMedias },
+        { id: cuid(), name: "Starwars", medias: starwarsMedias },
+        { id: cuid(), name: "Disney", medias: disneyMedias },
+        { id: cuid(), name: "Pixar", medias: pixarMedias },
+        { id: cuid(), name: "Shrek", medias: shrekMedias },
       ];
     }
     default:

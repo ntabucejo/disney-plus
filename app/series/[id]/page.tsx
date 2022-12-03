@@ -2,7 +2,7 @@ import Fade from "../../../components/elements/fade";
 import Billboard from "../../../components/sections/billboard";
 import Collection from "../../../components/sections/collection";
 import Showcase from "../../../components/sections/showcase";
-import Content from "../../../components/wrappers/content";
+import Content from "../../../components/layouts/content";
 import api from "../../../library/api";
 
 const Page = async ({ params: { id } }: any) => {
@@ -25,7 +25,7 @@ const Page = async ({ params: { id } }: any) => {
       <Content variant="primary">
         {/* @ts-ignore */}
         <Showcase media={spotlightMedia} isMediaSelected={true} />
-        <div className="content relative bg-background-dark">
+        <Content isSpacerOnly>
           <Fade />
           <Collection.Portrait name="More like this" medias={similarMedias} />
           <Collection.Landscape
@@ -33,7 +33,7 @@ const Page = async ({ params: { id } }: any) => {
             medias={popularSeries}
             isOnlyGrid
           />
-        </div>
+        </Content>
       </Content>
     </>
   );

@@ -2,7 +2,7 @@ import Fade from "../../components/elements/fade";
 import Billboard from "../../components/sections/billboard";
 import Collection from "../../components/sections/collection";
 import Showcase from "../../components/sections/showcase";
-import Content from "../../components/wrappers/content";
+import Content from "../../components/layouts/content";
 import randomNumber from "../../helpers/random-number";
 import data from "../../library/data";
 
@@ -18,12 +18,12 @@ const Page = async () => {
       <Content variant="primary">
         {/* @ts-ignore */}
         <Showcase media={spotlightMedia} isMediaSelected={false} />
-        <div className="content relative bg-background-dark">
+        <Content isSpacerOnly>
           <Fade />
           {collections.map(({ id, name, medias }) => (
             <Collection.Portrait key={id} name={name} medias={medias} />
           ))}
-        </div>
+        </Content>
       </Content>
     </>
   );

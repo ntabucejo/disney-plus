@@ -5,7 +5,7 @@ import useAuth from "../hooks/use-auth";
 import Access from "../components/sections/access";
 import Image from "next/image";
 import Navbar from "../components/sections/navbar";
-import Providers from "../components/wrappers/providers";
+import Providers from "../components/providers";
 
 const inter = Inter({
   subsets: ["latin"],

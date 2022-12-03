@@ -23,7 +23,7 @@ const Content = ({ children, variant }: Props) => {
 
   return (
     <div
-      className={`${style} transition-smooth px-2 overflow-x-hidden tablet:px-0`}>
+      className={`${style} spacer transition-smooth px-2 overflow-x-hidden tablet:px-0`}>
       {children}
     </div>
   );

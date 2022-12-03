@@ -6,12 +6,6 @@
   .transition-smooth {
     @apply transition-all duration-150 ease-in;
   }
-  .spacer {
-    @apply space-y-6 tablet:space-y-12;
-  }
-  .ground {
-    @apply pb-28 tablet:pb-12;
-  }
 }
 
 :root {

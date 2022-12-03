@@ -13,6 +13,7 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import NextLink from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 const list = [
   {
@@ -55,6 +56,8 @@ const list = [
 
 const Vertical = () => {
   const [isOnHovered, setIsOnHovered] = useState(false);
+  const segment = useSelectedLayoutSegment();
+  const isHiddenLogo = segment === "search" || segment === "profile";
 
   return (
     <>
@@ -66,7 +69,7 @@ const Vertical = () => {
       <nav className="sticky top-0 z-50 flex h-screen flex-col">
         <NextLink
           href="https://github.com/ntabucejo/disney-plus"
-          className="py-8 px-4">
+          className="py-12 px-4">
           <Image
             alt="Disney Plus Logo"
             src="/assets/images/disney-plus-logo.png"
@@ -74,7 +77,9 @@ const Vertical = () => {
             width={68}
             height={36}
             sizes="100px"
-            className="h-[36px] w-[68px] object-contain"
+            className={`${
+              isHiddenLogo ? "opacity-0" : "opacity-100"
+            } transition-smooth h-[36px] w-[68px] object-contain`}
           />
         </NextLink>
         <Links setIsOnHovered={setIsOnHovered}>

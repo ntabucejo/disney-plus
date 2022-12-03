@@ -57,7 +57,7 @@ const list = [
 const Vertical = () => {
   const [isOnHovered, setIsOnHovered] = useState(false);
   const segment = useSelectedLayoutSegment();
-  const isHiddenLogo = segment === "search" || segment === "profile";
+  const isHiddenLogo = segment === "profile";
 
   return (
     <>
@@ -75,11 +75,11 @@ const Vertical = () => {
             src="/assets/images/disney-plus-logo.png"
             priority
             width={68}
-            height={36}
+            height={48}
             sizes="100px"
             className={`${
               isHiddenLogo ? "opacity-0" : "opacity-100"
-            } transition-smooth h-[36px] w-[68px] object-contain`}
+            } transition-smooth h-[48px] w-[68px] object-contain`}
           />
         </NextLink>
         <Links setIsOnHovered={setIsOnHovered}>

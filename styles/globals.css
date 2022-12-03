@@ -10,7 +10,7 @@
     @apply space-y-6 tablet:space-y-12;
   }
   .ground {
-    @apply pb-28;
+    @apply pb-28 tablet:pb-12;
   }
 }
 

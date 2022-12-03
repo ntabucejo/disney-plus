@@ -69,7 +69,7 @@ const Vertical = () => {
       <nav className="sticky top-0 z-50 flex h-screen flex-col">
         <NextLink
           href="https://github.com/ntabucejo/disney-plus"
-          className="py-12 px-4">
+          className="py-12 px-6">
           <Image
             alt="Disney Plus Logo"
             src="/assets/images/disney-plus-logo.png"

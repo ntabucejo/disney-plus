@@ -20,7 +20,7 @@ const Link = ({ id, href, to, Icon, isOnHovered, setIsOnHovered }: Props) => {
   const handleCollapseSidebar = () => {
     setTimeout(() => {
       setIsOnHovered(false);
-    }, 1000);
+    }, 100);
   };
 
   return (

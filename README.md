@@ -1,4 +1,4 @@
-# [Disney+ - Clone](https://disneyplus-ntabucejo.vercel.app/)
+# [Disney+ Clone](https://disneyplus-ntabucejo.vercel.app/)
 
 ### Description
 A fully interactive and responsive one to one multi-page disney+ clone web application build by Nikko Abucejo.

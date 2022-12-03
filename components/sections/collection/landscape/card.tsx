@@ -6,16 +6,17 @@ import type { Media } from "../../../../types";
 
 type Props = {
   media: Media;
+  isOnlyGrid: boolean;
 };
 
-const Card = async ({ media }: Props) => {
+const Card = async ({ media, isOnlyGrid }: Props) => {
   const type = media.type!;
   const id = media.id;
   const measure = await api.get.media.measure({ type, id });
 
   return (
     <>
-      <li className="tablet:hidden">
+      <li className={`${isOnlyGrid ? "hidden" : "tablet:hidden"} `}>
         <Link
           href={`/${media.type}/${media.id}`}
           className="group flex items-center gap-2">
@@ -43,7 +44,7 @@ const Card = async ({ media }: Props) => {
           </div>
         </Link>
       </li>
-      <li className="hidden tablet:block">
+      <li className={`${isOnlyGrid ? "" : "hidden"} tablet:block`}>
         <Link href={`/${media.type}/${media.id}`} className="space-y-2">
           <div className="group relative aspect-video overflow-hidden rounded">
             <div className="absolute inset-0 animate-pulse bg-card-dark" />

@@ -25,7 +25,11 @@ const Page = async () => {
       <Content variant="secondary">
         {/* @ts-ignore */}
         <User />
-        <Collection.Landscape name="Just for you" medias={popularMedias} />
+        <Collection.Landscape
+          name="Just for you"
+          medias={popularMedias}
+          isOnlyGrid
+        />
       </Content>
     </>
   );

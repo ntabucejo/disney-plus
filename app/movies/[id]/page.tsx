@@ -28,7 +28,11 @@ const Page = async ({ params: { id } }: any) => {
         <div className="content relative bg-background-dark">
           <Fade />
           <Collection.Portrait name="More like this" medias={similarMedias} />
-          <Collection.Landscape name="Popular Movies" medias={popularMovies} />
+          <Collection.Landscape
+            name="Popular Movies"
+            medias={popularMovies}
+            isOnlyGrid
+          />
         </div>
       </Content>
     </>

@@ -17,12 +17,12 @@ const Page = async () => {
       <Content variant="primary">
         {/* @ts-ignore */}
         <Showcase media={spotlightMedia} isMediaSelected={false} />
-        <div className="spacer ground bg-background-dark">
+        <Content isSpacerOnly>
           <Franchise />
           {collections.map(({ id, name, medias }) => (
             <Collection.Portrait key={id} name={name} medias={medias} />
           ))}
-        </div>
+        </Content>
       </Content>
     </>
   );

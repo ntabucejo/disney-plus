@@ -2,10 +2,11 @@ import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  variant: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary";
+  isSpacerOnly?: boolean;
 };
 
-const Content = ({ children, variant }: Props) => {
+const Content = ({ children, variant, isSpacerOnly = false }: Props) => {
   let style = "";
 
   switch (variant) {
@@ -19,6 +20,15 @@ const Content = ({ children, variant }: Props) => {
     case "tertiary":
       style = "pt-4 tablet:pt-8 ground";
       break;
+  }
+
+  // Only apply when primary is passed
+  if (isSpacerOnly) {
+    return (
+      <div className="spacer ground relative bg-background-dark">
+        {children}
+      </div>
+    );
   }
 
   return (

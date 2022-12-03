@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary";
   isSpacerOnly?: boolean;
 };
 
@@ -18,10 +18,6 @@ const Content = ({ children, variant, isSpacerOnly = false }: Props) => {
     // Stack section
     case "secondary":
       style = "bg-background-dark pt-6 tablet:pt-12 pb-28 tablet:pb-12";
-      break;
-    // Example search with custom padding top, Also if there is no cover/logo or content on top
-    case "tertiary":
-      style = "pt-4 tablet:pt-8 pb-28 tablet:pb-12";
       break;
   }
 

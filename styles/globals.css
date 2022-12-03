@@ -9,6 +9,9 @@
   .spacer {
     @apply space-y-6 tablet:space-y-12;
   }
+  .ground {
+    @apply pb-28;
+  }
 }
 
 :root {

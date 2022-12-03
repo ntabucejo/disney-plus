@@ -25,7 +25,7 @@ const Page = async ({ params: { id } }: any) => {
       <Content variant="primary">
         {/* @ts-ignore */}
         <Showcase media={spotlightMedia} isMediaSelected={true} />
-        <div className="spacer relative bg-background-dark">
+        <div className="spacer ground relative bg-background-dark">
           <Fade />
           <Collection.Portrait name="More like this" medias={similarMedias} />
           <Collection.Landscape

@@ -17,7 +17,7 @@ const Page = async () => {
       <Content variant="primary">
         {/* @ts-ignore */}
         <Showcase media={spotlightMedia} isMediaSelected={false} />
-        <div className="spacer bg-background-dark">
+        <div className="spacer ground bg-background-dark">
           <Franchise />
           {collections.map(({ id, name, medias }) => (
             <Collection.Portrait key={id} name={name} medias={medias} />

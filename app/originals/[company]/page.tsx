@@ -1,4 +1,4 @@
-import Content from "../../../components/wrappers/content";
+import Content from "../../../components/layouts/content";
 import Cover from "../../../components/sections/cover";
 import Collection from "../../../components/sections/collection";
 import data from "../../../library/data";

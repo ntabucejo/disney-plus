@@ -1,7 +1,7 @@
 import Billboard from "../components/sections/billboard";
 import Showcase from "../components/sections/showcase";
 import Franchise from "../components/sections/franchise";
-import Content from "../components/wrappers/content";
+import Content from "../components/layouts/content";
 import api from "../library/api";
 import Collection from "../components/sections/collection";
 import data from "../library/data";
@@ -17,7 +17,7 @@ const Page = async () => {
       <Content variant="primary">
         {/* @ts-ignore */}
         <Showcase media={spotlightMedia} isMediaSelected={false} />
-        <div className="content bg-background-dark">
+        <div className="spacer bg-background-dark">
           <Franchise />
           {collections.map(({ id, name, medias }) => (
             <Collection.Portrait key={id} name={name} medias={medias} />

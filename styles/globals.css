@@ -6,7 +6,7 @@
   .transition-smooth {
     @apply transition-all duration-150 ease-in;
   }
-  .content {
+  .spacer {
     @apply space-y-6 tablet:space-y-12;
   }
 }

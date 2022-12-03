@@ -11,6 +11,7 @@ const Page = async ({ params: { query } }: any) => {
     <Collection.Landscape
       name={`Search for ${query.split("-").join(" ")}`}
       medias={searchedMedias}
+      isOnlyGrid
     />
   );
 };

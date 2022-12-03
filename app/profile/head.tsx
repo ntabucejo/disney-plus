@@ -4,7 +4,7 @@ const Head = () => {
   return (
     <>
       <DefaultHeadTags />
-      <title>Disney+ | Profile</title>
+      <title>Disney Plus | Profile</title>
     </>
   );
 };

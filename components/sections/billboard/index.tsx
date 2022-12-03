@@ -15,7 +15,7 @@ const Billboard = async ({ media }: Props) => {
   return (
     <section className="sticky -z-10 aspect-video max-h-screen w-full overflow-hidden tablet:top-0">
       <p className="absolute top-0 right-0 z-20 hidden p-1 text-right text-ms text-typography-light/fade tablet:block">
-        Disney+ Clone By Nikko Abucejo
+        Created by: Nikko Abucejo
       </p>
       <div className="relative h-full w-full">
         {video ? (

@@ -57,7 +57,7 @@ const list = [
 const Vertical = () => {
   const [isOnHovered, setIsOnHovered] = useState(false);
   const segment = useSelectedLayoutSegment();
-  const isHiddenLogo = segment === "search" || segment === "profile";
+  const isHiddenLogo = segment === "profile";
 
   return (
     <>
@@ -69,17 +69,17 @@ const Vertical = () => {
       <nav className="sticky top-0 z-50 flex h-screen flex-col">
         <NextLink
           href="https://github.com/ntabucejo/disney-plus"
-          className="py-12 px-4">
+          className="py-12 px-6">
           <Image
             alt="Disney Plus Logo"
             src="/assets/images/disney-plus-logo.png"
             priority
             width={68}
-            height={36}
+            height={48}
             sizes="100px"
             className={`${
               isHiddenLogo ? "opacity-0" : "opacity-100"
-            } transition-smooth h-[36px] w-[68px] object-contain`}
+            } transition-smooth h-[48px] w-[68px] object-contain`}
           />
         </NextLink>
         <Links setIsOnHovered={setIsOnHovered}>

@@ -43,7 +43,7 @@ const Franchise = () => {
   ];
 
   return (
-    <section className="relative bg-background-dark tablet:pr-4">
+    <section className="relative bg-background-dark tablet:pr-6">
       <Fade />
       <ul className="grid grid-cols-[repeat(3,1fr)] gap-1 overflow-auto tablet:grid-cols-[repeat(6,1fr)] tablet:gap-2">
         {list.map(({ id, name, image, video }) => (

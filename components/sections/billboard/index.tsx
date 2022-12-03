@@ -27,6 +27,7 @@ const Billboard = async ({ media }: Props) => {
         />
         <div className="absolute inset-0 z-10 hidden bg-gradient-to-r from-background-dark to-transparent tablet:block" />
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background-dark to-transparent" />
       </div>
     </section>
   );

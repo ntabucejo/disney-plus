@@ -1,7 +1,7 @@
 # [Disney+ Clone](https://disneyplus-ntabucejo.vercel.app/)
 
 ### Description
-A fully interactive and responsive one to one multi-page disney+ clone web application build by Nikko Abucejo.
+Software, structures and practices on this disney+ clone is 100% created and maintained by Nikko Abucejo. Any information/data is provided by TMDB API. Authentication is only stored on the client's browser and will never store any user information in the database. Everything on this project is for learning purposes only. Feel free to copy/clone/fork the repository. Any feedback is appreciated!
 
 ### Technologies Used
 * [React.js](https://beta.reactjs.org/)
